@@ -1,0 +1,1 @@
+SQL Server 17.0.1000.7 | Express Edition (64-bit)

@@ -1,0 +1,30 @@
+ProductCode  ProductName                                                                      UnitPrice   
+------------ -------------------------------------------------------------------------------- ------------
+P999         实验用苏打水                                                                                   2.00
+ProductCode  Quantity   
+------------ -----------
+P999                   7
+OrderNo                  ProductName                                                                      Quantity    UnitPrice    line_amount   
+------------------------ -------------------------------------------------------------------------------- ----------- ------------ --------------
+CS-CRUD-ROLLBACK         实验用苏打水                                                                                     2         2.00           4.00
+OrderNo                  LineNumber
+------------------------ ----------
+CS-CRUD-ROLLBACK                  1
+deleted_order_lines
+-------------------
+                  1
+OrderNo                 
+------------------------
+CS-CRUD-ROLLBACK        
+deleted_orders
+--------------
+             1
+temporary_product_rows_after_delete
+-----------------------------------
+                                  0
+temporary_product_rows_after_rollback
+-------------------------------------
+                                    0
+baseline_product_rows
+---------------------
+                    3

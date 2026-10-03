@@ -1,0 +1,8 @@
+table_name row_count  
+---------- -----------
+Employee             2
+Inventory            3
+Member               2
+OrderLine            4
+Product              3
+ShopOrder            3

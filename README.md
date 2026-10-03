@@ -1,0 +1,62 @@
+# 阶段一 v0.1：校园小卖部数据库原型
+
+本仓库是一个独立的数据库课程实验小项目，完成第一阶段 v0.1。内容按第 1–4 周任务组织：第 1 周需求，第 2 周关系模式，第 3 周 DDL/CRUD，第 4 周连接查询、统计视图、完整性与角色权限。
+
+## 场景与范围
+
+场景固定为校园小卖部，服务校园内零售。当前版本记录商品、商品库存快照、订单、订单明细、会员（可选）和员工。允许匿名购买。顾客真实姓名、支付卡号、登录凭据、供应商采购和补货流程暂不纳入；这些内容在当前需求里没有被确认，且不应为了演示而采集不必要的个人/支付数据。所有人名、电话、订单号和业务记录均为**虚构样例**，不是现实经营数据。
+
+`docs/requirements.md` 记业务流程、角色、数据边界和未决问题；`docs/data-dictionary.md` 记行粒度、属性/域、码与样例。
+
+## 环境
+
+- 已验证引擎：Microsoft SQL Server 2025 Express (`SQLEXPRESS`)，Windows 集成身份验证，本机共享内存连接。
+- 执行工具：SQLCMD 18 + Microsoft ODBC Driver 18；该本机实例使用自签名证书，因此复现命令带 `-C` 信任本机证书。仅供本机实验，不作为远程/生产连接建议。
+- SSMS 未用于本轮脚本执行。SQL Server 2022 / SSMS 19.3 的课程安装路径未在此机验证。
+- `result/` 保存本次实际 SQLCMD 输出文本和服务器版本摘要。没有伪造 SSMS 界面截图；如课程正式提交要求截图，可在 SSMS 按复现步骤重新执行并截图。
+
+## 从空库复现
+
+在 PowerShell 当前目录设为 `sql`，用已获本机 SQL Server 权限的 Windows 用户打开终端：
+
+```powershell
+$sqlcmd = 'C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\180\Tools\Binn\SQLCMD.EXE'
+& $sqlcmd -S '.\SQLEXPRESS' -E -C -f 65001 -b -i '00_create_database.sql'
+& $sqlcmd -S '.\SQLEXPRESS' -E -C -f 65001 -b -d CampusShopV01 -i '01_schema.sql'
+& $sqlcmd -S '.\SQLEXPRESS' -E -C -f 65001 -b -d CampusShopV01 -i '02_seed.sql'
+& $sqlcmd -S '.\SQLEXPRESS' -E -C -f 65001 -b -d CampusShopV01 -i '03_crud.sql'
+& $sqlcmd -S '.\SQLEXPRESS' -E -C -f 65001 -b -d CampusShopV01 -i '04_queries.sql'
+& $sqlcmd -S '.\SQLEXPRESS' -E -C -f 65001 -b -d CampusShopV01 -i '05_views.sql'
+& $sqlcmd -S '.\SQLEXPRESS' -E -C -f 65001 -b -d CampusShopV01 -i '06_constraints.sql'
+& $sqlcmd -S '.\SQLEXPRESS' -E -C -f 65001 -b -d CampusShopV01 -i '07_roles.sql'
+& $sqlcmd -S '.\SQLEXPRESS' -E -C -f 65001 -b -d CampusShopV01 -i '08_acceptance.sql'
+```
+
+`00_create_database.sql` 只创建名为 `CampusShopV01` 的新库；如果同名库已存在会停止，不会覆盖。要重新从空库演练，先在 SSMS 明确确认目标确为本实验库，再由有权限的操作者单独删除它，然后按上述顺序执行。schema 与 seed 是首次初始化脚本；不要对含有其他数据的库运行。
+
+## 目录
+
+- `sql/00_create_database.sql`：创建独立数据库。
+- `sql/01_schema.sql`：六张表、主键、候选键、外键、域与默认约束。
+- `sql/02_seed.sql`：虚构样例数据。
+- `sql/03_crud.sql`：可重跑的事务内增删改查演示，最后回滚到基线。
+- `sql/04_queries.sql`：连接、聚合、HAVING、子查询和业务口径查询。
+- `sql/05_views.sql`：订单明细、商品销量和库存状态三个视图。
+- `sql/06_constraints.sql`：合法写入与重复键、孤儿外键、负库存、非法价格等拒绝反例。
+- `sql/07_roles.sql`：最小权限角色与成功/拒绝操作验证。
+- `sql/08_acceptance.sql`：核对最终样例基线、视图结果和临时数据清理。
+- `result/`：实际 SQLCMD 运行记录。
+- `docs/`：需求、数据字典、阶段报告、AI 使用记录、组内分工和执行修正记录。
+
+## 当前结果与边界
+
+在 SQL Server 2025 Express 本机实例上，从新建库开始执行了全部脚本。建表/样例行数、查询结果、视图行数、约束拒绝和角色权限测试均记录在 `result/`。SQL Server 2022、SSMS GUI、真实业务数据、支付、采购补货、库存流水、并发与事务工作流不在本版验收范围内。CRUD 演示在显式事务中回滚，因此反复运行不会改变固定样例基线。
+
+## 后续待本人确认
+
+课程要求列出小组分工，但尚未提供组员姓名和实际分工；见 `docs/contribution.md`，不能由 AI 虚构。AI 使用和人工复核边界见 `docs/ai_log.md`。
+
+## 项目独立性
+
+本仓库仅保存该实验项目的代码、说明和复现证据。原始课件与 School 数据未纳入仓库；结果记录已去除本机名称和账户标识。
+
