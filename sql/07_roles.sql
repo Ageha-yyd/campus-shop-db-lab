@@ -37,11 +37,14 @@ EXECUTE AS USER = 'course_clerk_demo';
 SELECT USER_NAME() AS effective_user, COUNT(*) AS visible_products FROM dbo.Product;
 SELECT USER_NAME() AS effective_user, COUNT(*) AS visible_sales_rows FROM dbo.vw_ProductSales;
 
--- 店员：可以创建订单头；用回滚避免改变固定样例。
+-- 店员：可以新增订单头和订单明细；回滚以免改变固定样例。
 BEGIN TRANSACTION;
 INSERT INTO dbo.ShopOrder (OrderNo, EmployeeCode, MemberCode, Status)
 VALUES ('MT-ROLE-ROLLBACK', 'E001', NULL, 'COMPLETED');
-SELECT N'ALLOWED: clerk order insert' AS test_case, @@ROWCOUNT AS inserted_rows;
+SELECT N'ALLOWED: clerk order insert' AS test_case, @@ROWCOUNT AS inserted_order_rows;
+INSERT INTO dbo.OrderLine (OrderNo, LineNumber, ProductCode, Quantity, UnitPrice)
+VALUES ('MT-ROLE-ROLLBACK', 1, 'D001', 1, 12.00);
+SELECT N'ALLOWED: clerk order line insert' AS test_case, @@ROWCOUNT AS inserted_order_line_rows;
 ROLLBACK TRANSACTION;
 
 -- 店员：不能改商品定价。
