@@ -6,7 +6,7 @@
 
 ## 实验环境
 
-Microsoft SQL Server 2025 Express，实例 `SQLEXPRESS`，Windows 集成认证，本机 SQLCMD 18 / ODBC Driver 18。用 `-C` 接受本机实例证书。具体服务器版本保存在 `result/server-version.txt`。本轮未通过 SSMS 界面执行，未测试 SQL Server 2022 或其他环境。
+Microsoft SQL Server 2025 Express，实例 `SQLEXPRESS`，Windows 集成认证，本机 SQLCMD 18 / ODBC Driver 18。用 `-C` 接受本机实例证书。具体服务器版本保存在 `result/server-version.txt`。之后安装 SSMS 22.10.12217.157 并成功连接同一实例；`03`–`08` 脚本已在 SSMS 中重跑并成功执行，真实结果截图保存在 `result/screenshots/`。未测试 SQL Server 2022 或其他环境。
 
 ## 复现过程与观察
 
@@ -25,7 +25,7 @@ Microsoft SQL Server 2025 Express，实例 `SQLEXPRESS`，Windows 集成认证�
 
 ## 限制与后续
 
-- 结果目录保存命令行捕获的数据库输出，不是 SSMS 图形界面截图；需按 `docs/evidence-checklist.md` 在 SSMS 重跑并保存课程要求的截图。
+- 结果目录同时保存 SQLCMD 文本输出和 SSMS 实际运行截图。截图只裁掉了会显示本机账户标识的窗口边缘，查询和结果未作修改。
 - 需要本人填写组员/个人分工，并确认奶茶店场景与课程小组要求。
 - 饮品名称与标价取自有记录的公开菜单网页；订单、销量、库存和人员/会员数据仍为虚构教学数据。第二周材料写有真实业务样例要求，公开菜单不能替代真实交易数据；若教师要求真实订单，需另行取得授权并去标识化，详见 `data-sources.md`。
 - 可售杯数没有库存变更流水；订单完成/取消未与库存自动联动，糖度、冰量、加料和原料消耗未建模。

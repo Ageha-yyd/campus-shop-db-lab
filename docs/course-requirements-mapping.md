@@ -8,8 +8,8 @@
 | 第 2 周：列出实体、属性/域、类型/长度/精度、空值、默认值、字段含义、PK/候选码/FK，并提供样例元组 | `docs/data-dictionary.md`、`docs/data-sources.md`、`sql/01_schema.sql`、`sql/02_seed.sql` | 六个关系、逐字段解释及约束已列明；饮品名称和标价来自公开菜单，交易、库存和个人角色信息为虚构样例。课程若要求真实交易，仍需另行取得授权数据；不要公开未经授权的真实身份或联系方式。 |
 | 第 3 周：从空库建表、装载数据，完成商品/库存/订单相关数据 CRUD 并能复现 | `sql/00_create_database.sql`–`sql/03_crud.sql`、`sql/09_update_public_menu.sql`、`README.md`、`result/00_create_database.txt`–`result/03_crud.txt` | 建库、六表和样例数据已实现；CRUD 演示分别覆盖 Product、Inventory、ShopOrder、OrderLine 的新增、读取、修改和删除，操作在事务中回滚。00–08曾从空库完整运行；本轮改价后运行09并重跑03–08，详见 `docs/execution-notes.md`。 |
 | 第 4 周：连接查询、聚合/HAVING/子查询、统计视图、完整性约束、最小角色权限和正反例 | `sql/04_queries.sql`–`sql/08_acceptance.sql`、`result/04_queries.txt`–`result/08_acceptance.txt` | 查询、三个视图、合法/非法约束验证和店员/店长角色均已实现；店员新增订单头和明细的成功结果及越权拒绝结果有文本记录，验收脚本返回 `PASS`。 |
-| v0.1 交付：README、SQL、结果证据、阶段报告、AI 使用记录、组内分工 | 根目录 `README.md`、`sql/`、`result/`、`docs/stage-report.md`、`docs/ai_log.md`、`docs/contribution.md` | README、脚本、文本执行证据、报告和 AI 使用摘要已在仓库。课程要求的 SSMS 图形界面截图尚未采集，清单见 `docs/evidence-checklist.md`。组内分工留待最后填写。 |
+| v0.1 交付：README、SQL、结果证据、阶段报告、AI 使用记录、组内分工 | 根目录 `README.md`、`sql/`、`result/`、`docs/stage-report.md`、`docs/ai_log.md`、`docs/contribution.md` | README、脚本、SQLCMD 文本输出、SSMS 截图、报告和 AI 使用摘要已在仓库。组内分工按学习者要求留待最后填写。 |
 
 ## 复现证据的边界
 
-成功执行以 SQL Server 2025 Express、SQLCMD 18 和 ODBC Driver 18 为当前已验证环境。仓库包含 SQL 和种子数据，不包含 SQL Server/SSMS 安装程序，也不包含 SSMS 截图。课程展示要求学习者能解释设计、人工复核 SQL 并现场演示；代码和日志本身不能证明个人掌握情况。
+成功执行以 SQL Server 2025 Express、SQLCMD 18、ODBC Driver 18 和 SSMS 22.10.12217.157 为当前已验证环境。仓库包含 SQL、种子数据和本轮 SSMS 截图，不包含 SQL Server/SSMS 安装程序。课程展示要求学习者能解释设计、人工复核 SQL 并现场演示；代码和日志本身不能证明个人掌握情况。
