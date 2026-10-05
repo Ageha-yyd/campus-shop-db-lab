@@ -43,7 +43,7 @@ INSERT INTO dbo.ShopOrder (OrderNo, EmployeeCode, MemberCode, Status)
 VALUES ('MT-ROLE-ROLLBACK', 'E001', NULL, 'COMPLETED');
 SELECT N'ALLOWED: clerk order insert' AS test_case, @@ROWCOUNT AS inserted_order_rows;
 INSERT INTO dbo.OrderLine (OrderNo, LineNumber, ProductCode, Quantity, UnitPrice)
-VALUES ('MT-ROLE-ROLLBACK', 1, 'D001', 1, 12.00);
+VALUES ('MT-ROLE-ROLLBACK', 1, 'D001', 1, 6.00);
 SELECT N'ALLOWED: clerk order line insert' AS test_case, @@ROWCOUNT AS inserted_order_line_rows;
 ROLLBACK TRANSACTION;
 

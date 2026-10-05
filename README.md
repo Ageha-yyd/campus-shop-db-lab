@@ -4,7 +4,7 @@
 
 ## 场景与范围
 
-场景固定为校园奶茶店。首版只经营菜单里的标准饮品，记录饮品、可售杯数快照、订单、订单明细、可选会员和员工；顾客可匿名购买。糖度、冰量、加料、配方和原料库存暂不纳入，避免把点单定制和后厨库存带入首版。支付卡号、登录凭据、采购和补货也不纳入。所有人名、电话、订单号和业务记录均为**虚构样例**。
+场景固定为校园奶茶店。首版只经营菜单里的标准饮品，记录饮品、可售杯数快照、订单、订单明细、可选会员和员工；顾客可匿名购买。糖度、冰量、加料、配方和原料库存暂不纳入，避免把点单定制和后厨库存带入首版。支付卡号、登录凭据、采购和补货也不纳入。饮品名称与菜单价参考公开网页，来源及边界见 `docs/data-sources.md`；库存、订单、成交、人员和会员信息均为**虚构教学数据**。
 
 `docs/requirements.md` 记业务流程、角色、数据边界和未决问题；`docs/data-dictionary.md` 记行粒度、属性/域、码与样例。
 
@@ -24,6 +24,7 @@ $sqlcmd = 'C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\180\Tools\Binn\
 & $sqlcmd -S '.\SQLEXPRESS' -E -C -f 65001 -b -i '00_create_database.sql'
 & $sqlcmd -S '.\SQLEXPRESS' -E -C -f 65001 -b -d MilkTeaShopV01 -i '01_schema.sql'
 & $sqlcmd -S '.\SQLEXPRESS' -E -C -f 65001 -b -d MilkTeaShopV01 -i '02_seed.sql'
+& $sqlcmd -S '.\SQLEXPRESS' -E -C -f 65001 -b -i '09_update_public_menu.sql'
 & $sqlcmd -S '.\SQLEXPRESS' -E -C -f 65001 -b -d MilkTeaShopV01 -i '03_crud.sql'
 & $sqlcmd -S '.\SQLEXPRESS' -E -C -f 65001 -b -d MilkTeaShopV01 -i '04_queries.sql'
 & $sqlcmd -S '.\SQLEXPRESS' -E -C -f 65001 -b -d MilkTeaShopV01 -i '05_views.sql'
@@ -38,27 +39,29 @@ $sqlcmd = 'C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\180\Tools\Binn\
 
 - `sql/00_create_database.sql`：创建独立数据库。
 - `sql/01_schema.sql`：六张表、主键、候选键、外键、域与默认约束。
-- `sql/02_seed.sql`：虚构样例数据。
+- `sql/02_seed.sql`：公开菜单参考饮品与虚构业务样例数据。
 - `sql/03_crud.sql`：可重跑的事务内增删改查演示，最后回滚到基线。
 - `sql/04_queries.sql`：连接、聚合、HAVING、子查询和业务口径查询。
 - `sql/05_views.sql`：订单明细、商品销量和库存状态三个视图。
 - `sql/06_constraints.sql`：合法写入与重复键、孤儿外键、负库存、非法价格等拒绝反例。
 - `sql/07_roles.sql`：最小权限角色与成功/拒绝操作验证。
 - `sql/08_acceptance.sql`：核对最终样例基线、视图结果和临时数据清理。
+- `sql/09_update_public_menu.sql`：把既有阶段一样例菜单更新到有来源记录的公开参考价；仅匹配本项目三款饮品和固定虚构订单，发现基线不符会停止。
 - `result/`：实际 SQLCMD 运行记录。
 - `docs/`：需求、数据字典、阶段报告、AI 使用记录、组内分工和执行修正记录。
+- `docs/data-sources.md`：公开菜单数据引用与虚构交易数据边界。
 - `docs/course-requirements-mapping.md`：第一至第四周课程要求与本项目文件的对应表。
 - `docs/evidence-checklist.md`：课程要求的 SSMS 截图清单及对应 SQL 脚本。
 
 ## 当前结果与边界
 
-在 SQL Server 2025 Express 本机实例上，从新建库开始执行了全部脚本。建表/样例行数、查询结果、视图行数、约束拒绝和角色权限测试均记录在 `result/`。SQL Server 2022、SSMS GUI、个性化点单、原料库存、支付、采购补货、库存流水、并发与事务工作流不在本版验收范围内。CRUD 演示在显式事务中回滚，因此反复运行不会改变固定样例基线。当前 `result/` 是 SQLCMD 文本输出；课程指定的 SSMS 截图尚待按 `docs/evidence-checklist.md` 采集。
+`00`–`08` 曾在 SQL Server 2025 Express 上从新库完整执行。菜单切换为有来源的公开参考价后，在原有样例库运行了带基线保护的 `09`，并重新执行 `03`–`08`；结果见 `result/`，验收为 `PASS`。当前 README 中的 `00`–`09` 命令序列供从空库复现；本次没有再次删除并重建数据库运行这一整套新菜单序列。SQL Server 2022、个性化点单、原料库存、支付、采购补货、库存流水、并发与事务工作流不在本版验收范围内。CRUD 演示在显式事务中回滚，因此反复运行不会改变固定样例基线。当前 `result/` 是 SQLCMD 文本输出；课程指定的 SSMS 截图尚待按 `docs/evidence-checklist.md` 采集。
 
 ## 后续待本人确认
 
-课程要求列出小组分工，但尚未提供组员姓名和实际分工；见 `docs/contribution.md`，不能由 AI 虚构。种子数据是虚构教学样例；第二周材料提到真实业务样例，提交前需确认该样例来源是否可接受，或使用经授权且已去标识化的数据。AI 使用和人工复核边界见 `docs/ai_log.md`。
+课程要求列出小组分工，但尚未提供组员姓名和实际分工；见 `docs/contribution.md`，不能由 AI 虚构。菜单商品名和标价取自公开网页，其他业务数据为虚构教学样例；来源与真实性边界见 `docs/data-sources.md`。AI 使用和人工复核边界见 `docs/ai_log.md`。
 
 ## 项目独立性
 
-本仓库仅保存该实验项目的代码、说明和复现证据。第一至第四周的要求摘要与对应文件见 `docs/course-requirements-mapping.md`；原始课件与 School 数据未纳入仓库，当前奶茶店样例不依赖它们。结果记录已去除本机名称和账户标识。
+本仓库仅保存该实验项目的代码、说明和复现证据。第一至第四周的要求摘要与对应文件见 `docs/course-requirements-mapping.md`；原始课件与 School 数据未纳入仓库，当前奶茶店样例不依赖它们。菜单数据来源与虚构数据边界见 `docs/data-sources.md`。结果记录已去除本机名称和账户标识。
 

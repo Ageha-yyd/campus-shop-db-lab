@@ -13,7 +13,7 @@ IF (SELECT COUNT(*) FROM dbo.OrderLine) <> 4 THROW 51016, 'Unexpected OrderLine 
 IF (SELECT COUNT(*) FROM dbo.Product WHERE ProductCode = 'D999') <> 0 THROW 51017, 'CRUD rollback left a temporary product.', 1;
 IF (SELECT COUNT(*) FROM dbo.vw_ProductSales) <> 3 THROW 51018, 'Product sales view did not retain all products.', 1;
 IF (SELECT UnitsSold FROM dbo.vw_ProductSales WHERE ProductCode = 'D003') <> 0 THROW 51019, 'Zero-sales product result is incorrect.', 1;
-IF (SELECT SalesAmount FROM dbo.vw_ProductSales WHERE ProductCode = 'D001') <> 36.00 THROW 51020, 'D001 completed sales amount is incorrect.', 1;
+IF (SELECT SalesAmount FROM dbo.vw_ProductSales WHERE ProductCode = 'D001') <> 18.00 THROW 51020, 'D001 completed sales amount is incorrect.', 1;
 IF DATABASE_PRINCIPAL_ID(N'shop_clerk') IS NULL OR DATABASE_PRINCIPAL_ID(N'shop_manager') IS NULL
     THROW 51021, 'Expected demo roles are missing.', 1;
 

@@ -61,7 +61,7 @@ END CATCH;
 -- FK：订单明细引用不存在订单应失败。
 BEGIN TRY
     INSERT dbo.OrderLine (OrderNo, LineNumber, ProductCode, Quantity, UnitPrice)
-    VALUES ('NO-SUCH-ORDER', 1, 'D001', 1, 12.00);
+    VALUES ('NO-SUCH-ORDER', 1, 'D001', 1, 6.00);
     PRINT 'UNEXPECTED SUCCESS: orphan order line';
 END TRY
 BEGIN CATCH
@@ -71,7 +71,7 @@ END CATCH;
 -- CHECK：非正购买数量应失败。
 BEGIN TRY
     INSERT dbo.OrderLine (OrderNo, LineNumber, ProductCode, Quantity, UnitPrice)
-    VALUES ('MT-20261005-001', 9, 'D001', 0, 12.00);
+    VALUES ('MT-20261005-001', 9, 'D001', 0, 6.00);
     PRINT 'UNEXPECTED SUCCESS: zero line quantity';
 END TRY
 BEGIN CATCH
