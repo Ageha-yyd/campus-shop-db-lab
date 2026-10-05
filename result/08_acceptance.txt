@@ -1,6 +1,6 @@
 acceptance dbo_tables  order_detail_view_rows product_sales_view_rows inventory_view_rows temporary_products
 ---------- ----------- ---------------------- ----------------------- ------------------- ------------------
 PASS                 6                      4                       3                   3                  0
-name                                                                                                                             state_desc                                                   compatibility_level engine_version                
+name                                                                                                                             state_desc                                                   compatibility_level engine_version
 -------------------------------------------------------------------------------------------------------------------------------- ------------------------------------------------------------ ------------------- ------------------------------
-CampusShopV01                                                                                                                    ONLINE                                                                       170 17.0.1000.7                   
+MilkTeaShopV01                                                                                                                   ONLINE                                                                       170 17.0.1000.7

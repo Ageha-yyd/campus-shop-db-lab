@@ -1,4 +1,4 @@
-table_name row_count  
+table_name row_count
 ---------- -----------
 Employee             2
 Inventory            3

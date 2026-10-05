@@ -10,12 +10,12 @@ SET NUMERIC_ROUNDABORT OFF;
 BEGIN TRANSACTION;
 
 INSERT dbo.Product (ProductCode, ProductName, Category, UnitPrice, IsActive) VALUES
-('P001', N'纯牛奶 250ml', N'乳品', 3.50, 1),
-('P002', N'全麦面包', N'烘焙', 5.00, 1),
-('P003', N'乌龙茶 500ml', N'饮料', 4.25, 1);
+('D001', N'珍珠奶茶', N'奶茶', 12.00, 1),
+('D002', N'杨枝甘露', N'果茶', 18.00, 1),
+('D003', N'柠檬茶', N'果茶', 10.00, 1);
 
 INSERT dbo.Inventory (ProductCode, Quantity) VALUES
-('P001', 17), ('P002', 9), ('P003', 12);
+('D001', 17), ('D002', 9), ('D003', 12);
 
 INSERT dbo.Member (MemberCode, DisplayName, Phone, JoinedAt) VALUES
 ('M001', N'林同学（虚构）', '13800000001', '2026-09-01'),
@@ -26,15 +26,15 @@ INSERT dbo.Employee (EmployeeCode, DisplayName, JobTitle, IsActive) VALUES
 ('E002', N'王店长（虚构）', N'店长', 1);
 
 INSERT dbo.ShopOrder (OrderNo, OrderedAt, EmployeeCode, MemberCode, Status) VALUES
-('CS-20261001-001', '2026-10-01T10:00:00', 'E001', 'M001', 'COMPLETED'),
-('CS-20261001-002', '2026-10-01T11:00:00', 'E001', NULL, 'COMPLETED'),
-('CS-20261001-003', '2026-10-01T12:00:00', 'E002', 'M001', 'CANCELLED');
+('MT-20261005-001', '2026-10-05T10:00:00', 'E001', 'M001', 'COMPLETED'),
+('MT-20261005-002', '2026-10-05T11:00:00', 'E001', NULL, 'COMPLETED'),
+('MT-20261005-003', '2026-10-05T12:00:00', 'E002', 'M001', 'CANCELLED');
 
 INSERT dbo.OrderLine (OrderNo, LineNumber, ProductCode, Quantity, UnitPrice) VALUES
-('CS-20261001-001', 1, 'P001', 2, 3.50),
-('CS-20261001-001', 2, 'P002', 1, 5.00),
-('CS-20261001-002', 1, 'P001', 1, 3.50),
-('CS-20261001-003', 1, 'P003', 1, 4.25);
+('MT-20261005-001', 1, 'D001', 2, 12.00),
+('MT-20261005-001', 2, 'D002', 1, 18.00),
+('MT-20261005-002', 1, 'D001', 1, 12.00),
+('MT-20261005-003', 1, 'D003', 1, 10.00);
 
 COMMIT TRANSACTION;
 

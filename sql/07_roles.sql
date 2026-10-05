@@ -40,13 +40,13 @@ SELECT USER_NAME() AS effective_user, COUNT(*) AS visible_sales_rows FROM dbo.vw
 -- 店员：可以创建订单头；用回滚避免改变固定样例。
 BEGIN TRANSACTION;
 INSERT INTO dbo.ShopOrder (OrderNo, EmployeeCode, MemberCode, Status)
-VALUES ('CS-ROLE-ROLLBACK', 'E001', NULL, 'COMPLETED');
+VALUES ('MT-ROLE-ROLLBACK', 'E001', NULL, 'COMPLETED');
 SELECT N'ALLOWED: clerk order insert' AS test_case, @@ROWCOUNT AS inserted_rows;
 ROLLBACK TRANSACTION;
 
 -- 店员：不能改商品定价。
 BEGIN TRY
-    UPDATE dbo.Product SET UnitPrice = UnitPrice WHERE ProductCode = 'P001';
+    UPDATE dbo.Product SET UnitPrice = UnitPrice WHERE ProductCode = 'D001';
     PRINT 'UNEXPECTED SUCCESS: clerk changed product';
 END TRY
 BEGIN CATCH
@@ -64,7 +64,7 @@ END CATCH;
 
 -- 店员：不能删除商品目录数据。
 BEGIN TRY
-    DELETE dbo.Product WHERE ProductCode = 'P003';
+    DELETE dbo.Product WHERE ProductCode = 'D003';
     PRINT 'UNEXPECTED SUCCESS: clerk deleted product';
 END TRY
 BEGIN CATCH
@@ -74,7 +74,7 @@ REVERT;
 
 -- 店长：同一商品维护操作允许执行，但写入相同值，不改变数据。
 EXECUTE AS USER = 'course_manager_demo';
-UPDATE dbo.Product SET UnitPrice = UnitPrice WHERE ProductCode = 'P001';
+UPDATE dbo.Product SET UnitPrice = UnitPrice WHERE ProductCode = 'D001';
 SELECT USER_NAME() AS effective_user, @@ROWCOUNT AS manager_update_rows;
 REVERT;
 GO
