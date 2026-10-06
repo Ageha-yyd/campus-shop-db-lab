@@ -29,11 +29,12 @@
       "docx",
       "pdf"
     ],
-    "pages": 5,
-    "embeddedScreenshots": 0,
+    "pages": 13,
+    "embeddedScreenshots": 15,
     "pdfConversion": "Installed Microsoft Word isolated automation instance",
     "pageRasterization": "Bundled render_docx.py with Word PDF conversion backend and Poppler",
-    "allPagesVisuallyReviewed": true
+    "allPagesVisuallyReviewed": true,
+    "embeddedImagesMatchOriginalScreenshotHashes": true
   },
   "replaySources": {
     "sql/00_create_database.sql": "8DF231497ED4A79C3CB1EF208A9CEB41B12CE0778AC48CD635714E22638F779A",
