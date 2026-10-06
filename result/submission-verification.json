@@ -1,11 +1,10 @@
 {
   "status": "PASS",
   "checkedOn": "2026-10-06",
-  "method": "Candidate submission ZIP extracted into an independent directory and rebuilt from an absent database using the README command",
-  "readmeCommand": ".\\scripts\\run-lab.ps1 -ServerInstance '.\\SQLEXPRESS'",
-  "candidateZipSha256": "D189364F555427710836A45CB55D3C38870406F3F5437C356818EB2E3E4AA366",
-  "replayStartedUtc": "2026-10-06T14:25:12.0387955Z",
-  "replayFinishedUtc": "2026-10-06T14:25:14.2453475Z",
+  "method": "Slim course submission ZIP extracted into an independent directory; root 复现.ps1 executed from an absent database",
+  "readmeCommand": ".\\复现.ps1 -ServerInstance '.\\SQLEXPRESS'",
+  "candidateZipSha256": "9FD25AD3E599A0AD6E5885E41A6A1D06B2BABCDA405798BB0A0647695D5DB17B",
+  "replayFinishedUtc": "2026-10-06T14:57:55.0922740Z",
   "stepsPassed": 11,
   "constraintsPassed": 13,
   "roleChecksPassed": 12,
@@ -13,7 +12,7 @@
   "sameMachineAndSqlServer": true,
   "requiresParentFiles": false,
   "requiresNetworkAtRuntime": false,
-  "preservedDatabase": "MilkTeaShopV01_PreSubmission_20261006",
+  "preservedDatabase": "MilkTeaShopV01_BeforeSlim_20261006",
   "baseline": {
     "tables": 6,
     "views": 4,
@@ -30,8 +29,8 @@
       "docx",
       "pdf"
     ],
-    "pages": 10,
-    "embeddedScreenshots": 12,
+    "pages": 5,
+    "embeddedScreenshots": 0,
     "pdfConversion": "Installed Microsoft Word isolated automation instance",
     "pageRasterization": "Bundled render_docx.py with Word PDF conversion backend and Poppler",
     "allPagesVisuallyReviewed": true
@@ -40,15 +39,16 @@
     "sql/00_create_database.sql": "8DF231497ED4A79C3CB1EF208A9CEB41B12CE0778AC48CD635714E22638F779A",
     "sql/01_schema.sql": "C00EBFFE0A22F5AA7E7B57C22515013B41A173B33E8E2B6D43BFC66E8C98513F",
     "sql/02_seed.sql": "4286D345348F8AAE0EFF7D3C825DF854D30D4704D15912694007B9DA8D798B37",
-    "sql/09_update_public_menu.sql": "E83D0FBC2558964EBA927C224BE45E65DF3B5C205DC489F8B4E02BED1329504B",
     "sql/03_crud.sql": "4B02583884FC2773F8F1DBA02417C7BD529976A5F804107D741941D20360028D",
     "sql/04_queries.sql": "F75C0E68C75BF5F396414857B97712D6F2707A8E4D818C6EF5CB2969B9D571C9",
     "sql/05_views.sql": "AE1A7F15C94F5AAD3A624B26DDCA89A6BF640AB6638D0A93058510BBE8D90CDE",
     "sql/06_constraints.sql": "46FD27FD3EA09AAB8EECCAA54059990F23D5B5706F6DFD5CFFB55B052E89D30C",
     "sql/07_roles.sql": "9BA9A8021B44C6F695F83147E2126B5B77EBF30FA1BCAE107548B817FDEC8BFD",
     "sql/08_acceptance.sql": "B9AA3EFB3FAC8A3737B3E6B893C1FC7E6C733D65416A80554190631035DFF2BB",
+    "sql/09_update_public_menu.sql": "E83D0FBC2558964EBA927C224BE45E65DF3B5C205DC489F8B4E02BED1329504B",
     "sql/10_database_overview.sql": "3A0757E126833DC8D6B1C690DA996B3E6BD122ACFD2CA9FB6033ACCBC2EF20A7",
-    "scripts/run-lab.ps1": "662D26C2818F05A945D83D8DCCD7D8F672729EE95E1055EB96DDDD08E33D6FBF"
+    "sql/11_reporting_evidence.sql": "89C325BD94F98299B432084AEDB50BFED0D546888620A6A8D8E9EEC62666F5C7",
+    "复现.ps1": "47600BDC66DC8D9B82113F82EB21C3C121F8A4FCCDE4164343AAC3E13999502D"
   },
-  "packagingNotes": "Final ZIP also includes this verification record and refreshed replay logs. Runtime SQL and runner remain byte-identical to the verified extracted candidate; package-manifest.json covers all delivered files."
+  "packagingNotes": "Course ZIP contains no JSON/data/docs/deliverables/maintenance folders. Root reports, dictionary, AI record, division, README and replay script; sql and result retain required deliverables. Technical verification JSON remains in the repository only."
 }
