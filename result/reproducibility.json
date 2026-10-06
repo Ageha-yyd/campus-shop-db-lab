@@ -1,12 +1,12 @@
 {
-  "verificationMethod": "git staged repository snapshot extracted to a separate temporary directory; run-lab.ps1 invoked there",
+  "verificationMethod": "Submission candidate ZIP extracted into a separate temporary directory; exact README command executed with no existing MilkTeaShopV01 database",
   "sameMachineAndSqlServer": true,
   "workspaceParentFilesUsed": false,
   "classmateFoldersUsedAtRuntime": false,
   "webAccessRequiredAtRuntime": false,
   "status": "PASS",
-  "replayStartedUtc": "2026-10-06T14:04:45.9472983Z",
-  "replayFinishedUtc": "2026-10-06T14:04:47.8441596Z",
+  "replayStartedUtc": "2026-10-06T14:25:12.0387955Z",
+  "replayFinishedUtc": "2026-10-06T14:25:14.2453475Z",
   "scriptHashes": {
     "sql/00_create_database.sql": "8DF231497ED4A79C3CB1EF208A9CEB41B12CE0778AC48CD635714E22638F779A",
     "sql/01_schema.sql": "C00EBFFE0A22F5AA7E7B57C22515013B41A173B33E8E2B6D43BFC66E8C98513F",

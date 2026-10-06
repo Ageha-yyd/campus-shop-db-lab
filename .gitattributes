@@ -6,3 +6,5 @@
 *.csv text eol=lf
 *.txt text eol=lf
 *.png binary
+*.docx binary
+*.pdf binary

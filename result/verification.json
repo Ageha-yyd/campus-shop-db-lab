@@ -1,7 +1,7 @@
 {
   "status": "PASS",
   "database": "MilkTeaShopV01",
-  "startedUtc": "2026-10-06T14:04:45.9472983Z",
+  "startedUtc": "2026-10-06T14:25:12.0387955Z",
   "runnerSha256": "662D26C2818F05A945D83D8DCCD7D8F672729EE95E1055EB96DDDD08E33D6FBF",
   "connection": "Windows integrated authentication; local certificate trusted for course lab",
   "steps": [
@@ -11,7 +11,7 @@
       "output": "00_create_database.txt",
       "outputSha256": "885D9925B6AB636BA11AC64AD46BAE05752F7164720596C2A584672ECA66ED1D",
       "exitCode": 0,
-      "completedUtc": "2026-10-06T14:04:46.2153084Z"
+      "completedUtc": "2026-10-06T14:25:12.3139026Z"
     },
     {
       "script": "sql/01_schema.sql",
@@ -19,7 +19,7 @@
       "output": "01_schema.txt",
       "outputSha256": "25F9CACB55E4383C652C554DC1F1CD326894334F17B6C2ADEEEC94F44F4D10D1",
       "exitCode": 0,
-      "completedUtc": "2026-10-06T14:04:46.4119063Z"
+      "completedUtc": "2026-10-06T14:25:12.5044788Z"
     },
     {
       "script": "sql/02_seed.sql",
@@ -27,7 +27,7 @@
       "output": "02_seed.txt",
       "outputSha256": "5FCF2BCBFB53E2DF11DBB57E90A48FDD8F3C79CB6F082EAD9C295BE4EB7299AF",
       "exitCode": 0,
-      "completedUtc": "2026-10-06T14:04:46.5187765Z"
+      "completedUtc": "2026-10-06T14:25:12.6334106Z"
     },
     {
       "script": "sql/09_update_public_menu.sql",
@@ -35,7 +35,7 @@
       "output": "09_update_public_menu.txt",
       "outputSha256": "037C952D08E9C1B93D05D2A30405F7F0968EAB98E734F8561C6EB4FB130855CA",
       "exitCode": 0,
-      "completedUtc": "2026-10-06T14:04:46.5943996Z"
+      "completedUtc": "2026-10-06T14:25:12.7201960Z"
     },
     {
       "script": "sql/03_crud.sql",
@@ -43,7 +43,7 @@
       "output": "03_crud.txt",
       "outputSha256": "2ECFA6E8F9F476CFAC55B4053DA7CB3518F4DC56EB679E5762B4B928DC13A605",
       "exitCode": 0,
-      "completedUtc": "2026-10-06T14:04:46.7707653Z"
+      "completedUtc": "2026-10-06T14:25:12.9425918Z"
     },
     {
       "script": "sql/04_queries.sql",
@@ -51,7 +51,7 @@
       "output": "04_queries.txt",
       "outputSha256": "24D84093D5F5D6AAAB7723F5D0361A69340E263C181F3517749FFDC1006C7173",
       "exitCode": 0,
-      "completedUtc": "2026-10-06T14:04:46.8792566Z"
+      "completedUtc": "2026-10-06T14:25:13.0377884Z"
     },
     {
       "script": "sql/05_views.sql",
@@ -59,7 +59,7 @@
       "output": "05_views.txt",
       "outputSha256": "0B0B42F517232E0FE8FB19169DD8814B02E697C7914E465EB823F00DCB0E8212",
       "exitCode": 0,
-      "completedUtc": "2026-10-06T14:04:47.0219244Z"
+      "completedUtc": "2026-10-06T14:25:13.1702644Z"
     },
     {
       "script": "sql/06_constraints.sql",
@@ -67,7 +67,7 @@
       "output": "06_constraints.txt",
       "outputSha256": "054C9C3B4781EC861726E7B4004664415FB8FC48C6E29F4FE57BAE7E81C62446",
       "exitCode": 0,
-      "completedUtc": "2026-10-06T14:04:47.1571170Z"
+      "completedUtc": "2026-10-06T14:25:13.3375321Z"
     },
     {
       "script": "sql/07_roles.sql",
@@ -75,7 +75,7 @@
       "output": "07_roles.txt",
       "outputSha256": "3B692F18F301C3D6A3FA99539DD8045F6365D8521ABEC3B4D75513B99B442A62",
       "exitCode": 0,
-      "completedUtc": "2026-10-06T14:04:47.2494706Z"
+      "completedUtc": "2026-10-06T14:25:13.4714451Z"
     },
     {
       "script": "sql/08_acceptance.sql",
@@ -83,7 +83,7 @@
       "output": "08_acceptance.txt",
       "outputSha256": "0814B53AD966ADBE96211BA42B62DD34AC31399206840773AA67FCF43372F407",
       "exitCode": 0,
-      "completedUtc": "2026-10-06T14:04:47.7228076Z"
+      "completedUtc": "2026-10-06T14:25:14.0827114Z"
     },
     {
       "script": "sql/10_database_overview.sql",
@@ -91,8 +91,8 @@
       "output": "10_database_overview.txt",
       "outputSha256": "9D5781D56803083DE934CBE8911BDC0B20724446695794FAFEA27DAE8F021804",
       "exitCode": 0,
-      "completedUtc": "2026-10-06T14:04:47.8422831Z"
+      "completedUtc": "2026-10-06T14:25:14.2433778Z"
     }
   ],
-  "finishedUtc": "2026-10-06T14:04:47.8441596Z"
+  "finishedUtc": "2026-10-06T14:25:14.2453475Z"
 }
