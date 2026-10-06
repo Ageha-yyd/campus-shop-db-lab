@@ -88,9 +88,9 @@ INSERT #ConstraintResults VALUES (N'duplicate order','REJECTED',@error,'PK_ShopO
 -- duplicate contact：只接受目标错误号与目标约束；无论成功/失败，都回滚。
 SET @error=0; SET @message=NULL;
 BEGIN TRANSACTION;
-INSERT dbo.Member (MemberCode,DisplayName,Phone) VALUES ('M998',N'唯一约束对照（虚构）','00000000000');
+INSERT dbo.Member (MemberCode,DisplayName,Phone) VALUES ('M998',N'唯一约束对照','00000000000');
 BEGIN TRY
-    INSERT dbo.Member (MemberCode,DisplayName,Phone) VALUES ('M999',N'唯一约束反例（虚构）','00000000000');
+    INSERT dbo.Member (MemberCode,DisplayName,Phone) VALUES ('M999',N'唯一约束反例','00000000000');
 END TRY
 BEGIN CATCH
     SELECT @error=ERROR_NUMBER(), @message=LEFT(ERROR_MESSAGE(),400);

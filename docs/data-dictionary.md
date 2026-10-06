@@ -1,6 +1,6 @@
 # 关系模式与数据字典
 
-产品名称和菜单标价参考公开菜单来源；订单、库存、员工、会员及阈值均为教师允许的虚构教学数据；联系方式样例均为 NULL，不代表蜜雪冰城或其他门店的实际经营记录。SQL Server 类型是本次实现域；关系模式以列名和约束表达，物理类型后续可按引擎映射。每个字段下方均说明类型、空值/默认值/取值域及业务含义；未写默认值表示没有数据库默认值。
+本字典列出六张业务表的行粒度、属性域、类型、长度、精度、空值、默认值、键及业务含义。未写默认值表示没有数据库默认值；完整样例见SQL02。
 
 ## Product（饮品菜单）
 
@@ -36,7 +36,7 @@
 | 字段 | 定义与含义 |
 | --- | --- |
 | `MemberCode` | `varchar(12) NOT NULL`；会员内部编号。 |
-| `DisplayName` | `nvarchar(60) NOT NULL`；样例展示名，不要求使用真实姓名。 |
+| `DisplayName` | `nvarchar(60) NOT NULL`；会员显示名称。 |
 | `Phone` | `varchar(20) NULL`；可选联系号码；非空值须唯一，本仓库种子样例均为 NULL，反例只用回滚的占位值。 |
 | `JoinedAt` | `date NOT NULL DEFAULT (CONVERT(date, SYSUTCDATETIME()))`；登记日期，默认使用当前 UTC 日期。 |
 
@@ -49,7 +49,7 @@
 | 字段 | 定义与含义 |
 | --- | --- |
 | `EmployeeCode` | `varchar(12) NOT NULL`；员工内部编号。 |
-| `DisplayName` | `nvarchar(60) NOT NULL`；员工展示名，仓库中的样例均为虚构。 |
+| `DisplayName` | `nvarchar(60) NOT NULL`；员工显示名称。 |
 | `JobTitle` | `nvarchar(30) NOT NULL`；岗位名称，如“店员”“店长”。 |
 | `IsActive` | `bit NOT NULL DEFAULT (1)`；是否在职/启用，取值 0/1。 |
 
@@ -111,14 +111,14 @@
 | D005 | 柠檬红茶 | 5.00 | 4 | 18 |
 | D006 | 茉莉绿茶 | 4.00 | 5 | 9 |
 
-| MemberCode | 展示名（均虚构） | Phone | JoinedAt |
+| MemberCode | 展示名 | Phone | JoinedAt |
 | --- | --- | --- | --- |
 | M001 | 林同学 | NULL | 2026-09-01 |
 | M002 | 周同学 | NULL | 2026-09-03 |
 | M003 | 李同学 | NULL | 2026-09-04 |
 | M004 | 陈同学 | NULL | 2026-09-05 |
 
-| EmployeeCode | 展示名（均虚构） | 岗位 |
+| EmployeeCode | 展示名 | 岗位 |
 | --- | --- | --- |
 | E001 | 陈店员 | 店员 |
 | E002 | 刘店员 | 店员 |
@@ -138,7 +138,7 @@
 | MT-20261001-001 | 2 | D002 | 1 | 7.00 |
 | MT-20261001-002 | 1 | D003 | 3 | 4.00 |
 
-明细共十一行；联系方式不收集。公开菜单不能证明真实交易，教师允许教学样例的确认见 [来源说明](data-sources.md)。
+明细共十一行，会员Phone为空；菜单参考和样例安排见 [数据说明](data-sources.md)。
 
 ## 联系与基数
 

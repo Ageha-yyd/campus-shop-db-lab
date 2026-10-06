@@ -8,7 +8,7 @@ SET CONCAT_NULL_YIELDS_NULL ON;
 SET NUMERIC_ROUNDABORT OFF;
 SET XACT_ABORT ON;
 
--- 菜单参考来源见 data/public-menu.csv；其余均为教师允许的虚构教学样例。
+-- 课堂操作样例；菜单参考来源见 data/public-menu.csv。
 -- 显式 UTC 日期保证跨日期复现；会员联系方式不收集，样例全部 NULL。
 BEGIN TRANSACTION;
 
@@ -29,15 +29,15 @@ INSERT dbo.Inventory (ProductCode, Quantity, UpdatedAt) VALUES
 ('D006', 9, '2026-10-06T08:00:00');
 
 INSERT dbo.Member (MemberCode, DisplayName, Phone, JoinedAt) VALUES
-('M001', N'林同学（虚构）', NULL, '2026-09-01'),
-('M002', N'周同学（虚构）', NULL, '2026-09-03'),
-('M003', N'李同学（虚构）', NULL, '2026-09-04'),
-('M004', N'陈同学（虚构）', NULL, '2026-09-05');
+('M001', N'林同学', NULL, '2026-09-01'),
+('M002', N'周同学', NULL, '2026-09-03'),
+('M003', N'李同学', NULL, '2026-09-04'),
+('M004', N'陈同学', NULL, '2026-09-05');
 
 INSERT dbo.Employee (EmployeeCode, DisplayName, JobTitle, IsActive) VALUES
-('E001', N'陈店员（虚构）', N'店员', 1),
-('E002', N'刘店员（虚构）', N'店员', 1),
-('E003', N'王店长（虚构）', N'店长', 1);
+('E001', N'陈店员', N'店员', 1),
+('E002', N'刘店员', N'店员', 1),
+('E003', N'王店长', N'店长', 1);
 
 INSERT dbo.ShopOrder (OrderNo, OrderedAt, EmployeeCode, MemberCode, Status) VALUES
 ('MT-20261001-001', '2026-10-01T09:42:00', 'E001', 'M001', 'COMPLETED'),
