@@ -1,0 +1,98 @@
+{
+  "status": "PASS",
+  "database": "MilkTeaShopV01",
+  "startedUtc": "2026-10-06T13:39:09.6121584Z",
+  "runnerSha256": "662D26C2818F05A945D83D8DCCD7D8F672729EE95E1055EB96DDDD08E33D6FBF",
+  "connection": "Windows integrated authentication; local certificate trusted for course lab",
+  "steps": [
+    {
+      "script": "sql/00_create_database.sql",
+      "sha256": "8DF231497ED4A79C3CB1EF208A9CEB41B12CE0778AC48CD635714E22638F779A",
+      "output": "00_create_database.txt",
+      "outputSha256": "885D9925B6AB636BA11AC64AD46BAE05752F7164720596C2A584672ECA66ED1D",
+      "exitCode": 0,
+      "completedUtc": "2026-10-06T13:39:09.8679119Z"
+    },
+    {
+      "script": "sql/01_schema.sql",
+      "sha256": "C00EBFFE0A22F5AA7E7B57C22515013B41A173B33E8E2B6D43BFC66E8C98513F",
+      "output": "01_schema.txt",
+      "outputSha256": "25F9CACB55E4383C652C554DC1F1CD326894334F17B6C2ADEEEC94F44F4D10D1",
+      "exitCode": 0,
+      "completedUtc": "2026-10-06T13:39:10.0476965Z"
+    },
+    {
+      "script": "sql/02_seed.sql",
+      "sha256": "5E152F7668EFC95E4541A02E1EF3B1BC9ACBC2CCED1E1D88A0E0430FA1C8F935",
+      "output": "02_seed.txt",
+      "outputSha256": "5FCF2BCBFB53E2DF11DBB57E90A48FDD8F3C79CB6F082EAD9C295BE4EB7299AF",
+      "exitCode": 0,
+      "completedUtc": "2026-10-06T13:39:10.1567716Z"
+    },
+    {
+      "script": "sql/09_update_public_menu.sql",
+      "sha256": "E83D0FBC2558964EBA927C224BE45E65DF3B5C205DC489F8B4E02BED1329504B",
+      "output": "09_update_public_menu.txt",
+      "outputSha256": "037C952D08E9C1B93D05D2A30405F7F0968EAB98E734F8561C6EB4FB130855CA",
+      "exitCode": 0,
+      "completedUtc": "2026-10-06T13:39:10.2457203Z"
+    },
+    {
+      "script": "sql/03_crud.sql",
+      "sha256": "4B02583884FC2773F8F1DBA02417C7BD529976A5F804107D741941D20360028D",
+      "output": "03_crud.txt",
+      "outputSha256": "2ECFA6E8F9F476CFAC55B4053DA7CB3518F4DC56EB679E5762B4B928DC13A605",
+      "exitCode": 0,
+      "completedUtc": "2026-10-06T13:39:10.4417285Z"
+    },
+    {
+      "script": "sql/04_queries.sql",
+      "sha256": "F75C0E68C75BF5F396414857B97712D6F2707A8E4D818C6EF5CB2969B9D571C9",
+      "output": "04_queries.txt",
+      "outputSha256": "740535F3262D5E7B1EDD28F38FFA4BD0D3B11190A8092C898C96E197BD5A070C",
+      "exitCode": 0,
+      "completedUtc": "2026-10-06T13:39:10.5433160Z"
+    },
+    {
+      "script": "sql/05_views.sql",
+      "sha256": "AE1A7F15C94F5AAD3A624B26DDCA89A6BF640AB6638D0A93058510BBE8D90CDE",
+      "output": "05_views.txt",
+      "outputSha256": "B9CADD701925D74438C157E698F5BEFF4E9E18735E892A6F93F8675F4CF8C17F",
+      "exitCode": 0,
+      "completedUtc": "2026-10-06T13:39:10.6807795Z"
+    },
+    {
+      "script": "sql/06_constraints.sql",
+      "sha256": "03E8195A330AC9D63CE13AE927641FEB9627CD878B6626A598A236DB46C1E603",
+      "output": "06_constraints.txt",
+      "outputSha256": "054C9C3B4781EC861726E7B4004664415FB8FC48C6E29F4FE57BAE7E81C62446",
+      "exitCode": 0,
+      "completedUtc": "2026-10-06T13:39:10.8332498Z"
+    },
+    {
+      "script": "sql/07_roles.sql",
+      "sha256": "9BA9A8021B44C6F695F83147E2126B5B77EBF30FA1BCAE107548B817FDEC8BFD",
+      "output": "07_roles.txt",
+      "outputSha256": "3B692F18F301C3D6A3FA99539DD8045F6365D8521ABEC3B4D75513B99B442A62",
+      "exitCode": 0,
+      "completedUtc": "2026-10-06T13:39:10.9428158Z"
+    },
+    {
+      "script": "sql/08_acceptance.sql",
+      "sha256": "B9AA3EFB3FAC8A3737B3E6B893C1FC7E6C733D65416A80554190631035DFF2BB",
+      "output": "08_acceptance.txt",
+      "outputSha256": "0814B53AD966ADBE96211BA42B62DD34AC31399206840773AA67FCF43372F407",
+      "exitCode": 0,
+      "completedUtc": "2026-10-06T13:39:11.3675841Z"
+    },
+    {
+      "script": "sql/10_database_overview.sql",
+      "sha256": "3A0757E126833DC8D6B1C690DA996B3E6BD122ACFD2CA9FB6033ACCBC2EF20A7",
+      "output": "10_database_overview.txt",
+      "outputSha256": "9D5781D56803083DE934CBE8911BDC0B20724446695794FAFEA27DAE8F021804",
+      "exitCode": 0,
+      "completedUtc": "2026-10-06T13:39:11.4946774Z"
+    }
+  ],
+  "finishedUtc": "2026-10-06T13:39:11.4966846Z"
+}

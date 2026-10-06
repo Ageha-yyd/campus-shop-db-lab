@@ -1,6 +1,10 @@
-acceptance dbo_tables  order_detail_view_rows product_sales_view_rows inventory_view_rows temporary_products
----------- ----------- ---------------------- ----------------------- ------------------- ------------------
-PASS                 6                      4                       3                   3                  0
-name                                                                                                                             state_desc                                                   compatibility_level engine_version
--------------------------------------------------------------------------------------------------------------------------------- ------------------------------------------------------------ ------------------- ------------------------------
-MilkTeaShopV01                                                                                                                   ONLINE                                                                       170 17.0.1000.7
+警告: 聚合或其他 SET 操作消除了 Null 值。
+acceptance business_tables business_views products orders order_lines completed_revenue
+---------- --------------- -------------- -------- ------ ----------- -----------------
+PASS 6 4 6 7 11 86.00
+boundary_verification checked
+--------------------- -------
+PASS zero sales / cancelled orders / anonymous orders / member HAVING / stock threshold / cleanup
+database_name engine_version
+------------- --------------
+MilkTeaShopV01 17.0.1000.7

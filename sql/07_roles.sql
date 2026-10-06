@@ -29,55 +29,130 @@ GRANT SELECT ON dbo.vw_OrderDetail TO shop_manager;
 GRANT SELECT ON dbo.vw_ProductSales TO shop_manager;
 GRANT SELECT ON dbo.vw_InventoryStatus TO shop_manager;
 
-PRINT 'shop_clerk: read catalog/inventory/views and insert orders; no direct price/inventory/employee maintenance.';
-PRINT 'shop_manager: maintenance on the six named business tables and read access to views.';
+GRANT SELECT ON dbo.vw_MemberConsumption TO shop_manager;
 
--- 店员：允许查询商品与视图。
-EXECUTE AS USER = 'course_clerk_demo';
-SELECT USER_NAME() AS effective_user, COUNT(*) AS visible_products FROM dbo.Product;
-SELECT USER_NAME() AS effective_user, COUNT(*) AS visible_sales_rows FROM dbo.vw_ProductSales;
+-- 会员/顾客不直接连接数据库；会员汇总只授权给店长。
+CREATE TABLE #RoleResults (TestCase nvarchar(60), EffectiveUser sysname, Outcome varchar(12), RowsAffected int, ErrorNumber int);
+DECLARE @rows int, @rows2 int, @error int, @message nvarchar(400), @effective_user sysname;
 
--- 店员：可以新增订单头和订单明细；回滚以免改变固定样例。
+EXECUTE AS USER='course_clerk_demo';
+SELECT @effective_user=USER_NAME(), @rows=COUNT(*) FROM dbo.Product;
+SELECT @rows2=COUNT(*) FROM dbo.vw_ProductSales;
+REVERT;
+IF @rows<>6 OR @rows2<>6 THROW 51070, 'Clerk catalog/view access failed.', 1;
+INSERT #RoleResults VALUES (N'clerk reads catalog and sales',@effective_user,'ALLOWED',@rows,0);
+
 BEGIN TRANSACTION;
-INSERT INTO dbo.ShopOrder (OrderNo, EmployeeCode, MemberCode, Status)
-VALUES ('MT-ROLE-ROLLBACK', 'E001', NULL, 'COMPLETED');
-SELECT N'ALLOWED: clerk order insert' AS test_case, @@ROWCOUNT AS inserted_order_rows;
-INSERT INTO dbo.OrderLine (OrderNo, LineNumber, ProductCode, Quantity, UnitPrice)
-VALUES ('MT-ROLE-ROLLBACK', 1, 'D001', 1, 6.00);
-SELECT N'ALLOWED: clerk order line insert' AS test_case, @@ROWCOUNT AS inserted_order_line_rows;
-ROLLBACK TRANSACTION;
+EXECUTE AS USER='course_clerk_demo';
+INSERT dbo.ShopOrder (OrderNo,EmployeeCode,MemberCode) VALUES ('MT-ROLE-ROLLBACK','E001',NULL);
+SET @rows=@@ROWCOUNT;
+INSERT dbo.OrderLine VALUES ('MT-ROLE-ROLLBACK',1,'D001',1,6.00);
+SET @rows2=@@ROWCOUNT;
+REVERT;
+ROLLBACK;
+IF @rows<>1 OR @rows2<>1 THROW 51071, 'Clerk order/line insert failed.', 1;
+INSERT #RoleResults VALUES (N'clerk inserts order','course_clerk_demo','ALLOWED',@rows,0);
+INSERT #RoleResults VALUES (N'clerk inserts order line','course_clerk_demo','ALLOWED',@rows2,0);
 
--- 店员：不能改商品定价。
+SET @error=0; SET @message=NULL;
+BEGIN TRANSACTION;
+EXECUTE AS USER='course_clerk_demo';
 BEGIN TRY
-    UPDATE dbo.Product SET UnitPrice = UnitPrice WHERE ProductCode = 'D001';
-    PRINT 'UNEXPECTED SUCCESS: clerk changed product';
+    UPDATE dbo.Product SET UnitPrice=UnitPrice WHERE ProductCode='D001';
 END TRY
 BEGIN CATCH
-    SELECT N'REJECTED: clerk product update' AS test_case, ERROR_NUMBER() AS error_number, CAST(LEFT(ERROR_MESSAGE(), 300) AS nvarchar(300)) AS error_message;
-END CATCH;
-
--- 店员：不能读取员工表。
-BEGIN TRY
-    SELECT COUNT(*) AS employee_count FROM dbo.Employee;
-    PRINT 'UNEXPECTED SUCCESS: clerk read employee table';
-END TRY
-BEGIN CATCH
-    SELECT N'REJECTED: clerk employee read' AS test_case, ERROR_NUMBER() AS error_number, CAST(LEFT(ERROR_MESSAGE(), 300) AS nvarchar(300)) AS error_message;
-END CATCH;
-
--- 店员：不能删除商品目录数据。
-BEGIN TRY
-    DELETE dbo.Product WHERE ProductCode = 'D003';
-    PRINT 'UNEXPECTED SUCCESS: clerk deleted product';
-END TRY
-BEGIN CATCH
-    SELECT N'REJECTED: clerk product delete' AS test_case, ERROR_NUMBER() AS error_number, CAST(LEFT(ERROR_MESSAGE(), 300) AS nvarchar(300)) AS error_message;
+    SELECT @error=ERROR_NUMBER(), @message=ERROR_MESSAGE();
 END CATCH;
 REVERT;
+IF XACT_STATE()<>0 ROLLBACK;
+IF @error<>229 THROW 51072, 'Expected permission error 229: clerk changes menu price.', 1;
+INSERT #RoleResults VALUES (N'clerk changes menu price','course_clerk_demo','REJECTED',0,@error);
 
--- 店长：同一商品维护操作允许执行，但写入相同值，不改变数据。
-EXECUTE AS USER = 'course_manager_demo';
-UPDATE dbo.Product SET UnitPrice = UnitPrice WHERE ProductCode = 'D001';
-SELECT USER_NAME() AS effective_user, @@ROWCOUNT AS manager_update_rows;
+SET @error=0; SET @message=NULL;
+BEGIN TRANSACTION;
+EXECUTE AS USER='course_clerk_demo';
+BEGIN TRY
+    DELETE dbo.Product WHERE ProductCode='D003';
+END TRY
+BEGIN CATCH
+    SELECT @error=ERROR_NUMBER(), @message=ERROR_MESSAGE();
+END CATCH;
 REVERT;
+IF XACT_STATE()<>0 ROLLBACK;
+IF @error<>229 THROW 51072, 'Expected permission error 229: clerk deletes product.', 1;
+INSERT #RoleResults VALUES (N'clerk deletes product','course_clerk_demo','REJECTED',0,@error);
+
+SET @error=0; SET @message=NULL;
+BEGIN TRANSACTION;
+EXECUTE AS USER='course_clerk_demo';
+BEGIN TRY
+    UPDATE dbo.Inventory SET Quantity=Quantity WHERE ProductCode='D001';
+END TRY
+BEGIN CATCH
+    SELECT @error=ERROR_NUMBER(), @message=ERROR_MESSAGE();
+END CATCH;
+REVERT;
+IF XACT_STATE()<>0 ROLLBACK;
+IF @error<>229 THROW 51072, 'Expected permission error 229: clerk changes inventory.', 1;
+INSERT #RoleResults VALUES (N'clerk changes inventory','course_clerk_demo','REJECTED',0,@error);
+
+SET @error=0; SET @message=NULL;
+BEGIN TRANSACTION;
+EXECUTE AS USER='course_clerk_demo';
+BEGIN TRY
+    SELECT @rows=COUNT(*) FROM dbo.Employee;
+END TRY
+BEGIN CATCH
+    SELECT @error=ERROR_NUMBER(), @message=ERROR_MESSAGE();
+END CATCH;
+REVERT;
+IF XACT_STATE()<>0 ROLLBACK;
+IF @error<>229 THROW 51072, 'Expected permission error 229: clerk reads employee table.', 1;
+INSERT #RoleResults VALUES (N'clerk reads employee table','course_clerk_demo','REJECTED',0,@error);
+
+SET @error=0; SET @message=NULL;
+BEGIN TRANSACTION;
+EXECUTE AS USER='course_clerk_demo';
+BEGIN TRY
+    SELECT @rows=COUNT(*) FROM dbo.Member;
+END TRY
+BEGIN CATCH
+    SELECT @error=ERROR_NUMBER(), @message=ERROR_MESSAGE();
+END CATCH;
+REVERT;
+IF XACT_STATE()<>0 ROLLBACK;
+IF @error<>229 THROW 51072, 'Expected permission error 229: clerk reads member contacts.', 1;
+INSERT #RoleResults VALUES (N'clerk reads member contacts','course_clerk_demo','REJECTED',0,@error);
+
+SET @error=0; SET @message=NULL;
+BEGIN TRANSACTION;
+EXECUTE AS USER='course_clerk_demo';
+BEGIN TRY
+    SELECT @rows=COUNT(*) FROM dbo.vw_MemberConsumption;
+END TRY
+BEGIN CATCH
+    SELECT @error=ERROR_NUMBER(), @message=ERROR_MESSAGE();
+END CATCH;
+REVERT;
+IF XACT_STATE()<>0 ROLLBACK;
+IF @error<>229 THROW 51072, 'Expected permission error 229: clerk reads manager member report.', 1;
+INSERT #RoleResults VALUES (N'clerk reads manager member report','course_clerk_demo','REJECTED',0,@error);
+
+BEGIN TRANSACTION;
+EXECUTE AS USER='course_manager_demo';
+UPDATE dbo.Product SET RestockThreshold=RestockThreshold WHERE ProductCode='D001';
+SET @rows=@@ROWCOUNT;
+UPDATE dbo.Inventory SET Quantity=Quantity WHERE ProductCode='D001';
+SET @rows2=@@ROWCOUNT;
+SELECT @effective_user=USER_NAME(), @error=COUNT(*) FROM dbo.vw_MemberConsumption;
+REVERT;
+ROLLBACK;
+IF @rows<>1 OR @rows2<>1 OR @error<>4 THROW 51073, 'Manager maintenance/report access failed.', 1;
+INSERT #RoleResults VALUES (N'manager maintains preparation threshold',@effective_user,'ALLOWED',@rows,0);
+INSERT #RoleResults VALUES (N'manager maintains inventory snapshot',@effective_user,'ALLOWED',@rows2,0);
+INSERT #RoleResults VALUES (N'manager reads member report',@effective_user,'ALLOWED',@error,0);
+IF EXISTS (SELECT 1 FROM dbo.ShopOrder WHERE OrderNo='MT-ROLE-ROLLBACK')
+    THROW 51074, 'Role tests left a temporary order.', 1;
+SELECT * FROM #RoleResults;
+SELECT N'PASS' AS role_verification, COUNT(*) AS cases_checked FROM #RoleResults;
 GO

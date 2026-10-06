@@ -1,0 +1,6 @@
+Runner refused existing database; verification manifest unchanged: PASS
+MilkTeaShopV01 already exists. Preserve/rename it before a fresh replay; no evidence was overwritten.
+SQLCMD creation guard exit code: 1 (expected 1)
+已将数据库上下文更改为 "master"。
+消息 51000，级别 16，状态 1，服务器 [LOCAL-INSTANCE]，第 4 行
+MilkTeaShopV01 already exists; inspect the target before resetting it.

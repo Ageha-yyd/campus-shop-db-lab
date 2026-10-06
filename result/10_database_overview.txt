@@ -1,0 +1,11 @@
+database_name dbo_table_count
+------------- ---------------
+MilkTeaShopV01 6
+table_name
+----------
+Employee
+Inventory
+Member
+OrderLine
+Product
+ShopOrder

@@ -1,0 +1,44 @@
+[
+  {
+    "material": "陆乐天奶茶店版本",
+    "file": "sql/02_seed.sql",
+    "sha256": "96312cb66600adbb06f064eb91489a169f073972a9d35f4833449e68e84fae8e",
+    "reviewedOn": "2026-10-06"
+  },
+  {
+    "material": "陆乐天奶茶店版本",
+    "file": "sql/08_acceptance.sql",
+    "sha256": "8fd4577019da4e51c41eb2143d666f2f71cd7f7708ababed9e47184d30c3eb3d",
+    "reviewedOn": "2026-10-06"
+  },
+  {
+    "material": "陆乐天奶茶店版本",
+    "file": "docs/execution-notes.md",
+    "sha256": "d6e38a62050787100dc05dde9c001a5c31a853f74047999da982ff294be949f5",
+    "reviewedOn": "2026-10-06"
+  },
+  {
+    "material": "罗金浩CampusStore版本",
+    "file": "sql/create.sql",
+    "sha256": "c2a8505e415a8e16bd630434d1706c001c2ef2febf145cb9aecce85d5c2fde63",
+    "reviewedOn": "2026-10-06"
+  },
+  {
+    "material": "罗金浩CampusStore版本",
+    "file": "sql/query.sql",
+    "sha256": "8508c466baf2f0a8fd49e201e7fba9b0018d562f3f93354c2429f18316606e96",
+    "reviewedOn": "2026-10-06"
+  },
+  {
+    "material": "罗金浩CampusStore版本",
+    "file": "sql/view.sql",
+    "sha256": "923baf752199bfd374b18440b59a1952e4e6d39676bc7689f025c867eefb0ace",
+    "reviewedOn": "2026-10-06"
+  },
+  {
+    "material": "罗金浩CampusStore版本",
+    "file": "阶段报告.md",
+    "sha256": "486dd4945aa7b3160c39b422ed5234c97efc25892e6e5c33f7dec4dbd542bfab",
+    "reviewedOn": "2026-10-06"
+  }
+]

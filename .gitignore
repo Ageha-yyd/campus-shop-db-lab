@@ -1,0 +1,5 @@
+*.bak
+*.mdf
+*.ldf
+*.tmp
+__pycache__/

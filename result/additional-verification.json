@@ -1,0 +1,55 @@
+[
+  {
+    "name": "existing database refusal",
+    "status": "PASS",
+    "verifiedOn": "2026-10-06",
+    "artifacts": [
+      {
+        "path": "scripts/run-lab.ps1",
+        "sha256": "662D26C2818F05A945D83D8DCCD7D8F672729EE95E1055EB96DDDD08E33D6FBF"
+      },
+      {
+        "path": "sql/00_create_database.sql",
+        "sha256": "8DF231497ED4A79C3CB1EF208A9CEB41B12CE0778AC48CD635714E22638F779A"
+      },
+      {
+        "path": "result/11_existing_database_guard.txt",
+        "sha256": "66464712C858F464C3B5B9862F424A2AB8BCD2AC2FAC13CF4C7478CF62A15E16"
+      }
+    ]
+  },
+  {
+    "name": "reporting query results",
+    "status": "PASS",
+    "verifiedOn": "2026-10-06",
+    "artifacts": [
+      {
+        "path": "sql/11_reporting_evidence.sql",
+        "sha256": "89C325BD94F98299B432084AEDB50BFED0D546888620A6A8D8E9EEC62666F5C7"
+      },
+      {
+        "path": "result/12_reporting_evidence.txt",
+        "sha256": "3365F49AD88B0745F2B88B8F265EECCC4B1B399ADFC79EBE45900DF5E829EDF1"
+      }
+    ]
+  },
+  {
+    "name": "actual menu updater preserves historical price",
+    "status": "PASS",
+    "verifiedOn": "2026-10-06",
+    "artifacts": [
+      {
+        "path": "sql/12_menu_snapshot_test.sql",
+        "sha256": "E7BCCC878F3B43130AC9D9DEB53D4CBCA06B62333847DE60046260F9D3896C80"
+      },
+      {
+        "path": "sql/09_update_public_menu.sql",
+        "sha256": "E83D0FBC2558964EBA927C224BE45E65DF3B5C205DC489F8B4E02BED1329504B"
+      },
+      {
+        "path": "result/13_menu_snapshot_test.txt",
+        "sha256": "F20C875213919AD100C3D7CFE4CC01E6482DEA7892E9472028EA54BB1568E2C3"
+      }
+    ]
+  }
+]

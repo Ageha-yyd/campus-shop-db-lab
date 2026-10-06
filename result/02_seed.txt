@@ -1,8 +1,8 @@
 table_name row_count
----------- -----------
-Employee             2
-Inventory            3
-Member               2
-OrderLine            4
-Product              3
-ShopOrder            3
+---------- ---------
+Employee 3
+Inventory 6
+Member 4
+OrderLine 11
+Product 6
+ShopOrder 7

@@ -12,9 +12,11 @@ CREATE TABLE dbo.Product (
     ProductName nvarchar(80) NOT NULL,
     Category nvarchar(30) NOT NULL,
     UnitPrice decimal(10,2) NOT NULL,
+    RestockThreshold int NOT NULL CONSTRAINT DF_Product_RestockThreshold DEFAULT (10),
     IsActive bit NOT NULL CONSTRAINT DF_Product_IsActive DEFAULT (1),
     CONSTRAINT PK_Product PRIMARY KEY (ProductCode),
-    CONSTRAINT CK_Product_UnitPrice_Positive CHECK (UnitPrice > 0)
+    CONSTRAINT CK_Product_UnitPrice_Positive CHECK (UnitPrice > 0),
+    CONSTRAINT CK_Product_RestockThreshold_Positive CHECK (RestockThreshold > 0)
 );
 
 CREATE TABLE dbo.Inventory (

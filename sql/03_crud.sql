@@ -9,18 +9,22 @@ SET CONCAT_NULL_YIELDS_NULL ON;
 SET NUMERIC_ROUNDABORT OFF;
 
 -- 可重复的 CRUD 演示：所有改动都在最后回滚，保持样例基线不变。
+DECLARE @before_products int = (SELECT COUNT(*) FROM dbo.Product);
+DECLARE @before_inventory int = (SELECT COUNT(*) FROM dbo.Inventory);
+DECLARE @before_orders int = (SELECT COUNT(*) FROM dbo.ShopOrder);
+DECLARE @before_lines int = (SELECT COUNT(*) FROM dbo.OrderLine);
 BEGIN TRANSACTION;
 
 -- Product CREATE + READ: 新增实验商品并查看初始值。
 INSERT INTO dbo.Product (ProductCode, ProductName, Category, UnitPrice)
 VALUES ('D999', N'实验用试饮奶茶', N'实验', 2.00);
-SELECT ProductCode, ProductName, UnitPrice FROM dbo.Product WHERE ProductCode = 'D999';
+SELECT ProductCode, ProductName, UnitPrice, RestockThreshold FROM dbo.Product WHERE ProductCode = 'D999';
 
 -- Product UPDATE + READ: 调整菜单名称与标价，再查询确认。
 UPDATE dbo.Product
-SET ProductName = N'实验用经典奶茶', UnitPrice = 2.50
+SET ProductName = N'实验用经典奶茶', UnitPrice = 2.50, RestockThreshold = 6
 WHERE ProductCode = 'D999';
-SELECT ProductCode, ProductName, UnitPrice FROM dbo.Product WHERE ProductCode = 'D999';
+SELECT ProductCode, ProductName, UnitPrice, RestockThreshold FROM dbo.Product WHERE ProductCode = 'D999';
 
 -- Inventory CREATE + READ: 为商品创建可售杯数快照并查看。
 INSERT INTO dbo.Inventory (ProductCode, Quantity) VALUES ('D999', 0);
@@ -77,6 +81,13 @@ SELECT COUNT(*) AS temporary_product_rows_after_delete
 FROM dbo.Product WHERE ProductCode = 'D999';
 
 ROLLBACK TRANSACTION;
+IF (SELECT COUNT(*) FROM dbo.Product) <> @before_products
+   OR (SELECT COUNT(*) FROM dbo.Inventory) <> @before_inventory
+   OR (SELECT COUNT(*) FROM dbo.ShopOrder) <> @before_orders
+   OR (SELECT COUNT(*) FROM dbo.OrderLine) <> @before_lines
+   OR EXISTS (SELECT 1 FROM dbo.Product WHERE ProductCode = 'D999')
+   OR EXISTS (SELECT 1 FROM dbo.ShopOrder WHERE OrderNo = 'MT-CRUD-ROLLBACK')
+    THROW 51003, 'CRUD did not restore the baseline.', 1;
 SELECT COUNT(*) AS temporary_product_rows_after_rollback
 FROM dbo.Product WHERE ProductCode = 'D999';
 SELECT COUNT(*) AS baseline_product_rows FROM dbo.Product;

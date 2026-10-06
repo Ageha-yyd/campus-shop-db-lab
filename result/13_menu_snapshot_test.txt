@@ -1,0 +1,20 @@
+stage current_menu_price historical_price
+----- ------------------ ----------------
+BEFORE_MENU_REFRESH 9.90 5.00
+ProductCode ProductName UnitPrice RestockThreshold
+----------- ----------- --------- ----------------
+D001 珍珠奶茶 6.00 10
+D002 满杯百香果 7.00 12
+D003 冰鲜柠檬水 4.00 8
+D004 椰果奶茶 7.00 6
+D005 柠檬红茶 5.00 4
+D006 茉莉绿茶 4.00 5
+note
+----
+historical sale-price snapshots preserved
+historical_price_preservation current_menu_price historical_price
+----------------------------- ------------------ ----------------
+PASS 6.00 5.00
+snapshot_test_cleanup baseline_completed_revenue
+--------------------- --------------------------
+PASS 86.00
