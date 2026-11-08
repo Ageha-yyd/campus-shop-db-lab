@@ -41,6 +41,14 @@ def draw(version):
         '<style>text{font-family:Arial,"Microsoft YaHei",sans-serif;fill:#20382c;font-size:23px}.title{font-size:30px;font-weight:bold}.heading{font-size:27px;font-weight:bold}.card{fill:#fff;stroke:#829984;stroke-width:2}.label{font-size:22px;font-weight:bold;paint-order:stroke;stroke:white;stroke-width:8px;stroke-linejoin:round}</style>',
         '<rect width="1680" height="1400" fill="white"/>',f'<text x="35" y="48" class="title">校园奶茶店 {version.replace("v01","v0.1").replace("v10","v1.0")} 实体联系图</text>',
         '<text x="35" y="90">PK 主码   AK 候选码   FK 外码   ? 可空   min..max 为该端可关联记录数   * 见业务规则</text>']
+    names={
+      ('Employee','AppUser'):('员工账号',490,335),('Member','AppUser'):('会员账号',1080,335),
+      ('AppUser','ShopOrder'):('创建',853,600),
+      ('Employee','ShopOrder'):('经办',485,355) if version=='v01' else ('经办',390,550),
+      ('Member','ShopOrder'):('归属会员',1080,355) if version=='v01' else ('归属会员',1110,550),
+      ('ShopOrder','OrderLine'):('包含',858,675) if version=='v01' else ('包含',1134,1020),
+      ('Product','OrderLine'):('对应饮品',480,1015) if version=='v01' else ('对应饮品',800,1284),
+      ('Product','Inventory'):('库存快照',760,1260) if version=='v01' else ('库存',120,1006)}
     for a,b,mina,minb,points,label in links:
         out.append('<polyline points="'+' '.join(f'{x},{y}' for x,y in points)+'" fill="none" stroke="#627d64" stroke-width="3"/>')
         # Label cardinalities at each actual endpoint; optional participation via zero.
@@ -48,13 +56,15 @@ def draw(version):
             x,y=point;dx,dy=adjacent[0]-x,adjacent[1]-y
             tx=x+(13 if dx>=0 else -65);ty=y+(33 if dy>0 else -14)
             out.append(f'<text x="{tx}" y="{ty}" class="label">{txt}</text>')
+        name,nx,ny=names[(a,b)]
+        out.append(f'<text x="{nx}" y="{ny}" style="font-size:20px">{name}</text>')
     for name,(x,y) in nodes.items():
         ff=fields[name];height=230 if version=='v10' and name=='Inventory' else 310
         out+=[f'<g id="{name}"><rect x="{x}" y="{y}" width="420" height="{height}" rx="10" class="card"/>',f'<rect x="{x+1}" y="{y+1}" width="418" height="50" rx="8" fill="#e6eddf"/>',f'<text x="{x+17}" y="{y+34}" class="heading">{name}</text>']
         for i,f in enumerate(ff):out.append(f'<text x="{x+16}" y="{y+85+i*36}">{escape(f)}</text>')
         out.append('</g>')
-    notes=['* Order 至少一条明细由事务过程保证，外码本身仅保证引用存在。']
-    if version=='v10':notes=['* 完成单必须有员工；草稿可无员工。历史单可无创建账号。','* 账号的员工/会员非空时唯一；按角色二选一，顾客可为散客。']
+    notes=['* 订单至少一行是业务要求；v0.1外码不能保证，v1.0由事务过程实现。']
+    if version=='v10':notes=['* 完成单必须有员工；草稿可无员工。订单至少一行由事务过程保证。','* 历史单创建账号可空；账号的员工或会员非空时唯一，按角色选择。']
     for i,n in enumerate(notes):out.append(f'<text x="35" y="{1350+i*32}">{n}</text>')
     out.append('</svg>')
     path=ROOT/'docs'/('er-'+version+'.svg');path.write_text('\n'.join(out),encoding='utf-8');return path

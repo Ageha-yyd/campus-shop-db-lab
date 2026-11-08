@@ -6,27 +6,35 @@
 <polyline points="455,285 625,285" fill="none" stroke="#627d64" stroke-width="3"/>
 <text x="468" y="271" class="label">0..1</text>
 <text x="560" y="271" class="label">0..1</text>
+<text x="490" y="335" style="font-size:20px">员工账号</text>
 <polyline points="1215,285 1045,285" fill="none" stroke="#627d64" stroke-width="3"/>
 <text x="1150" y="271" class="label">0..1</text>
 <text x="1058" y="271" class="label">0..1</text>
+<text x="1080" y="335" style="font-size:20px">会员账号</text>
 <polyline points="835,440 835,650" fill="none" stroke="#627d64" stroke-width="3"/>
 <text x="848" y="473" class="label">0..1</text>
 <text x="848" y="636" class="label">0..N</text>
+<text x="853" y="600" style="font-size:20px">创建</text>
 <polyline points="245,440 245,510 720,510 720,650" fill="none" stroke="#627d64" stroke-width="3"/>
 <text x="258" y="473" class="label">0..1*</text>
 <text x="733" y="636" class="label">0..N</text>
+<text x="390" y="550" style="font-size:20px">经办</text>
 <polyline points="1425,440 1425,510 950,510 950,650" fill="none" stroke="#627d64" stroke-width="3"/>
 <text x="1438" y="473" class="label">0..1</text>
 <text x="963" y="636" class="label">0..N</text>
+<text x="1110" y="550" style="font-size:20px">归属会员</text>
 <polyline points="245,960 245,1040" fill="none" stroke="#627d64" stroke-width="3"/>
 <text x="258" y="993" class="label">1</text>
 <text x="258" y="1026" class="label">0..1</text>
+<text x="120" y="1006" style="font-size:20px">库存</text>
 <polyline points="455,820 535,820 535,1305 1425,1305 1425,1260" fill="none" stroke="#627d64" stroke-width="3"/>
 <text x="468" y="806" class="label">1</text>
 <text x="1438" y="1293" class="label">0..N</text>
+<text x="800" y="1284" style="font-size:20px">对应饮品</text>
 <polyline points="1045,855 1120,855 1120,1090 1215,1090" fill="none" stroke="#627d64" stroke-width="3"/>
 <text x="1058" y="841" class="label">1</text>
 <text x="1150" y="1076" class="label">1..N*</text>
+<text x="1134" y="1020" style="font-size:20px">包含</text>
 <g id="Employee"><rect x="35" y="130" width="420" height="310" rx="10" class="card"/>
 <rect x="36" y="131" width="418" height="50" rx="8" fill="#e6eddf"/>
 <text x="52" y="164" class="heading">Employee</text>
@@ -89,6 +97,6 @@
 <text x="1231" y="1143">Quantity</text>
 <text x="1231" y="1179">UnitPrice (historical)</text>
 </g>
-<text x="35" y="1350">* 完成单必须有员工；草稿可无员工。历史单可无创建账号。</text>
-<text x="35" y="1382">* 账号的员工/会员非空时唯一；按角色二选一，顾客可为散客。</text>
+<text x="35" y="1350">* 完成单必须有员工；草稿可无员工。订单至少一行由事务过程保证。</text>
+<text x="35" y="1382">* 历史单创建账号可空；账号的员工或会员非空时唯一，按角色选择。</text>
 </svg>

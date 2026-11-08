@@ -17,7 +17,7 @@ BEGIN
  IF @Role IS NULL OR ((USER_NAME()='mt_customer' OR IS_ROLEMEMBER('web_customer')=1) AND @Role<>'customer')
   THROW 51103,'Actor not allowed.',1;
  SELECT o.OrderNo,o.OrderedAt,o.Status,o.MemberCode,o.EmployeeCode,o.CreatedByUserId,
-  CONVERT(decimal(12,2),COALESCE(SUM(l.Quantity*l.UnitPrice),0)) AS Total
+  CONVERT(decimal(18,2),COALESCE(SUM(l.Quantity*l.UnitPrice),0)) AS Total
  FROM dbo.ShopOrder o LEFT JOIN dbo.OrderLine l ON o.OrderNo=l.OrderNo
  WHERE (@OrderNo IS NULL OR o.OrderNo=@OrderNo) AND (@Role<>'customer' OR o.CreatedByUserId=@ActorId)
  GROUP BY o.OrderNo,o.OrderedAt,o.Status,o.MemberCode,o.EmployeeCode,o.CreatedByUserId
@@ -107,7 +107,26 @@ BEGIN
   IF @Status='CANCELLED' THROW 51106,'Already cancelled.',1;
   IF @Status='COMPLETED' AND (@Role='customer' OR @Applied=0) THROW 51103,'Cancellation not allowed.',1;
   IF @Applied=1
-   UPDATE i SET Quantity=i.Quantity+s.Qty,UpdatedAt=SYSUTCDATETIME() FROM dbo.Inventory i JOIN (SELECT ProductCode,SUM(Quantity) Qty FROM dbo.OrderLine WHERE OrderNo=@OrderNo GROUP BY ProductCode) s ON s.ProductCode=i.ProductCode;
+  BEGIN
+   -- Inventory is optional: an administrator may delete a sold-out zero row.
+   -- A cancellation must recreate that row, rather than silently losing the return.
+   DECLARE @ReturnProduct varchar(12),@ReturnQty int,@ExistingStock int;
+   DECLARE returns CURSOR LOCAL FAST_FORWARD FOR
+    SELECT ProductCode,SUM(Quantity) FROM dbo.OrderLine WHERE OrderNo=@OrderNo GROUP BY ProductCode ORDER BY ProductCode;
+   OPEN returns; FETCH NEXT FROM returns INTO @ReturnProduct,@ReturnQty;
+   WHILE @@FETCH_STATUS=0
+   BEGIN
+    SELECT @ReturnProduct=ProductCode FROM dbo.Product WITH(UPDLOCK,HOLDLOCK) WHERE ProductCode=@ReturnProduct;
+    SET @ExistingStock=NULL;
+    SELECT @ExistingStock=Quantity FROM dbo.Inventory WITH(UPDLOCK,HOLDLOCK) WHERE ProductCode=@ReturnProduct;
+    IF @ExistingStock IS NULL
+     INSERT dbo.Inventory(ProductCode,Quantity) VALUES(@ReturnProduct,@ReturnQty);
+    ELSE
+     UPDATE dbo.Inventory SET Quantity=Quantity+@ReturnQty,UpdatedAt=SYSUTCDATETIME() WHERE ProductCode=@ReturnProduct;
+    FETCH NEXT FROM returns INTO @ReturnProduct,@ReturnQty;
+   END;
+   CLOSE returns; DEALLOCATE returns;
+  END;
   UPDATE dbo.ShopOrder SET Status='CANCELLED',StockApplied=0 WHERE OrderNo=@OrderNo;
  END
  ELSE THROW 51101,'Unknown action.',1;

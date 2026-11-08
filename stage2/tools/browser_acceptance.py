@@ -99,6 +99,9 @@ def main():
         sf.locator('[name=product_code]').fill('UI_TEST');sf.locator('[name=quantity]').fill('8')
         sf.get_by_role('button',name='保存库存').click();notice(admin,'库存已保存');shot(admin,'09_admin_inventory.png')
         sf.locator('[name=quantity]').fill('0');sf.get_by_role('button',name='保存库存').click();notice(admin,'库存已保存')
+        # The previous save has the same toast. Wait for the new row value so a
+        # fast test does not race DELETE against the still-pending PUT request.
+        expect(admin.locator('#inventory-table tbody tr').filter(has_text='UI_TEST').locator('td').nth(2)).to_have_text('0')
         admin.on('dialog',lambda d:d.accept())
         admin.locator('#inventory-table tbody tr').filter(has_text='UI_TEST').get_by_role('button',name='删除记录').click();notice(admin,'库存记录已删除')
         sf.get_by_role('button',name='保存库存').click();notice(admin,'库存已保存');passed('admin inventory update delete and recreate')

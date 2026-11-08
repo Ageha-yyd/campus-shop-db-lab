@@ -53,12 +53,17 @@ def create_app(config=None):
     @app.before_request
     def before():
         g.request_id, g.started, g.user, g.code = uuid4().hex, time.monotonic(), None, 'OK'
+        # Keep the last authenticated role for diagnostics if revalidation cannot connect.
+        # Authorization always uses g.user freshly loaded from SQL Server, never this hint.
+        g.log_role = session.get('role', 'anonymous')
         if request.path.startswith('/api/'):
             if session.get('username'):
                 g.user = dao.user(session['username'])
+                if g.user:
+                    g.log_role = g.user['Role']
             if request.method not in {'GET','HEAD','OPTIONS'}:
                 token = request.headers.get('X-CSRF-Token','')
-                if not session.get('csrf') or not secrets.compare_digest(token, session['csrf']):
+                if not session.get('csrf') or not secrets.compare_digest(token.encode('utf-8'), session['csrf'].encode('utf-8')):
                     raise AppError('CSRF_INVALID', '页面已过期 请刷新后重试', 403)
             if request.path not in {'/api/session','/api/login'}:
                 service.allow(g.user, 'admin','clerk','customer')
@@ -72,7 +77,7 @@ def create_app(config=None):
         response.headers['Content-Security-Policy'] = "default-src 'self'; style-src 'self'; script-src 'self'; frame-ancestors 'none'"
         logger.info(json.dumps({'time':datetime.now(timezone.utc).isoformat(), 'request_id':g.request_id,
             'operation':request.method+' '+request.url_rule.rule if request.url_rule else request.method+' unknown',
-            'role':g.user['Role'] if g.user else 'anonymous','code':g.code,
+            'role':g.log_role,'code':g.code,
             'result':'success' if response.status_code<400 else 'failure','http_status':response.status_code,
             'duration_ms':round((time.monotonic()-g.started)*1000)},ensure_ascii=False))
         return response
@@ -102,7 +107,7 @@ def create_app(config=None):
         # Detailed exceptions are server-only. Never log request bodies/passwords.
         logger.error(json.dumps({'time':datetime.now(timezone.utc).isoformat(),'request_id':g.request_id,
             'operation':request.method+' '+(request.url_rule.rule if request.url_rule else 'unknown'),
-            'role':g.user['Role'] if g.user else 'anonymous','code':code,'result':'failure',
+            'role':g.log_role,'code':code,'result':'failure',
             'exception_type':type(exc).__name__,'detail':str(exc)},ensure_ascii=False))
         g.code = code
         return jsonify(ok=False,code=code,message=message,data=None,request_id=g.request_id),status
@@ -121,8 +126,9 @@ def create_app(config=None):
     def login():
         user = service.login(body())
         session.clear()
-        session.update(username=user['Username'],csrf=secrets.token_urlsafe(32),permanent=True)
+        session.update(username=user['Username'],role=user['Role'],csrf=secrets.token_urlsafe(32),permanent=True)
         g.user = user
+        g.log_role = user['Role']
         return ok({'user':{'Username':user['Username'],'Role':user['Role']},'csrf':session['csrf']})
 
     @app.post('/api/logout')
