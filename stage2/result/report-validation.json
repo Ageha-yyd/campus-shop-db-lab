@@ -15,9 +15,11 @@
   "all_fonts_embedded": true,
   "image_count": 9,
   "images_match_checked_sources": true,
-  "visual_review": "All 18 pages inspected; corrected title border and error screenshot crop; changed pages re-rendered and rechecked",
-  "renderer": "packaged render_docx.py with native Microsoft Word PDF backend and bundled Poppler",
-  "docx_sha256": "a8dc400807a47fb869433d5c20899dc02f3ea5990ac69012328ff110439086a3",
-  "pdf_sha256": "3102e4a53e81fc0d541e3a75e530d3025578cc4a80167bc7104e3bf6e94d8857",
+  "visual_review": "All 18 revised pages inspected at full resolution; ER relationship names, role matrix and course-audit conclusions verified",
+  "renderer": "packaged render_docx.py with native Word PDF and bundled Poppler",
+  "docx_file": "阶段报告_课程复核版.docx",
+  "pdf_file": "阶段报告_课程复核版.pdf",
+  "docx_sha256": "aab223cb39896f4fd5fd4d6f5db0c0dbf065c4086cf5760c0dd9feea580872de",
+  "pdf_sha256": "fbda9fba4e55045747a71d21d23fab27fdc2929c49e879e485fa52eb491bde9a",
   "package_replay_in_report": true
 }

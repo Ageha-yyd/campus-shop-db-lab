@@ -2,7 +2,7 @@
 
 第二阶段覆盖第五周ER模型、第六周规范化与数据迁移、第七至九周Web应用。小组成员：袁远冬、陆乐天、罗金浩。第一阶段根目录材料和原库保持保留；本阶段成果全部位于 stage2。
 
-先阅读 [阶段报告.docx](阶段报告.docx)，详细操作见 [操作手册](docs/user-manual.md)。
+先阅读最新 [课程复核版报告 Word](阶段报告_课程复核版.docx) 或 [PDF](阶段报告_课程复核版.pdf)，详细操作见 [操作手册](docs/user-manual.md)。
 
 ## 环境与空环境复现
 
@@ -59,6 +59,16 @@ stage2/
 
 ER图可编辑源文件为 docs/er-v01.svg、er-v10.svg，PNG为清晰导出图。SVG是矢量源图，可用Inkscape或矢量编辑器修改实体框、连线与文本；图采用统一的PK/AK/FK和min..max关系标注。完整分析见 [设计说明](docs/design.md)，[字段字典](docs/data-dictionary.md)，[迁移说明](docs/migration-guide.md)，[逐周要求对照](docs/requirements-mapping.md)。
 
+## 设计概要
+
+![目标ER模型](docs/er-v10.png)
+
+原有六张表保留，新增AppUser账号与订单来源状态。ProductCode、MemberCode、EmployeeCode、OrderNo分别标识商品、会员、员工、订单；OrderLine以(OrderNo,LineNumber)联合标识，允许同一饮品多行；Username也是账号候选码。图上联系均标明名称、最小/最大基数与条件参与。
+
+六张原表在已声明的业务函数依赖下符合BCNF：单表非平凡依赖的决定因素均为超码，明细的商品、数量和成交价依赖完整联合码，不复制其他实体的名称。类别仅有原子名称，实际库不做没有依据的拆表；独立演示关系展示类别编号决定类别名称产生的三类更新异常及无损、依赖保持分解。当前菜单价与历史成交价表达不同事实，应分别保留。完整逐表证明见design.md。
+
+功能输入、处理、输出及两条分层调用路径见 [接口与分层说明](docs/api-and-layering.md)。结果目录的 [证据入口](result/README.md) 集中列出ER、规范化、迁移、权限和Web流程证据；[课程复核结论](docs/course-review.md) 记录第二次独立核查发现的问题、修订和范围限制。
+
 ## 重新验收
 
 ```powershell
@@ -71,6 +81,6 @@ sqlcmd -S '.\SQLEXPRESS' -d MilkTeaShopV10_Your_Test -E -C -b -f 65001 -i stage2
 
 浏览器验收使用本机已安装Edge，自动启动5001端口测试服务；无需安装Playwright浏览器。自动化测试只对private/test.env指定的独立测试库执行清理，会移除WEB测试订单并恢复测试数据；不要将日常业务库命名为_Test。每次浏览器验收前先运行pytest恢复基线。最后再运行pytest可清理浏览器写入的测试流水。
 
-本次结果以 result/pytest.xml、browser-acceptance.json 和 regression.txt 为准。SQL回归13项；API/数据库集成38例；真实浏览器18项流程，含真实连接失败、12张截图。40001事务错误分类测试明确采用故障注入；SQL库存回滚和并发检查使用真实数据库。复现、报告及最终包验证结果另见result中的对应文件。
+本次结果以 result/pytest.xml、browser-acceptance.json 和 regression.txt 为准。SQL回归13项；API/数据库及跨功能集成43例；真实浏览器18项流程，含真实连接失败、12张截图。40001事务错误分类测试明确采用故障注入；SQL库存回滚和并发检查使用真实数据库。复现、报告及最终包验证结果另见result中的对应文件。
 
 代码不向前端泄露SQL、连接串、路径或堆栈；响应统一为 ok/code/message/data/request_id。后端 JSONL 日志在 logs/，含请求编号、UTC时间、操作、角色、错误码和结果；详细诊断日志仅留本机，不带请求密码，提交证据只导出脱敏字段。

@@ -99,7 +99,8 @@ def picture(path,width,caption):
 data=json.loads((ROOT/'result/before-after.json').read_text(encoding='utf-8'))
 browser=json.loads((ROOT/'result/browser-acceptance.json').read_text(encoding='utf-8'))
 suite=ET.parse(ROOT/'result/pytest.xml').getroot().find('testsuite')
-assert int(suite.attrib['tests'])==38 and suite.attrib['failures']=='0' and suite.attrib['errors']=='0'
+integration_tests=int(suite.attrib['tests'])
+assert integration_tests>=43 and suite.attrib['failures']=='0' and suite.attrib['errors']=='0'
 assert len(browser['checks'])==18 and all(x['result']=='PASS' for x in browser['checks'])
 assert all(x['equal'] for x in data['source_preservation'])
 sha=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT.parent,text=True).strip()
@@ -111,7 +112,7 @@ p('小组成员  袁远冬  陆乐天  罗金浩')
 p('课程  数据库系统实验    提交日期  2026年11月8日')
 h('一 设计思路')
 p('本阶段从第一阶段奶茶店数据库出发，完成ER模型、函数依赖与范式分析，在保留业务数据的副本上迁移，并构建连接SQL Server的分角色Web应用。六张原业务表保留，增加账号及订单来源状态；顾客维护自己的草稿，店员确认时以事务扣减库存，管理员维护商品与库存。')
-p('本次验收中，迁移前后六表原数据、订单明细、商品销量与库存完全一致，完成销售仍为6单、15杯、86.00元；13项SQL回归、38例API与数据库集成测试、18项真实浏览器流程均通过。测试证据和源文件随提交包提供。')
+p(f'本次验收中，迁移前后六表原数据、订单明细、商品销量与库存完全一致，完成销售仍为6单、15杯、86.00元；13项SQL回归、{integration_tests}例API与数据库及交叉场景集成测试、18项真实浏览器流程均通过。测试证据和源文件随提交包提供。')
 table(['周次','任务与交付','主要位置'],[
 ['5','实体、标识、联系基数、参与约束与问题清单','docs/er-v01.svg、er-v10.svg、design.md'],
 ['6','FD与范式、异常与分解、数据迁移和对照','sql/migration.sql、regression.sql；result/before-after.json'],
@@ -213,6 +214,10 @@ p('查询路径：菜单搜索GET→Service.products→DAO.products→绑定搜�
 p('同商品多行先汇总，再一次性扣减。重复确认被状态限制拒绝；v1.0完成单取消仅回补一次。真实并发用例中，两单各需D001十五杯、库存二十杯，结果一单200、一单409，剩五杯。第二商品缺货时，第一商品已经执行的扣减也回滚。')
 h('权限与统一异常',2)
 p('数据库连接以Windows身份建立后，立即通过顶层ODBC CALL激活密码应用角色，再执行任何业务SQL；禁用连接池，不申请角色恢复cookie，关闭后销毁。四个有效身份均实测sysadmin=0、db_owner=0；店员/顾客不能直接改价、改库存、读账号哈希或订单全表。顾客个人所有权还由服务会话检查。')
+table(['角色','可执行范围','关键限制'],[
+['顾客含会员和散客','菜单库存查询；维护自己的非空草稿与明细，查看确认结果','不能确认扣库、改商品/库存、查销量或其他顾客订单'],
+['店员','管理全部草稿、确认扣库、取消新完成单并回补、查库存销量','不能改菜单或直接盘点库存；历史开库单不可按新流水回补'],
+['管理员','商品和库存维护；同时具备店员订单操作','被引用商品不可硬删；无架构、账号管理及数据库所有者权限']],[2.8,7.2,7.2])
 p('统一响应ok/code/message/data/request_id；区分参数、认证、权限、资源、业务、连接、约束和事务错误。界面不暴露SQL、连接、路径或堆栈；后端JSONL记录时间、请求编号、操作、角色、错误码与结果。CSRF、HttpOnly/SameSite会话、scrypt哈希和账号有效性检查同步启用。')
 
 # 10-16: landscape evidence, crops only; keep original full screenshots unchanged.
@@ -254,8 +259,9 @@ table(['测试类别','输入与预期','实际结果'],[
 ['数据库限制','四有效身份非sysadmin/db_owner；直接DDL和敏感SQL','四身份均为0；DDL/越权语句真实拒绝'],
 ['故障反馈','真实连接失败；注入40001测试统一事务错误分类','分别503与DB_UNAVAILABLE/TRANSACTION_FAILED；无内部信息泄露'],
 ['真实Web','会员顾客、散客、店员、管理员表单操作及移动登录','18项检查；59次HTTP响应；12张截图；无JS未捕获异常']],[3.0,7.5,6.7])
-p('API与真实SQL Server集成共38例，全部通过；SQL回归13项全部通过；浏览器检查18项全部通过。pytest.xml/txt、browser-acceptance.json、regression.txt分别保存独立证据。浏览器写入只发生在独立_Test库，测试后清理恢复基线；演示库和v0.1原库不受测试清理影响。')
-p('提交包已解压到独立中文路径，重新创建虚拟环境并按README从自带脚本建立新库，再次通过SQL回归13项、集成38例和浏览器18项。复制后的BAT启动入口也分别完成四个账号登录及菜单查询；运行代码和SQL与最终源文件逐一核对，记录见package-replay.json。')
+p(f'API与真实SQL Server及交叉场景集成共{integration_tests}例，全部通过；SQL回归13项全部通过；浏览器检查18项全部通过。pytest.xml/txt、browser-acceptance.json、regression.txt分别保存独立证据。浏览器写入只发生在独立_Test库，测试后清理恢复基线；演示库和v0.1原库不受测试清理影响。')
+p(f'提交包已解压到独立中文路径，重新创建虚拟环境并按README从自带脚本建立新库，再次通过SQL回归13项、集成{integration_tests}例和浏览器18项。复制后的BAT启动入口也分别完成四个账号登录及菜单查询；运行代码和SQL与最终源文件逐一核对，记录见package-replay.json。')
+p('第二次独立复核新增五个反例，修订前全部失败，修订后全部通过：搜索后编辑其他饮品、库存行删除后的取消回补、大金额订单查询、非ASCII无效CSRF及连接故障角色日志。ER图也补齐联系名称并纠正原版本非空明细脚注，详见course-review.md与course-audit.json。')
 p('证据边界：40001异常分类明确使用故障注入；缺货回滚、非法FK、唯一冲突、数据库权限、并发和连接失败均真实执行。自动化结果不等于三位同学已经人工签字验收。')
 p('日志示例保存在log-evidence.jsonl，覆盖十类错误且保留request_id、time、operation、role、code、result；详细诊断只保留本机，不将连接密码或会话密钥写入报告或公共仓库。')
 
@@ -278,8 +284,8 @@ doc.core_properties.author='袁远冬 陆乐天 罗金浩'
 doc.core_properties.subject='第五至第九周 ER 规范化 迁移 Web应用及验收'
 for border in list(doc.element.iter(qn('w:pBdr'))):
     border.getparent().remove(border)
-target=ROOT/'阶段报告.docx';doc.save(target)
-(ROOT/'result/report-source.json').write_text(json.dumps({'code_commit':sha,'sql_regression_pass':13,'integration_tests':38,'browser_checks':18,
+target=ROOT/'阶段报告_课程复核版.docx';doc.save(target)
+(ROOT/'result/report-source.json').write_text(json.dumps({'code_commit':sha,'sql_regression_pass':13,'integration_tests':integration_tests,'browser_checks':18,
  'screenshots':[x[1] for x in screens],'source_preservation':all(x['equal'] for x in data['source_preservation']),
  'report_sha256':hashlib.sha256(target.read_bytes()).hexdigest()},ensure_ascii=False,indent=2),encoding='utf-8')
 print('Created '+str(target))

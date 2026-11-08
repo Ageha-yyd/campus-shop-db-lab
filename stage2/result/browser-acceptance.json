@@ -1,6 +1,6 @@
 {
-  "time": "2026-11-08T09:25:09.754997+00:00",
-  "database": "MilkTeaShopV10_Roles_Test",
+  "time": "2026-11-08T10:04:35.596217+00:00",
+  "database": "MilkTeaShopV10_Acceptance_Test",
   "browser": "Microsoft Edge headless via Playwright",
   "checks": [
     {
@@ -14,7 +14,7 @@
     {
       "case": "customer creates multi-product member order",
       "result": "PASS",
-      "order_no": "WEB-d0485fcce22a49a99fd5"
+      "order_no": "WEB-4e1b84cb855c492abe1a"
     },
     {
       "case": "customer edits draft and detail quantities",
@@ -87,7 +87,7 @@
       "path": "/session",
       "http_status": 200,
       "code": "OK",
-      "request_id": "b3dbfbfe881744bc8e65da50c11aaab0"
+      "request_id": "03185b0655af465fa293509ed2a78635"
     },
     {
       "role": "customer",
@@ -95,7 +95,7 @@
       "path": "/login",
       "http_status": 401,
       "code": "AUTH_FAILED",
-      "request_id": "7c7f7292d8384e6a9c2bcce293bb425a"
+      "request_id": "25c9ac95fbec439bb5ace6c1c8b1c005"
     },
     {
       "role": "customer",
@@ -103,7 +103,7 @@
       "path": "/login",
       "http_status": 200,
       "code": "OK",
-      "request_id": "479ce6c3fe744a03bbb0fa7fc2877280"
+      "request_id": "c73cc6e3256b4b869f144b05ce68c2aa"
     },
     {
       "role": "customer",
@@ -111,7 +111,7 @@
       "path": "/products?q=",
       "http_status": 200,
       "code": "OK",
-      "request_id": "bdb940cc22664501a4a171bdf86f55b3"
+      "request_id": "6311757c68174859bf5f3ba7c66d6d4a"
     },
     {
       "role": "customer",
@@ -119,7 +119,7 @@
       "path": "/products?q=",
       "http_status": 200,
       "code": "OK",
-      "request_id": "f53fbbc7ec8748debd9491098143022a"
+      "request_id": "028ca1bd765e4e33a5269340869bba66"
     },
     {
       "role": "customer",
@@ -127,7 +127,7 @@
       "path": "/orders",
       "http_status": 200,
       "code": "OK",
-      "request_id": "ba353172189240649e88913d2e005210"
+      "request_id": "204a87421a6141e2930c6a7b07e05859"
     },
     {
       "role": "customer",
@@ -135,7 +135,7 @@
       "path": "/orders",
       "http_status": 200,
       "code": "OK",
-      "request_id": "a78a538598884875bf981f85cd310ffe"
+      "request_id": "665c07ec566b48bd83423472ecd2e550"
     },
     {
       "role": "customer",
@@ -143,31 +143,31 @@
       "path": "/orders",
       "http_status": 200,
       "code": "OK",
-      "request_id": "73f979cc7e064b0489a36acdbb8c0323"
+      "request_id": "803c0c4106494133b5ad62e85e4d1653"
     },
     {
       "role": "customer",
       "method": "GET",
-      "path": "/orders/WEB-d0485fcce22a49a99fd5",
+      "path": "/orders/WEB-4e1b84cb855c492abe1a",
       "http_status": 200,
       "code": "OK",
-      "request_id": "3bf59e286ffc4feaabdb41a1cf036258"
+      "request_id": "9b0c106db8fe4cbbac6c6bfeb3bac310"
     },
     {
       "role": "customer",
       "method": "GET",
-      "path": "/orders/WEB-d0485fcce22a49a99fd5",
+      "path": "/orders/WEB-4e1b84cb855c492abe1a",
       "http_status": 200,
       "code": "OK",
-      "request_id": "b8ca9929a1b440e3a6cb7e0a4defaed7"
+      "request_id": "c7cb08844716445b8476b12d841eaf45"
     },
     {
       "role": "customer",
       "method": "PUT",
-      "path": "/orders/WEB-d0485fcce22a49a99fd5",
+      "path": "/orders/WEB-4e1b84cb855c492abe1a",
       "http_status": 200,
       "code": "OK",
-      "request_id": "5e31f99ae3d444eeb8c970816c40f480"
+      "request_id": "7de0e4e7b8114b20a89ce13fad1f9e64"
     },
     {
       "role": "customer",
@@ -175,15 +175,15 @@
       "path": "/orders",
       "http_status": 200,
       "code": "OK",
-      "request_id": "d8642c65b73c43058544320f594f3dd0"
+      "request_id": "696e0cb1dc42463ab8d4168df66170dd"
     },
     {
       "role": "customer",
       "method": "GET",
-      "path": "/orders/WEB-d0485fcce22a49a99fd5",
+      "path": "/orders/WEB-4e1b84cb855c492abe1a",
       "http_status": 200,
       "code": "OK",
-      "request_id": "270d1a6ffe464de4865ff5be54145492"
+      "request_id": "48c7f2e89956492ca00524be80d61278"
     },
     {
       "role": "guest",
@@ -191,7 +191,7 @@
       "path": "/session",
       "http_status": 200,
       "code": "OK",
-      "request_id": "c36c3290ffe546c49b38932696a80184"
+      "request_id": "0292523fa4e046b08caecf5e42045430"
     },
     {
       "role": "guest",
@@ -199,7 +199,7 @@
       "path": "/login",
       "http_status": 200,
       "code": "OK",
-      "request_id": "bbcf4b504f5c4a98ad0feddecc6f1597"
+      "request_id": "d40985c39ac742d4a7d39374410d50ac"
     },
     {
       "role": "guest",
@@ -207,7 +207,7 @@
       "path": "/products?q=",
       "http_status": 200,
       "code": "OK",
-      "request_id": "da9002a4cb364b2e957e2b77b92fcf45"
+      "request_id": "b0e1b2ec22ec43f096ac8d11ee34a384"
     },
     {
       "role": "guest",
@@ -215,7 +215,7 @@
       "path": "/products?q=",
       "http_status": 200,
       "code": "OK",
-      "request_id": "5cd9ef025dd04e30a4ab206a78848d07"
+      "request_id": "45765d3b74624f36a4f99ca0e52dc13c"
     },
     {
       "role": "guest",
@@ -223,7 +223,7 @@
       "path": "/orders",
       "http_status": 200,
       "code": "OK",
-      "request_id": "5b2741a2a5a3475eaf73c875e52cb01d"
+      "request_id": "d2f4f5b00d9e4104a2119305b9d25e73"
     },
     {
       "role": "clerk",
@@ -231,7 +231,7 @@
       "path": "/session",
       "http_status": 200,
       "code": "OK",
-      "request_id": "b9643e3ea39747e7b7f0839219735435"
+      "request_id": "d19b2ce31654496dbd28c3299dd6dfde"
     },
     {
       "role": "clerk",
@@ -239,7 +239,7 @@
       "path": "/login",
       "http_status": 200,
       "code": "OK",
-      "request_id": "fc50567e9cd34c32b200bfba1b7bdcee"
+      "request_id": "0662febf400f4a9a9ae6afd083079515"
     },
     {
       "role": "clerk",
@@ -247,7 +247,7 @@
       "path": "/products?q=",
       "http_status": 200,
       "code": "OK",
-      "request_id": "6cc71888a2f64b6ba7a0f25ce4da96a7"
+      "request_id": "a70ac4b2d523477e9e75bdd906cfa325"
     },
     {
       "role": "clerk",
@@ -255,7 +255,7 @@
       "path": "/products?q=",
       "http_status": 200,
       "code": "OK",
-      "request_id": "8690f5e7c008416080062e31143e6b08"
+      "request_id": "76d7a8b04df542b082e5de51c8814404"
     },
     {
       "role": "clerk",
@@ -263,15 +263,15 @@
       "path": "/orders",
       "http_status": 200,
       "code": "OK",
-      "request_id": "7f55d4b2cf6642619decb6c18d34bdbf"
+      "request_id": "24f0bbb32ac147cb8d79b023d7565772"
     },
     {
       "role": "clerk",
       "method": "POST",
-      "path": "/orders/WEB-d0485fcce22a49a99fd5/submit",
+      "path": "/orders/WEB-4e1b84cb855c492abe1a/submit",
       "http_status": 200,
       "code": "OK",
-      "request_id": "be24d5b1bdbc4b94acaf4c4b72523969"
+      "request_id": "589037b783b24181ba3df4e03fb9f896"
     },
     {
       "role": "clerk",
@@ -279,7 +279,7 @@
       "path": "/orders",
       "http_status": 200,
       "code": "OK",
-      "request_id": "b781fb8068524e42a6459004d97455fc"
+      "request_id": "fe0f09b480414e268e261c1878bad0f8"
     },
     {
       "role": "clerk",
@@ -287,15 +287,15 @@
       "path": "/inventory",
       "http_status": 200,
       "code": "OK",
-      "request_id": "5e34588990bf48159ed81d2dc78b8092"
+      "request_id": "85b0a21beda549ca9ee4167a3161f3d9"
     },
     {
       "role": "clerk",
       "method": "GET",
-      "path": "/orders/WEB-d0485fcce22a49a99fd5",
+      "path": "/orders/WEB-4e1b84cb855c492abe1a",
       "http_status": 200,
       "code": "OK",
-      "request_id": "35fe64f00b854004989656776e4c858d"
+      "request_id": "cb82b53e0d7945e78aa9a77cc766caa3"
     },
     {
       "role": "customer",
@@ -303,7 +303,7 @@
       "path": "/orders",
       "http_status": 200,
       "code": "OK",
-      "request_id": "ff3e47530a8c4f56af31b6dbdd5a254e"
+      "request_id": "ffccedb811a54415b05572de4226faab"
     },
     {
       "role": "admin",
@@ -311,7 +311,7 @@
       "path": "/session",
       "http_status": 200,
       "code": "OK",
-      "request_id": "1352f51054c943bea8694f0460ebcde9"
+      "request_id": "80cade63f5e74a9a8dbc636c144a8096"
     },
     {
       "role": "admin",
@@ -319,7 +319,7 @@
       "path": "/login",
       "http_status": 200,
       "code": "OK",
-      "request_id": "ef46823cef1e43d7a69429ab442f99de"
+      "request_id": "1928c4f2ff49401caddd117569a02a66"
     },
     {
       "role": "admin",
@@ -327,7 +327,7 @@
       "path": "/products?q=",
       "http_status": 200,
       "code": "OK",
-      "request_id": "f694892775084dd1998a6917e71be8a8"
+      "request_id": "78f6ca0e7ce84951a5dc06720eb8f8c4"
     },
     {
       "role": "admin",
@@ -335,7 +335,7 @@
       "path": "/products?q=",
       "http_status": 200,
       "code": "OK",
-      "request_id": "e867782175bb4a378171bda498f66795"
+      "request_id": "adfb4b9d7e204bfc82c96e3755bb1aa3"
     },
     {
       "role": "admin",
@@ -343,7 +343,7 @@
       "path": "/products",
       "http_status": 200,
       "code": "OK",
-      "request_id": "9bfb9a5741164cd7801e3e4654b384e8"
+      "request_id": "c7a9db5af2e8476583185595ace44633"
     },
     {
       "role": "admin",
@@ -351,7 +351,7 @@
       "path": "/products?q=",
       "http_status": 200,
       "code": "OK",
-      "request_id": "995923830aa149e7867c03df88454c10"
+      "request_id": "4787f0f5621343879e3ecfad900ff8e2"
     },
     {
       "role": "admin",
@@ -359,7 +359,7 @@
       "path": "/products/UI_TEST",
       "http_status": 200,
       "code": "OK",
-      "request_id": "6a18f24ca76b416ead269678f7906815"
+      "request_id": "38638189c94a4b8bbddfc60e97060a3a"
     },
     {
       "role": "admin",
@@ -367,7 +367,7 @@
       "path": "/products?q=",
       "http_status": 200,
       "code": "OK",
-      "request_id": "9190de260311470b99a1d52e23928b54"
+      "request_id": "80186860a3a24648a875fe92519ed014"
     },
     {
       "role": "admin",
@@ -375,15 +375,7 @@
       "path": "/products",
       "http_status": 409,
       "code": "CONSTRAINT_CONFLICT",
-      "request_id": "cc694b4f484b44d7a9a0e38d6bb079d8"
-    },
-    {
-      "role": "admin",
-      "method": "GET",
-      "path": "/inventory",
-      "http_status": 200,
-      "code": "OK",
-      "request_id": "094e38cb65e5461493b2c68f198219b8"
+      "request_id": "4983cae766444cc89418e5d03727bac4"
     },
     {
       "role": "admin",
@@ -391,7 +383,7 @@
       "path": "/inventory/UI_TEST",
       "http_status": 200,
       "code": "OK",
-      "request_id": "708cc5244f4d4675a0e369ce4cf19178"
+      "request_id": "783fc82befb1429f9d74014486f45275"
     },
     {
       "role": "admin",
@@ -399,7 +391,15 @@
       "path": "/inventory",
       "http_status": 200,
       "code": "OK",
-      "request_id": "6c496937f79140e9bb5c027194e6a1b6"
+      "request_id": "2db42ad831094b849dcf4a80996beb8f"
+    },
+    {
+      "role": "admin",
+      "method": "GET",
+      "path": "/inventory",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "65aff0dc7476464c8eceee6d79da8261"
     },
     {
       "role": "admin",
@@ -407,7 +407,15 @@
       "path": "/inventory/UI_TEST",
       "http_status": 200,
       "code": "OK",
-      "request_id": "f0e18e83b8664ac3806aaf0d6ec2d7d8"
+      "request_id": "5b3b6f94ca8c4c7089ed56e6167ba65f"
+    },
+    {
+      "role": "admin",
+      "method": "GET",
+      "path": "/inventory",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "d39371adf3f74e78ad4f99925b3b24ad"
     },
     {
       "role": "admin",
@@ -415,7 +423,7 @@
       "path": "/inventory/UI_TEST",
       "http_status": 200,
       "code": "OK",
-      "request_id": "172592ccbf68476eb0bf307bdf209bd0"
+      "request_id": "ca87774abe0b4af0bdb54ea06055df5f"
     },
     {
       "role": "admin",
@@ -423,15 +431,7 @@
       "path": "/inventory",
       "http_status": 200,
       "code": "OK",
-      "request_id": "baad15dd657649bbb22a384bae532539"
-    },
-    {
-      "role": "admin",
-      "method": "GET",
-      "path": "/inventory",
-      "http_status": 200,
-      "code": "OK",
-      "request_id": "3a69dd7c38104727b93b1be4fd121773"
+      "request_id": "efb0e711cff9425fada4d35eccec4fde"
     },
     {
       "role": "admin",
@@ -439,7 +439,7 @@
       "path": "/inventory/UI_TEST",
       "http_status": 200,
       "code": "OK",
-      "request_id": "46edd707d20644e8b6e6e4ff88c327fe"
+      "request_id": "e54e3336f1354db5855fb77597041fab"
     },
     {
       "role": "admin",
@@ -447,7 +447,7 @@
       "path": "/inventory",
       "http_status": 200,
       "code": "OK",
-      "request_id": "5733f4993cf64d6d9aa31abd98a41ed8"
+      "request_id": "e8f3253b9ed4486dbc69287fc6a29aa9"
     },
     {
       "role": "admin",
@@ -455,7 +455,7 @@
       "path": "/products?q=",
       "http_status": 200,
       "code": "OK",
-      "request_id": "4fcf0dd0d5aa480e858bf5eaaef56905"
+      "request_id": "de6efc8e20054e5281212e7bbcf5f240"
     },
     {
       "role": "admin",
@@ -463,7 +463,7 @@
       "path": "/products/UI_TEST",
       "http_status": 200,
       "code": "OK",
-      "request_id": "f6017bee3c304389bba7ac8336012844"
+      "request_id": "6d7425c89f8d41b989e7ed0dd7774b1a"
     },
     {
       "role": "admin",
@@ -471,7 +471,7 @@
       "path": "/products?q=",
       "http_status": 200,
       "code": "OK",
-      "request_id": "3f00b8aa4f84482ca579cbd7446ff937"
+      "request_id": "2b5bd3793ba64e70af4dd4d01feb246a"
     },
     {
       "role": "admin",
@@ -479,7 +479,7 @@
       "path": "/sales",
       "http_status": 200,
       "code": "OK",
-      "request_id": "a198149733e84c738b88575d8794ffa1"
+      "request_id": "c517439db74c4bc6a7d59ba72c0782cb"
     },
     {
       "role": "admin",
@@ -487,7 +487,7 @@
       "path": "/inventory",
       "http_status": 503,
       "code": "DB_UNAVAILABLE",
-      "request_id": "0c860ceeb00044319b93edd728efc0e6"
+      "request_id": "23d5847fe0df40928e1e863581eb43ab"
     },
     {
       "role": "clerk",
@@ -495,15 +495,15 @@
       "path": "/orders",
       "http_status": 200,
       "code": "OK",
-      "request_id": "a1e61be71eed44768d9055267653e9e3"
+      "request_id": "f9b526e88743466db8e5449adb5668ab"
     },
     {
       "role": "clerk",
       "method": "POST",
-      "path": "/orders/WEB-d0485fcce22a49a99fd5/cancel",
+      "path": "/orders/WEB-4e1b84cb855c492abe1a/cancel",
       "http_status": 200,
       "code": "OK",
-      "request_id": "794f214de2ca4932b1aedc7cb22edaa3"
+      "request_id": "73fec27c46464132abb7c3b73c14d88d"
     },
     {
       "role": "clerk",
@@ -511,7 +511,7 @@
       "path": "/orders",
       "http_status": 200,
       "code": "OK",
-      "request_id": "40b0695c54ae43749035e53fe304c1e7"
+      "request_id": "36a2c188c1ae42d59e00f34d4ca9de50"
     },
     {
       "role": "guest",
@@ -519,7 +519,7 @@
       "path": "/orders",
       "http_status": 200,
       "code": "OK",
-      "request_id": "7529bc2c8c064af8b7ccdbe4f47df204"
+      "request_id": "5e5e89a5796245c1b49b1429fe898452"
     },
     {
       "role": "guest",
@@ -527,23 +527,23 @@
       "path": "/orders",
       "http_status": 200,
       "code": "OK",
-      "request_id": "c7747a6510a74ed69069a8c151dd0765"
+      "request_id": "b9de89c5848b4834a2f00d85cd6fe985"
     },
     {
       "role": "guest",
       "method": "GET",
-      "path": "/orders/WEB-42031119484a4014a479",
+      "path": "/orders/WEB-33649190a83542339d0d",
       "http_status": 200,
       "code": "OK",
-      "request_id": "a02a16a8485f43d5b54c6692137776d3"
+      "request_id": "3e13ad8bd46c4bdea9d990de56cd6ccd"
     },
     {
       "role": "guest",
       "method": "DELETE",
-      "path": "/orders/WEB-42031119484a4014a479",
+      "path": "/orders/WEB-33649190a83542339d0d",
       "http_status": 200,
       "code": "OK",
-      "request_id": "be9cf4320b9e41df9302c5451c009260"
+      "request_id": "5d89827ac33b4b91add19d19cafa5d42"
     },
     {
       "role": "guest",
@@ -551,7 +551,7 @@
       "path": "/orders",
       "http_status": 200,
       "code": "OK",
-      "request_id": "e7b9b778d08b44d9882f80c6c7bf88b9"
+      "request_id": "25d4b59baf864ea08b64ac59fdc1eded"
     }
   ],
   "javascript_errors": []

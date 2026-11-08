@@ -1,12 +1,11 @@
 {
-  "time": "2026-11-08T09:45:13.981807+00:00",
-  "replay_directory": "D:\\Homework\\数据库\\tmp\\stage2-package-replay\\奶茶店数据库_v1.0_袁远冬_陆乐天_罗金浩",
-  "database": "MilkTeaShopV10_Package_20261108_Test",
+  "time": "2026-11-08T10:11:15.801481+00:00",
+  "replay_directory": "D:\\Homework\\数据库\\tmp\\stage2-course-audit-replay\\奶茶店数据库_v1.0_袁远冬_陆乐天_罗金浩",
+  "database": "MilkTeaShopV10_CourseAudit_20261108_Test",
   "fresh_virtualenv": true,
   "install_from_requirements": true,
-  "source_baseline": "four bundled v0.1 SQL files; no parent data required",
   "migration_and_sql_regression": 13,
-  "integration_tests": 38,
+  "integration_tests": 43,
   "browser_checks": 18,
   "browser_http_responses": 59,
   "test_cleanup_restored_baseline": true,
@@ -35,7 +34,7 @@
   "runtime_source_files_equal": [
     {
       "path": "stage2/web/app.py",
-      "sha256": "8167ab058552b47cac04f6d85e175486f998d24ba5b0d63d3b34139583eea0df"
+      "sha256": "bfdb8d30cfb90ed61ba94fd41478887c53c963aade565a052a153ae747b37e96"
     },
     {
       "path": "stage2/web/dao.py",
@@ -55,7 +54,7 @@
     },
     {
       "path": "stage2/web/static/app.js",
-      "sha256": "008527884193f24ba63c9d855e1854c6a6ccda5de821fbe73bbb17b30a915b9e"
+      "sha256": "664b05b810db0b085865d7290515451a3135b3ab43a0982a661f53b59e16e451"
     },
     {
       "path": "stage2/web/static/style.css",
@@ -67,7 +66,7 @@
     },
     {
       "path": "stage2/sql/application.sql",
-      "sha256": "c31308ca576af9ecf13ee156bab53569e35c43bbdb4c539c2ada5f16b697ffcc"
+      "sha256": "40daa260912f72958e218355d424fcada9ad49255708d012e5f5be63908faf9f"
     },
     {
       "path": "stage2/sql/migration.sql",
@@ -86,46 +85,25 @@
       "sha256": "07fcedda363739f9a3c06822ddaddec43b10167e25068913478381d234c0aaac"
     },
     {
+      "path": "stage2/tests/test_course_audit.py",
+      "sha256": "051e2a015066e7ac773e050887663d0f7bbf4fa90610eb898b0600c6e6f02eb6"
+    },
+    {
       "path": "stage2/tests/test_integration.py",
       "sha256": "fa82e8a87c7af11b7e75f19b7b5ec4e5ce3667df5172f7141a73142227b436eb"
-    },
-    {
-      "path": "stage2/tools/browser_acceptance.py",
-      "sha256": "80e8ca327319caf08739f0d18d0ce264286f24b7929aceb1f3b916ebb5eea643"
-    },
-    {
-      "path": "stage2/tools/build_report.py",
-      "sha256": "6f987171545420b9bb984dec222cae4fc016ba6f0d54331cdbb12f040c985c71"
-    },
-    {
-      "path": "stage2/tools/collect_evidence.py",
-      "sha256": "84c83eb3b023cf2f0db9742dc9564b37132cf1ac28b121cf979f256495ee2831"
-    },
-    {
-      "path": "stage2/tools/draw_er.py",
-      "sha256": "b8110c5a28d09ab00e0d9e37b52afaaccff16263eee9b12f23432de4b0a28253"
-    },
-    {
-      "path": "stage2/tools/package_submission.py",
-      "sha256": "9ba918987b725185fdea5db3c6c69b961f76727a91ed7c9bbace4c00c4081861"
-    },
-    {
-      "path": "stage2/tools/render_report.py",
-      "sha256": "609363c6ac77db2f8dea4c6b034f22c038a738835a40c2e379a4fcc9ff788999"
     },
     {
       "path": "stage2/tools/setup.py",
       "sha256": "39478814aeabc3e1769f3ce28dd9064694bd154634fa9ec76b2be3e0ac60b6e9"
     },
     {
-      "path": "stage2/tools/update_procedures.py",
-      "sha256": "3db76dafc21afc64ef6d7ebb46c9282dc52f2acd78d4937d537483cb43a54bd3"
+      "path": "stage2/tools/browser_acceptance.py",
+      "sha256": "c297bba95c0ded07217cf5c6a6f8dc07618ca39138ca3081670f345907bbfb1b"
     },
     {
-      "path": "stage2/tools/__init__.py",
-      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+      "path": "启动第二阶段.bat",
+      "sha256": "c004027ddc95c2e2416251a9f8a60bc210cbf4e8ad4d34c58e20f601d3921431"
     }
   ],
-  "launcher_fix": "CRLF line endings; copied launcher bytes equal final source and exercised with all four accounts",
   "result": "PASS"
 }

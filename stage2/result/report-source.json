@@ -1,7 +1,7 @@
 {
-  "code_commit": "7d06000e491543a1eac46ed39161325f9d6a0392",
+  "code_commit": "a755cc00c43a2a8cae8aea86dbfdfe49b50cedf3",
   "sql_regression_pass": 13,
-  "integration_tests": 38,
+  "integration_tests": 43,
   "browser_checks": 18,
   "screenshots": [
     "04_customer_draft.png",
@@ -13,5 +13,5 @@
     "11_connection_error.png"
   ],
   "source_preservation": true,
-  "report_sha256": "a8dc400807a47fb869433d5c20899dc02f3ea5990ac69012328ff110439086a3"
+  "report_sha256": "aab223cb39896f4fd5fd4d6f5db0c0dbf065c4086cf5760c0dd9feea580872de"
 }

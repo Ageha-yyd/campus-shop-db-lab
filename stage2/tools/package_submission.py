@@ -11,12 +11,13 @@ NAME='奶茶店数据库_v1.0_袁远冬_陆乐天_罗金浩'
 
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--output',type=Path,default=REPO.parent/'提交包'/(NAME+'.zip'));a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('--output',type=Path,default=REPO.parent/'提交包'/(NAME+'_课程复核版.zip'));a=p.parse_args()
     a.output.parent.mkdir(exist_ok=True,parents=True)
     files=[]
     for source in sorted(STAGE.rglob('*')):
         rel=source.relative_to(STAGE)
         if not source.is_file() or any(x in {'private','logs','__pycache__','.pytest_cache','.venv'} for x in rel.parts) or source.name=='.env':continue
+        if source.name in {'阶段报告.docx','阶段报告.pdf'} and (STAGE/'阶段报告_课程复核版.docx').exists():continue
         files.append((source,Path('stage2')/rel))
     for name in ['01_schema.sql','02_seed.sql','09_update_public_menu.sql','05_views.sql']:
         files.append((REPO/'sql'/name,Path('sql')/name))
@@ -26,8 +27,8 @@ def main():
 
 成员：袁远冬、陆乐天、罗金浩。第五至第九周全部成果。
 
-- [阶段报告 Word](stage2/阶段报告.docx)
-- [阶段报告 PDF](stage2/阶段报告.pdf)
+- [最新阶段报告 Word](stage2/阶段报告_课程复核版.docx)
+- [最新阶段报告 PDF](stage2/阶段报告_课程复核版.pdf)
 - [配置与复现步骤](stage2/README.md)
 - [操作手册](stage2/docs/user-manual.md)
 - [逐周要求与成果对应](stage2/docs/requirements-mapping.md)

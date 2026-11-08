@@ -10,7 +10,8 @@ from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
 SKILL=Path(r'D:\codex\.codex\plugins\cache\openai-primary-runtime\documents\26.1105.12137\skills\documents')
-PDF=ROOT/'阶段报告.pdf'
+DOCX=ROOT/'阶段报告_课程复核版.docx'
+PDF=ROOT/'阶段报告_课程复核版.pdf'
 script=ROOT/'private'/'export-report.ps1'
 script.write_text('''$ErrorActionPreference='Stop'
 $word=New-Object -ComObject Word.Application
@@ -23,12 +24,12 @@ try {
  $report.Close(0)
 } finally {$word.Quit()}
 ''',encoding='utf-8-sig')
-subprocess.run(['powershell','-NoProfile','-ExecutionPolicy','Bypass','-File',str(script),str(ROOT/'阶段报告.docx'),str(PDF)],check=True,timeout=120)
+subprocess.run(['powershell','-NoProfile','-ExecutionPolicy','Bypass','-File',str(script),str(DOCX),str(PDF)],check=True,timeout=120)
 spec=importlib.util.spec_from_file_location('packaged_render_docx',SKILL/'render_docx.py')
 module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
 def native_pdf(doc_path,user_profile,convert_tmp_dir,stem,verbose=False):
     target=Path(convert_tmp_dir)/(stem+'.pdf');shutil.copy2(PDF,target)
     return str(target),'Native Microsoft Word PDF export; no bundled LibreOffice on Windows.'
 module.convert_to_pdf=native_pdf
-images=module.rasterize(str(ROOT/'阶段报告.docx'),str(ROOT/'private'/'report-qa'),150,False,False)
+images=module.rasterize(str(DOCX),str(ROOT/'private'/'report-qa'),150,False,False)
 print('PASS packaged render_docx.py with native Word PDF backend:',len(images),'pages')

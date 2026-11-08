@@ -1,0 +1,3 @@
+.....                                                                    [100%]
+- generated xml file: D:\Homework\数据库\campus-shop-db-lab\stage2\result\course-audit-tests.xml -
+5 passed in 14.92s
