@@ -2,22 +2,24 @@
 import argparse
 import hashlib
 import json
+import sys
 from pathlib import Path
 from zipfile import ZIP_DEFLATED,ZipFile
 
 REPO=Path(__file__).resolve().parents[2]
 STAGE=REPO/'stage2'
 NAME='奶茶店数据库_v1.0_袁远冬_陆乐天_罗金浩'
+if hasattr(sys.stdout,'reconfigure'):sys.stdout.reconfigure(encoding='utf-8')
 
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--output',type=Path,default=REPO.parent/'提交包'/(NAME+'_课程复核版.zip'));a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('--output',type=Path,default=REPO.parent/'提交包'/(NAME+'_详细图文版.zip'));a=p.parse_args()
     a.output.parent.mkdir(exist_ok=True,parents=True)
     files=[]
     for source in sorted(STAGE.rglob('*')):
         rel=source.relative_to(STAGE)
         if not source.is_file() or any(x in {'private','logs','__pycache__','.pytest_cache','.venv'} for x in rel.parts) or source.name=='.env':continue
-        if source.name in {'阶段报告.docx','阶段报告.pdf'} and (STAGE/'阶段报告_课程复核版.docx').exists():continue
+        if source.name in {'阶段报告.docx','阶段报告.pdf','阶段报告_课程复核版.docx','阶段报告_课程复核版.pdf'} and (STAGE/'阶段报告_详细图文版.docx').exists():continue
         files.append((source,Path('stage2')/rel))
     for name in ['01_schema.sql','02_seed.sql','09_update_public_menu.sql','05_views.sql']:
         files.append((REPO/'sql'/name,Path('sql')/name))
@@ -27,8 +29,9 @@ def main():
 
 成员：袁远冬、陆乐天、罗金浩。第五至第九周全部成果。
 
-- [最新阶段报告 Word](stage2/阶段报告_课程复核版.docx)
-- [最新阶段报告 PDF](stage2/阶段报告_课程复核版.pdf)
+- [最新阶段报告 Word](stage2/阶段报告_详细图文版.docx)
+- [最新阶段报告 PDF](stage2/阶段报告_详细图文版.pdf)
+- [截图内容与实际步骤索引](stage2/result/detailed-figure-index.md)
 - [配置与复现步骤](stage2/README.md)
 - [操作手册](stage2/docs/user-manual.md)
 - [逐周要求与成果对应](stage2/docs/requirements-mapping.md)
@@ -38,6 +41,7 @@ sql/提供从空环境建立v0.1基线所需的四份脚本，stage2/sql/提供�
 登录密码在初始化时随机生成，保存在本机private目录；本包不包含.env、任何密码、数据库备份、详细本机日志或虚拟环境。
 提交文件SHA256见SHA256.json。实际验收记录见stage2/result/，人工分工与AI记录见stage2/docs/。
 '''
+    manifest['README.md']=hashlib.sha256(readme.encode('utf-8')).hexdigest()
     with ZipFile(a.output,'w',ZIP_DEFLATED,compresslevel=9) as z:
         z.writestr(NAME+'/README.md',readme)
         for source,rel in files:z.write(source,NAME+'/'+rel.as_posix())
@@ -46,10 +50,10 @@ sql/提供从空环境建立v0.1基线所需的四份脚本，stage2/sql/提供�
         assert not z.testzip()
         for name in z.namelist():
             assert not any(x in name.split('/') for x in ['.env','private','logs','.venv','__pycache__'])
-        assert len(manifest)==len(files)
+        assert len(manifest)==len(files)+1
     digest=hashlib.sha256(a.output.read_bytes()).hexdigest()
     a.output.with_suffix('.sha256').write_text(digest+'  '+a.output.name+'\n',encoding='utf-8')
-    print('PASS '+str(a.output)+' files='+str(len(files))+' sha256='+digest)
+    print('PASS '+str(a.output)+' files='+str(len(manifest))+' sha256='+digest)
 
 
 if __name__=='__main__':main()

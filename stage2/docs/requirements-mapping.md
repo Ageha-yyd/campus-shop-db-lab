@@ -1,5 +1,7 @@
 # 第五至第九周验收对应
 
+详细图文版将正文结论与步骤W01至W21、SQL执行S01至S03、集成执行T01对应；原图、命令、输出和逐图索引见result/detailed-figure-index.md及detailed-runs/manifest.json。
+
 | 周次 | 要求 | 交付与实证 |
 | --- | --- | --- |
 | 5 | 实体 属性 主码 候选码 外码 | design.md、data-dictionary.md，er-v01.svg、er-v10.svg 与 PNG |

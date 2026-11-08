@@ -1,0 +1,52 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.2, pytest-8.4.2, pluggy-1.7.0 -- D:\\Homework\\\u6570\u636e\u5e93\\campus-shop-db-lab\\.venv\\Scripts\\python.exe
+cachedir: .pytest_cache
+rootdir: D:\\Homework\\\u6570\u636e\u5e93\\campus-shop-db-lab
+collecting ... collected 43 items
+
+stage2/tests/test_course_audit.py::test_large_valid_order_total_remains_readable PASSED [  2%]
+stage2/tests/test_course_audit.py::test_cancel_restores_stock_after_zero_inventory_record_deleted PASSED [  4%]
+stage2/tests/test_course_audit.py::test_non_ascii_csrf_is_rejected_as_input_not_system_error PASSED [  6%]
+stage2/tests/test_course_audit.py::test_connection_failure_log_preserves_last_authenticated_role PASSED [  9%]
+stage2/tests/test_course_audit.py::test_menu_search_does_not_remove_other_products_from_draft_editor PASSED [ 11%]
+stage2/tests/test_integration.py::test_baseline_and_migration PASSED     [ 13%]
+stage2/tests/test_integration.py::test_login_all_roles_and_logout[admin] PASSED [ 16%]
+stage2/tests/test_integration.py::test_login_all_roles_and_logout[clerk] PASSED [ 18%]
+stage2/tests/test_integration.py::test_login_all_roles_and_logout[customer] PASSED [ 20%]
+stage2/tests/test_integration.py::test_login_all_roles_and_logout[guest] PASSED [ 23%]
+stage2/tests/test_integration.py::test_unauthenticated_and_csrf PASSED   [ 25%]
+stage2/tests/test_integration.py::test_bad_credentials_and_login_injection[admin' OR 1=1--] PASSED [ 27%]
+stage2/tests/test_integration.py::test_bad_credentials_and_login_injection[admin] PASSED [ 30%]
+stage2/tests/test_integration.py::test_bad_credentials_and_login_injection[unknown] PASSED [ 32%]
+stage2/tests/test_integration.py::test_backend_role_denial[clerk] PASSED [ 34%]
+stage2/tests/test_integration.py::test_backend_role_denial[customer] PASSED [ 37%]
+stage2/tests/test_integration.py::test_product_and_inventory_crud PASSED [ 39%]
+stage2/tests/test_integration.py::test_invalid_inventory_parameters[-1] PASSED [ 41%]
+stage2/tests/test_integration.py::test_invalid_inventory_parameters[1.5] PASSED [ 44%]
+stage2/tests/test_integration.py::test_invalid_inventory_parameters[True] PASSED [ 46%]
+stage2/tests/test_integration.py::test_invalid_inventory_parameters[3] PASSED [ 48%]
+stage2/tests/test_integration.py::test_invalid_inventory_parameters[None] PASSED [ 51%]
+stage2/tests/test_integration.py::test_invalid_inventory_parameters[1000001] PASSED [ 53%]
+stage2/tests/test_integration.py::test_missing_and_invalid_json PASSED   [ 55%]
+stage2/tests/test_integration.py::test_search_parameterization_and_output_escaping PASSED [ 58%]
+stage2/tests/test_integration.py::test_constraint_duplicate_and_referenced_delete PASSED [ 60%]
+stage2/tests/test_integration.py::test_customer_full_draft_crud_and_ownership PASSED [ 62%]
+stage2/tests/test_integration.py::test_guest_and_customer_cannot_forge_member PASSED [ 65%]
+stage2/tests/test_integration.py::test_submit_stock_prices_cancel_and_repeat PASSED [ 67%]
+stage2/tests/test_integration.py::test_short_stock_rolls_back_earlier_product_deduction PASSED [ 69%]
+stage2/tests/test_integration.py::test_invalid_member_whole_order_rollback PASSED [ 72%]
+stage2/tests/test_integration.py::test_inactive_product_and_empty_order PASSED [ 74%]
+stage2/tests/test_integration.py::test_historical_order_cancellation_is_blocked PASSED [ 76%]
+stage2/tests/test_integration.py::test_concurrent_stock_no_overselling PASSED [ 79%]
+stage2/tests/test_integration.py::test_actual_restricted_database_accounts[auth] PASSED [ 81%]
+stage2/tests/test_integration.py::test_actual_restricted_database_accounts[admin] PASSED [ 83%]
+stage2/tests/test_integration.py::test_actual_restricted_database_accounts[clerk] PASSED [ 86%]
+stage2/tests/test_integration.py::test_actual_restricted_database_accounts[customer] PASSED [ 88%]
+stage2/tests/test_integration.py::test_direct_database_product_and_stock_mutation_denied[clerk] PASSED [ 90%]
+stage2/tests/test_integration.py::test_direct_database_product_and_stock_mutation_denied[customer] PASSED [ 93%]
+stage2/tests/test_integration.py::test_database_connection_failure_is_sanitized PASSED [ 95%]
+stage2/tests/test_integration.py::test_transaction_failure_is_sanitized_and_logged PASSED [ 97%]
+stage2/tests/test_integration.py::test_deactivated_account_session_is_rejected PASSED [100%]
+
+- generated xml file: D:\\Homework\\\u6570\u636e\u5e93\\campus-shop-db-lab\\stage2\\result\\detailed-runs\\pytest.xml -
+============================= 43 passed in 44.84s =============================

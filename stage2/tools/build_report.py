@@ -220,6 +220,12 @@ table(['角色','可执行范围','关键限制'],[
 ['管理员','商品和库存维护；同时具备店员订单操作','被引用商品不可硬删；无架构、账号管理及数据库所有者权限']],[2.8,7.2,7.2])
 p('统一响应ok/code/message/data/request_id；区分参数、认证、权限、资源、业务、连接、约束和事务错误。界面不暴露SQL、连接、路径或堆栈；后端JSONL记录时间、请求编号、操作、角色、错误码与结果。CSRF、HttpOnly/SameSite会话、scrypt哈希和账号有效性检查同步启用。')
 
+# The expanded version retains the reviewed design and adds a step-bound record.
+if '--detailed' in sys.argv:
+    from stage2.tools.detailed_report import finish
+    finish(globals())
+    raise SystemExit(0)
+
 # 10-16: landscape evidence, crops only; keep original full screenshots unchanged.
 screens=[
 ('顾客完整流程与订单明细','04_customer_draft.png',(130,690,1310,1148),

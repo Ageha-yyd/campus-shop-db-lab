@@ -1,0 +1,137 @@
+{
+  "time_utc": "2026-11-08T10:37:38.967554+00:00",
+  "report_file": "阶段报告_详细图文版.docx",
+  "report_figures_including_ER": 30,
+  "unique_embedded_image_files": 29,
+  "all_21_UI_states_explained_and_embedded": true,
+  "embedded_image_hashes_match_checked_sources": true,
+  "source_code_excerpts_match": true,
+  "sql_pass": 13,
+  "integration_tests": 43,
+  "browser_checks": 18,
+  "http_responses": 60,
+  "http_request_ids_match_public_logs": true,
+  "post_browser_cleanup_pass": true,
+  "source_demo_test_original_data": [
+    {
+      "table": "Product",
+      "original_rows": 6,
+      "demo_rows": 6,
+      "test_rows": 6,
+      "all_original_columns_equal": true
+    },
+    {
+      "table": "Inventory",
+      "original_rows": 6,
+      "demo_rows": 6,
+      "test_rows": 6,
+      "all_original_columns_equal": true
+    },
+    {
+      "table": "Member",
+      "original_rows": 4,
+      "demo_rows": 4,
+      "test_rows": 4,
+      "all_original_columns_equal": true
+    },
+    {
+      "table": "Employee",
+      "original_rows": 3,
+      "demo_rows": 3,
+      "test_rows": 3,
+      "all_original_columns_equal": true
+    },
+    {
+      "table": "ShopOrder",
+      "original_rows": 7,
+      "demo_rows": 7,
+      "test_rows": 7,
+      "all_original_columns_equal": true
+    },
+    {
+      "table": "OrderLine",
+      "original_rows": 11,
+      "demo_rows": 11,
+      "test_rows": 11,
+      "all_original_columns_equal": true
+    }
+  ],
+  "runtime_identical_to_executed_independent_package": [
+    {
+      "path": "stage2/web/app.py",
+      "sha256": "bfdb8d30cfb90ed61ba94fd41478887c53c963aade565a052a153ae747b37e96"
+    },
+    {
+      "path": "stage2/web/dao.py",
+      "sha256": "f269a0fd57a2fd67a2bd013026d5be199024f0c16e8fa38df7db91b8dca874e8"
+    },
+    {
+      "path": "stage2/web/errors.py",
+      "sha256": "1a80c93c84f8cf61dec691449a8a5cadc43ee0671fc6ebfba7fbde041482647b"
+    },
+    {
+      "path": "stage2/web/service.py",
+      "sha256": "88da252fccd83edff1adfe50113272c99732be154fefde823f53ee3d4567b26e"
+    },
+    {
+      "path": "stage2/web/__init__.py",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "stage2/web/static/app.js",
+      "sha256": "664b05b810db0b085865d7290515451a3135b3ab43a0982a661f53b59e16e451"
+    },
+    {
+      "path": "stage2/web/static/style.css",
+      "sha256": "faf873be183ade0f8e5fc53885973087e110ab8aebdfdbb7185d7e45bd57cfc7"
+    },
+    {
+      "path": "stage2/web/templates/index.html",
+      "sha256": "e31f6f6afd5a2d82064567be16e5fb7c5d7722a3aba89f4514116d7d631d683a"
+    },
+    {
+      "path": "stage2/sql/application.sql",
+      "sha256": "40daa260912f72958e218355d424fcada9ad49255708d012e5f5be63908faf9f"
+    },
+    {
+      "path": "stage2/sql/migration.sql",
+      "sha256": "290635b9c252b56611958cf03c2c177bc0d5e70b801abe2b70d6cc44258afb28"
+    },
+    {
+      "path": "stage2/sql/normalization_demo.sql",
+      "sha256": "46e415f78877e9060dbdf020341157e2c43c05fc633a08fae62b5f88f1afa6cb"
+    },
+    {
+      "path": "stage2/sql/regression.sql",
+      "sha256": "6f5c668cdbc489b734334192ee6c5972d39a83152f0a2727e5c92ef9383494c2"
+    },
+    {
+      "path": "stage2/tests/conftest.py",
+      "sha256": "07fcedda363739f9a3c06822ddaddec43b10167e25068913478381d234c0aaac"
+    },
+    {
+      "path": "stage2/tests/test_course_audit.py",
+      "sha256": "051e2a015066e7ac773e050887663d0f7bbf4fa90610eb898b0600c6e6f02eb6"
+    },
+    {
+      "path": "stage2/tests/test_integration.py",
+      "sha256": "fa82e8a87c7af11b7e75f19b7b5ec4e5ce3667df5172f7141a73142227b436eb"
+    },
+    {
+      "path": "stage2/tools/setup.py",
+      "sha256": "39478814aeabc3e1769f3ce28dd9064694bd154634fa9ec76b2be3e0ac60b6e9"
+    },
+    {
+      "path": "启动第二阶段.bat",
+      "sha256": "c004027ddc95c2e2416251a9f8a60bc210cbf4e8ad4d34c58e20f601d3921431"
+    }
+  ],
+  "updated_evidence_tools": [
+    {
+      "path": "stage2/tools/browser_acceptance.py",
+      "previous_sha256": "c297bba95c0ded07217cf5c6a6f8dc07618ca39138ca3081670f345907bbfb1b",
+      "current_sha256": "fcb7f2e0079826d1d986958f19c521bc7a3847b011f73fd53769e798af78d818",
+      "change": "added --detailed screenshot and safe-log capture; 18 checks / 60 HTTP executed locally"
+    }
+  ]
+}

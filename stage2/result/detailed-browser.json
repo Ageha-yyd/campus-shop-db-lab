@@ -1,0 +1,1431 @@
+{
+  "time": "2026-11-08T10:20:33.150218+00:00",
+  "database": "MilkTeaShopV10_Acceptance_Test",
+  "browser": "Microsoft Edge headless via Playwright",
+  "checks": [
+    {
+      "case": "wrong password gives friendly error",
+      "result": "PASS"
+    },
+    {
+      "case": "customer role controls hidden",
+      "result": "PASS"
+    },
+    {
+      "case": "customer creates multi-product member order",
+      "result": "PASS",
+      "order_no": "WEB-acd02e7cd4894de4ab4c"
+    },
+    {
+      "case": "customer edits draft and detail quantities",
+      "result": "PASS",
+      "expected_total": "22.00"
+    },
+    {
+      "case": "guest sees no other customer orders",
+      "result": "PASS"
+    },
+    {
+      "case": "clerk confirms customer order and preserves detail total",
+      "result": "PASS"
+    },
+    {
+      "case": "stock deduction visible in UI",
+      "result": "PASS",
+      "expected_D001": 17,
+      "expected_D003": 4
+    },
+    {
+      "case": "customer sees completed order",
+      "result": "PASS"
+    },
+    {
+      "case": "admin product create and edit via forms",
+      "result": "PASS"
+    },
+    {
+      "case": "constraint conflict friendly feedback",
+      "result": "PASS"
+    },
+    {
+      "case": "admin inventory update delete and recreate",
+      "result": "PASS"
+    },
+    {
+      "case": "admin unreferenced product deleted",
+      "result": "PASS"
+    },
+    {
+      "case": "staff sales report visible",
+      "result": "PASS"
+    },
+    {
+      "case": "real connection outage sanitized in browser",
+      "result": "PASS"
+    },
+    {
+      "case": "clerk cancellation restores stock",
+      "result": "PASS"
+    },
+    {
+      "case": "guest draft create and delete",
+      "result": "PASS"
+    },
+    {
+      "case": "mobile login without horizontal overflow",
+      "result": "PASS"
+    },
+    {
+      "case": "no uncaught browser JavaScript errors",
+      "result": "PASS"
+    }
+  ],
+  "requests": [
+    {
+      "role": "customer",
+      "method": "GET",
+      "path": "/session",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "6af6d131251c4a08a7e6be949adfe3ce"
+    },
+    {
+      "role": "customer",
+      "method": "POST",
+      "path": "/login",
+      "http_status": 401,
+      "code": "AUTH_FAILED",
+      "request_id": "58e97c3454cd41e5873cc0e0fc46f1c3"
+    },
+    {
+      "role": "customer",
+      "method": "POST",
+      "path": "/login",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "5eb80d29d5fe4a59b3298a7c7cd35fa1"
+    },
+    {
+      "role": "customer",
+      "method": "GET",
+      "path": "/products?q=",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "1554d79b3fe44ea598dd562278c0c456"
+    },
+    {
+      "role": "customer",
+      "method": "GET",
+      "path": "/products?q=",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "fa3d934c5d8b488bba942e02a9ec8961"
+    },
+    {
+      "role": "customer",
+      "method": "GET",
+      "path": "/orders",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "11a51280d260421fa4bb616be9e24dff"
+    },
+    {
+      "role": "customer",
+      "method": "POST",
+      "path": "/orders",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "43966c20e6074d8fa8f3f5c6f8e06f3b"
+    },
+    {
+      "role": "customer",
+      "method": "GET",
+      "path": "/orders",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "6910071a850446a2aa387164a6e733d0"
+    },
+    {
+      "role": "customer",
+      "method": "GET",
+      "path": "/orders/WEB-acd02e7cd4894de4ab4c",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "750eb32d6cd6451a8cb0ceaed700ba77"
+    },
+    {
+      "role": "customer",
+      "method": "GET",
+      "path": "/orders/WEB-acd02e7cd4894de4ab4c",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "ea9ab277e834488e85627d828c9fdd8e"
+    },
+    {
+      "role": "customer",
+      "method": "PUT",
+      "path": "/orders/WEB-acd02e7cd4894de4ab4c",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "815244882e244764aac9174b17d3ad98"
+    },
+    {
+      "role": "customer",
+      "method": "GET",
+      "path": "/orders",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "88f32dba82d34eb18b37bc937c5fc59f"
+    },
+    {
+      "role": "customer",
+      "method": "GET",
+      "path": "/orders/WEB-acd02e7cd4894de4ab4c",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "f15c893a2e3e4002839bdcef695668f4"
+    },
+    {
+      "role": "guest",
+      "method": "GET",
+      "path": "/session",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "cd08c0ca53b54f4bb218764d71502a3b"
+    },
+    {
+      "role": "guest",
+      "method": "POST",
+      "path": "/login",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "804c7f1dcff74ae6b4aba0d87ec38d05"
+    },
+    {
+      "role": "guest",
+      "method": "GET",
+      "path": "/products?q=",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "1bd55a6966ca41e4ae32d0a1fdd341f6"
+    },
+    {
+      "role": "guest",
+      "method": "GET",
+      "path": "/products?q=",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "d07a51ef9d8f431e8d55cfffcb09f096"
+    },
+    {
+      "role": "guest",
+      "method": "GET",
+      "path": "/orders",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "fbd4bd0028294034888726119e66a65e"
+    },
+    {
+      "role": "clerk",
+      "method": "GET",
+      "path": "/session",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "2e5100be2ffe49b6aff96b6a833a6677"
+    },
+    {
+      "role": "clerk",
+      "method": "POST",
+      "path": "/login",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "5451a2653f504771b371af37a679b0b1"
+    },
+    {
+      "role": "clerk",
+      "method": "GET",
+      "path": "/products?q=",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "63729925b9724f759414198c9bef052c"
+    },
+    {
+      "role": "clerk",
+      "method": "GET",
+      "path": "/products?q=",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "bb4e08ec66864f688e13a3116b6febf1"
+    },
+    {
+      "role": "clerk",
+      "method": "GET",
+      "path": "/orders",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "76d78223408b465abeaf8b399ec2ab17"
+    },
+    {
+      "role": "clerk",
+      "method": "POST",
+      "path": "/orders/WEB-acd02e7cd4894de4ab4c/submit",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "d0f48c547eb34799b2525caba7163501"
+    },
+    {
+      "role": "clerk",
+      "method": "GET",
+      "path": "/orders",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "0eaa00370b3540009e06c97a7a1e0452"
+    },
+    {
+      "role": "clerk",
+      "method": "GET",
+      "path": "/orders/WEB-acd02e7cd4894de4ab4c",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "c0348dab50254ab7bf69b0db2fdbbc88"
+    },
+    {
+      "role": "clerk",
+      "method": "GET",
+      "path": "/inventory",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "c2ee7ab0e45747c096cdd5b3100b1c63"
+    },
+    {
+      "role": "customer",
+      "method": "GET",
+      "path": "/orders",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "4e29cafad91b4228a09c6bd398e27e34"
+    },
+    {
+      "role": "admin",
+      "method": "GET",
+      "path": "/session",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "d4d42d01e0f34471a98feecab155c24a"
+    },
+    {
+      "role": "admin",
+      "method": "POST",
+      "path": "/login",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "ffae2a757f6c46cfad626d74053bfeb5"
+    },
+    {
+      "role": "admin",
+      "method": "GET",
+      "path": "/products?q=",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "70eab575dbae48fca1bcae23ad6a6081"
+    },
+    {
+      "role": "admin",
+      "method": "GET",
+      "path": "/products?q=",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "84d7f3c942944e009606d4f35fac7528"
+    },
+    {
+      "role": "admin",
+      "method": "POST",
+      "path": "/products",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "0b5f96a05615415bb4295ee57c1c3996"
+    },
+    {
+      "role": "admin",
+      "method": "GET",
+      "path": "/products?q=",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "c6d39d2898254905a8f4146021f9b2e3"
+    },
+    {
+      "role": "admin",
+      "method": "PUT",
+      "path": "/products/UI_TEST",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "2e21f3c7c3bf45acb553fd8c9690b131"
+    },
+    {
+      "role": "admin",
+      "method": "GET",
+      "path": "/products?q=",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "381d7d5ed3a447a6861e5f21483c5b89"
+    },
+    {
+      "role": "admin",
+      "method": "POST",
+      "path": "/products",
+      "http_status": 409,
+      "code": "CONSTRAINT_CONFLICT",
+      "request_id": "ed17929468424de4ab09337c84c8d935"
+    },
+    {
+      "role": "admin",
+      "method": "GET",
+      "path": "/inventory",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "967ccd87f4dc4a5e89af848969ed796c"
+    },
+    {
+      "role": "admin",
+      "method": "PUT",
+      "path": "/inventory/UI_TEST",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "c6867700f4af42758d4a88414c8db830"
+    },
+    {
+      "role": "admin",
+      "method": "GET",
+      "path": "/inventory",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "427156a2302f4e8dad10327f736267b9"
+    },
+    {
+      "role": "admin",
+      "method": "PUT",
+      "path": "/inventory/UI_TEST",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "24bf56f6bab84fb9985af744ce9f9f54"
+    },
+    {
+      "role": "admin",
+      "method": "GET",
+      "path": "/inventory",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "57aab43ac4b2441181424b60d386ff1f"
+    },
+    {
+      "role": "admin",
+      "method": "DELETE",
+      "path": "/inventory/UI_TEST",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "16f30300f9e94c7a9b8596a86f39d871"
+    },
+    {
+      "role": "admin",
+      "method": "GET",
+      "path": "/inventory",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "0d841daab3df48d487e3ecf9ecef4b8b"
+    },
+    {
+      "role": "admin",
+      "method": "PUT",
+      "path": "/inventory/UI_TEST",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "9a830a08069c47358dbe07154d163cc9"
+    },
+    {
+      "role": "admin",
+      "method": "GET",
+      "path": "/inventory",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "9d79639d4ddc4411ba7bc1181f1e63f2"
+    },
+    {
+      "role": "admin",
+      "method": "GET",
+      "path": "/products?q=",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "f00fbde008d348958c5494af94ab7adf"
+    },
+    {
+      "role": "admin",
+      "method": "DELETE",
+      "path": "/products/UI_TEST",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "00e1dc6df6e64da499818781e1f905ca"
+    },
+    {
+      "role": "admin",
+      "method": "GET",
+      "path": "/products?q=",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "88967985d1e84cb5ad1d85c31ae5fe59"
+    },
+    {
+      "role": "admin",
+      "method": "GET",
+      "path": "/sales",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "cabdda6c2e794bafae51b273e03a1680"
+    },
+    {
+      "role": "admin",
+      "method": "GET",
+      "path": "/inventory",
+      "http_status": 503,
+      "code": "DB_UNAVAILABLE",
+      "request_id": "4ebe6259d6e541b19d627e6054db7003"
+    },
+    {
+      "role": "clerk",
+      "method": "GET",
+      "path": "/orders",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "c6885a568a844f80a15b2b9ca62bfc10"
+    },
+    {
+      "role": "clerk",
+      "method": "POST",
+      "path": "/orders/WEB-acd02e7cd4894de4ab4c/cancel",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "2598223ecbb44b88816db2ab88b570bb"
+    },
+    {
+      "role": "clerk",
+      "method": "GET",
+      "path": "/orders",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "08aec2b68f544aa192ae1853f3be03a7"
+    },
+    {
+      "role": "clerk",
+      "method": "GET",
+      "path": "/inventory",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "7db12e7369ef4282b16e4671f5d869b9"
+    },
+    {
+      "role": "guest",
+      "method": "POST",
+      "path": "/orders",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "e288bd78ff104f9da0a9873ded2c321a"
+    },
+    {
+      "role": "guest",
+      "method": "GET",
+      "path": "/orders",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "710bdd3d51494095bbb5077d26a8f2aa"
+    },
+    {
+      "role": "guest",
+      "method": "GET",
+      "path": "/orders/WEB-c8b75b6a85e747d0ac3f",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "e3193c4c912f4787b79d7c06e0ff4c05"
+    },
+    {
+      "role": "guest",
+      "method": "DELETE",
+      "path": "/orders/WEB-c8b75b6a85e747d0ac3f",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "205a04e8b0e84264bb48aa172304ba2a"
+    },
+    {
+      "role": "guest",
+      "method": "GET",
+      "path": "/orders",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "ac7366fd94ee441c8c36eee4ed2b3eca"
+    }
+  ],
+  "javascript_errors": [],
+  "figures": [
+    {
+      "step": "W01",
+      "title": "登录界面",
+      "image": "result/detailed-screenshots/D01_login.png",
+      "action": "访问127.0.0.1:5001，尚未提交凭据",
+      "observed": "显示登录表单；不展示密码",
+      "captured_utc": "2026-11-08T10:19:57.768014+00:00",
+      "sha256": "d4cca0b1aa7959bcdc2681f567fdd59b16e8330a62ef36c6002941e0813c53e6",
+      "related_recent_responses": [
+        {
+          "role": "customer",
+          "method": "GET",
+          "path": "/session",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "6af6d131251c4a08a7e6be949adfe3ce"
+        }
+      ]
+    },
+    {
+      "step": "W02",
+      "title": "错误密码反馈",
+      "image": "result/detailed-screenshots/D02_wrong_login.png",
+      "action": "customer输入错误密码后提交",
+      "observed": "用户名或密码错误；请求返回401；停留登录页",
+      "captured_utc": "2026-11-08T10:19:58.260499+00:00",
+      "sha256": "476838ec5b331c3ffffeddd47f55be901fad52ebaafa6d11d973e95a66bc48e1",
+      "related_recent_responses": [
+        {
+          "role": "customer",
+          "method": "GET",
+          "path": "/session",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "6af6d131251c4a08a7e6be949adfe3ce"
+        },
+        {
+          "role": "customer",
+          "method": "POST",
+          "path": "/login",
+          "http_status": 401,
+          "code": "AUTH_FAILED",
+          "request_id": "58e97c3454cd41e5873cc0e0fc46f1c3"
+        }
+      ]
+    },
+    {
+      "step": "W03",
+      "title": "顾客菜单与角色入口",
+      "image": "result/detailed-screenshots/D03_customer_menu.png",
+      "action": "使用customer正确凭据登录",
+      "observed": "六种商品；顾客无商品维护和销售入口",
+      "captured_utc": "2026-11-08T10:19:59.150005+00:00",
+      "sha256": "57b9efff16be8f2370c238367411f4af40d1c3e4658ac45898a81beab00da6e7",
+      "related_recent_responses": [
+        {
+          "role": "customer",
+          "method": "GET",
+          "path": "/session",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "6af6d131251c4a08a7e6be949adfe3ce"
+        },
+        {
+          "role": "customer",
+          "method": "POST",
+          "path": "/login",
+          "http_status": 401,
+          "code": "AUTH_FAILED",
+          "request_id": "58e97c3454cd41e5873cc0e0fc46f1c3"
+        },
+        {
+          "role": "customer",
+          "method": "POST",
+          "path": "/login",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "5eb80d29d5fe4a59b3298a7c7cd35fa1"
+        },
+        {
+          "role": "customer",
+          "method": "GET",
+          "path": "/products?q=",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "1554d79b3fe44ea598dd562278c0c456"
+        }
+      ]
+    },
+    {
+      "step": "W04",
+      "title": "保存多商品会员草稿",
+      "image": "result/detailed-screenshots/D04_draft.png",
+      "action": "D001两杯、D003一杯，点击保存草稿",
+      "observed": "订单 WEB-acd02e7cd4894de4ab4c；待确认；2×6+1×4=16.00元",
+      "captured_utc": "2026-11-08T10:20:01.260682+00:00",
+      "sha256": "4f46f4e70ba7d71d18e3f736a9ccd672ff9cb06f57cebf254e7c0c7c0f9c50e5",
+      "related_recent_responses": [
+        {
+          "role": "customer",
+          "method": "GET",
+          "path": "/orders",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "11a51280d260421fa4bb616be9e24dff"
+        },
+        {
+          "role": "customer",
+          "method": "POST",
+          "path": "/orders",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "43966c20e6074d8fa8f3f5c6f8e06f3b"
+        },
+        {
+          "role": "customer",
+          "method": "GET",
+          "path": "/orders",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "6910071a850446a2aa387164a6e733d0"
+        },
+        {
+          "role": "customer",
+          "method": "GET",
+          "path": "/orders/WEB-acd02e7cd4894de4ab4c",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "750eb32d6cd6451a8cb0ceaed700ba77"
+        }
+      ]
+    },
+    {
+      "step": "W05",
+      "title": "修改草稿并重新计算",
+      "image": "result/detailed-screenshots/D05_edited_draft.png",
+      "action": "编辑同一订单，把D001数量从2改为3，再保存",
+      "observed": "同一订单；3×6+1×4=22.00元",
+      "captured_utc": "2026-11-08T10:20:04.144733+00:00",
+      "sha256": "e59b7c252ab426bd5056d56315ef5b4c340ab0ed563adc2746b582c83e5c6e1c",
+      "related_recent_responses": [
+        {
+          "role": "customer",
+          "method": "GET",
+          "path": "/orders/WEB-acd02e7cd4894de4ab4c",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "ea9ab277e834488e85627d828c9fdd8e"
+        },
+        {
+          "role": "customer",
+          "method": "PUT",
+          "path": "/orders/WEB-acd02e7cd4894de4ab4c",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "815244882e244764aac9174b17d3ad98"
+        },
+        {
+          "role": "customer",
+          "method": "GET",
+          "path": "/orders",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "88f32dba82d34eb18b37bc937c5fc59f"
+        },
+        {
+          "role": "customer",
+          "method": "GET",
+          "path": "/orders/WEB-acd02e7cd4894de4ab4c",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "f15c893a2e3e4002839bdcef695668f4"
+        }
+      ]
+    },
+    {
+      "step": "W06",
+      "title": "不同顾客订单隔离",
+      "image": "result/detailed-screenshots/D06_guest_isolation.png",
+      "action": "guest登录后进入订单中心",
+      "observed": "订单列表暂无记录，看不到customer刚建立的订单",
+      "captured_utc": "2026-11-08T10:20:05.622059+00:00",
+      "sha256": "b2b6c139a1abb45bec9a42fa5472ff6dab97e2a4c0bc80957971fd35e12bdf85",
+      "related_recent_responses": [
+        {
+          "role": "guest",
+          "method": "POST",
+          "path": "/login",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "804c7f1dcff74ae6b4aba0d87ec38d05"
+        },
+        {
+          "role": "guest",
+          "method": "GET",
+          "path": "/products?q=",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "1bd55a6966ca41e4ae32d0a1fdd341f6"
+        },
+        {
+          "role": "guest",
+          "method": "GET",
+          "path": "/products?q=",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "d07a51ef9d8f431e8d55cfffcb09f096"
+        },
+        {
+          "role": "guest",
+          "method": "GET",
+          "path": "/orders",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "fbd4bd0028294034888726119e66a65e"
+        }
+      ]
+    },
+    {
+      "step": "W07",
+      "title": "店员确认后的同一订单",
+      "image": "result/detailed-screenshots/D07_confirmed.png",
+      "action": "clerk找到该草稿，点击确认，再点击查看",
+      "observed": "同一订单状态已完成；数量、成交价、22.00元总额保留",
+      "captured_utc": "2026-11-08T10:20:08.899213+00:00",
+      "sha256": "50bc927094c85b0059b0d6877b7939baaaff2ddfbe56ce1aa78f66766eaf6a2d",
+      "related_recent_responses": [
+        {
+          "role": "clerk",
+          "method": "GET",
+          "path": "/orders",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "76d78223408b465abeaf8b399ec2ab17"
+        },
+        {
+          "role": "clerk",
+          "method": "POST",
+          "path": "/orders/WEB-acd02e7cd4894de4ab4c/submit",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "d0f48c547eb34799b2525caba7163501"
+        },
+        {
+          "role": "clerk",
+          "method": "GET",
+          "path": "/orders",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "0eaa00370b3540009e06c97a7a1e0452"
+        },
+        {
+          "role": "clerk",
+          "method": "GET",
+          "path": "/orders/WEB-acd02e7cd4894de4ab4c",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "c0348dab50254ab7bf69b0db2fdbbc88"
+        }
+      ]
+    },
+    {
+      "step": "W08",
+      "title": "实际扣库与库存预警",
+      "image": "result/detailed-screenshots/D08_deducted_stock.png",
+      "action": "店员确认后点击库存页",
+      "observed": "D001从20到17、D003从5到4；D004零库存显示缺货",
+      "captured_utc": "2026-11-08T10:20:09.886225+00:00",
+      "sha256": "4f7986b93695a136e1c47242d392cfb73ff536df65615c61a69aef6111760181",
+      "related_recent_responses": [
+        {
+          "role": "clerk",
+          "method": "POST",
+          "path": "/orders/WEB-acd02e7cd4894de4ab4c/submit",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "d0f48c547eb34799b2525caba7163501"
+        },
+        {
+          "role": "clerk",
+          "method": "GET",
+          "path": "/orders",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "0eaa00370b3540009e06c97a7a1e0452"
+        },
+        {
+          "role": "clerk",
+          "method": "GET",
+          "path": "/orders/WEB-acd02e7cd4894de4ab4c",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "c0348dab50254ab7bf69b0db2fdbbc88"
+        },
+        {
+          "role": "clerk",
+          "method": "GET",
+          "path": "/inventory",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "c2ee7ab0e45747c096cdd5b3100b1c63"
+        }
+      ]
+    },
+    {
+      "step": "W09",
+      "title": "顾客看到店员确认结果",
+      "image": "result/detailed-screenshots/D09_customer_completed.png",
+      "action": "customer重新进入订单中心",
+      "observed": "本人订单已完成，顾客不再有编辑或删除草稿按钮",
+      "captured_utc": "2026-11-08T10:20:10.849687+00:00",
+      "sha256": "41bac761f6ebab83460d1242ac663fe39c5bf511a5a77eeae4206207c90fef8f",
+      "related_recent_responses": [
+        {
+          "role": "clerk",
+          "method": "GET",
+          "path": "/orders",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "0eaa00370b3540009e06c97a7a1e0452"
+        },
+        {
+          "role": "clerk",
+          "method": "GET",
+          "path": "/orders/WEB-acd02e7cd4894de4ab4c",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "c0348dab50254ab7bf69b0db2fdbbc88"
+        },
+        {
+          "role": "clerk",
+          "method": "GET",
+          "path": "/inventory",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "c2ee7ab0e45747c096cdd5b3100b1c63"
+        },
+        {
+          "role": "customer",
+          "method": "GET",
+          "path": "/orders",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "4e29cafad91b4228a09c6bd398e27e34"
+        }
+      ]
+    },
+    {
+      "step": "W10",
+      "title": "新增商品与修改价格",
+      "image": "result/detailed-screenshots/D10_product.png",
+      "action": "admin新增UI_TEST验收测试茶，3.50元；编辑为4.00元",
+      "observed": "商品卡片显示UI_TEST及4.00元",
+      "captured_utc": "2026-11-08T10:20:14.124304+00:00",
+      "sha256": "84520150c172e48bfcf7f2d619d274ec74b078ed62503b197a206bccb56ecea7",
+      "related_recent_responses": [
+        {
+          "role": "admin",
+          "method": "POST",
+          "path": "/products",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "0b5f96a05615415bb4295ee57c1c3996"
+        },
+        {
+          "role": "admin",
+          "method": "GET",
+          "path": "/products?q=",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "c6d39d2898254905a8f4146021f9b2e3"
+        },
+        {
+          "role": "admin",
+          "method": "PUT",
+          "path": "/products/UI_TEST",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "2e21f3c7c3bf45acb553fd8c9690b131"
+        },
+        {
+          "role": "admin",
+          "method": "GET",
+          "path": "/products?q=",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "381d7d5ed3a447a6861e5f21483c5b89"
+        }
+      ]
+    },
+    {
+      "step": "W11",
+      "title": "真实唯一约束冲突",
+      "image": "result/detailed-screenshots/D11_constraint.png",
+      "action": "新增表单再次输入相同UI_TEST编号并提交",
+      "observed": "记录重复或已被引用；409；界面附请求编号",
+      "captured_utc": "2026-11-08T10:20:15.177879+00:00",
+      "sha256": "c446dd9cdfca38e3468e41047b4303a289c6027958fe3c6dd03d9f117dafb4c3",
+      "related_recent_responses": [
+        {
+          "role": "admin",
+          "method": "GET",
+          "path": "/products?q=",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "c6d39d2898254905a8f4146021f9b2e3"
+        },
+        {
+          "role": "admin",
+          "method": "PUT",
+          "path": "/products/UI_TEST",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "2e21f3c7c3bf45acb553fd8c9690b131"
+        },
+        {
+          "role": "admin",
+          "method": "GET",
+          "path": "/products?q=",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "381d7d5ed3a447a6861e5f21483c5b89"
+        },
+        {
+          "role": "admin",
+          "method": "POST",
+          "path": "/products",
+          "http_status": 409,
+          "code": "CONSTRAINT_CONFLICT",
+          "request_id": "ed17929468424de4ab09337c84c8d935"
+        }
+      ]
+    },
+    {
+      "step": "W12",
+      "title": "管理员盘点库存",
+      "image": "result/detailed-screenshots/D12_inventory_eight.png",
+      "action": "UI_TEST盘点杯数输入8，点击保存库存",
+      "observed": "表格显示UI_TEST为8杯",
+      "captured_utc": "2026-11-08T10:20:16.229267+00:00",
+      "sha256": "1ac3ebb4c662b010aaa5299beb64c0dd8e058d750db2498ce30f798a7cdb976f",
+      "related_recent_responses": [
+        {
+          "role": "admin",
+          "method": "POST",
+          "path": "/products",
+          "http_status": 409,
+          "code": "CONSTRAINT_CONFLICT",
+          "request_id": "ed17929468424de4ab09337c84c8d935"
+        },
+        {
+          "role": "admin",
+          "method": "GET",
+          "path": "/inventory",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "967ccd87f4dc4a5e89af848969ed796c"
+        },
+        {
+          "role": "admin",
+          "method": "PUT",
+          "path": "/inventory/UI_TEST",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "c6867700f4af42758d4a88414c8db830"
+        },
+        {
+          "role": "admin",
+          "method": "GET",
+          "path": "/inventory",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "427156a2302f4e8dad10327f736267b9"
+        }
+      ]
+    },
+    {
+      "step": "W13",
+      "title": "删除零库存记录",
+      "image": "result/detailed-screenshots/D13_deleted_inventory.png",
+      "action": "先把UI_TEST设为0并等待新值，再确认删除记录",
+      "observed": "商品仍存在，杯数为未登记，证明只删除库存行",
+      "captured_utc": "2026-11-08T10:20:18.113922+00:00",
+      "sha256": "6a94c63a370e2d96bede647529a6cb1f0e88d3e66665bf69b4a8595c737df6a0",
+      "related_recent_responses": [
+        {
+          "role": "admin",
+          "method": "PUT",
+          "path": "/inventory/UI_TEST",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "24bf56f6bab84fb9985af744ce9f9f54"
+        },
+        {
+          "role": "admin",
+          "method": "GET",
+          "path": "/inventory",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "57aab43ac4b2441181424b60d386ff1f"
+        },
+        {
+          "role": "admin",
+          "method": "DELETE",
+          "path": "/inventory/UI_TEST",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "16f30300f9e94c7a9b8596a86f39d871"
+        },
+        {
+          "role": "admin",
+          "method": "GET",
+          "path": "/inventory",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "0d841daab3df48d487e3ecf9ecef4b8b"
+        }
+      ]
+    },
+    {
+      "step": "W14",
+      "title": "删除没有订单引用的商品",
+      "image": "result/detailed-screenshots/D14_deleted_product.png",
+      "action": "零库存重建后删除UI_TEST商品",
+      "observed": "商品卡片恢复为原六种；UI_TEST不存在",
+      "captured_utc": "2026-11-08T10:20:20.016290+00:00",
+      "sha256": "74fc0ac57c69bab1b333bd00946706bce9bd0d77c594fd9cb3ec3dbb4fbed03d",
+      "related_recent_responses": [
+        {
+          "role": "admin",
+          "method": "GET",
+          "path": "/inventory",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "9d79639d4ddc4411ba7bc1181f1e63f2"
+        },
+        {
+          "role": "admin",
+          "method": "GET",
+          "path": "/products?q=",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "f00fbde008d348958c5494af94ab7adf"
+        },
+        {
+          "role": "admin",
+          "method": "DELETE",
+          "path": "/products/UI_TEST",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "00e1dc6df6e64da499818781e1f905ca"
+        },
+        {
+          "role": "admin",
+          "method": "GET",
+          "path": "/products?q=",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "88967985d1e84cb5ad1d85c31ae5fe59"
+        }
+      ]
+    },
+    {
+      "step": "W15",
+      "title": "完成订单计入销售统计",
+      "image": "result/detailed-screenshots/D15_sales.png",
+      "action": "管理员进入销量页",
+      "observed": "D001销量4+3=7，销售额24+18=42；D003销量5+1=6，金额24",
+      "captured_utc": "2026-11-08T10:20:21.020057+00:00",
+      "sha256": "1b8231977bdb71af01aeb2c7038b33de035dc654a94cbded80ebe3feea19ecf5",
+      "related_recent_responses": [
+        {
+          "role": "admin",
+          "method": "GET",
+          "path": "/products?q=",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "f00fbde008d348958c5494af94ab7adf"
+        },
+        {
+          "role": "admin",
+          "method": "DELETE",
+          "path": "/products/UI_TEST",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "00e1dc6df6e64da499818781e1f905ca"
+        },
+        {
+          "role": "admin",
+          "method": "GET",
+          "path": "/products?q=",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "88967985d1e84cb5ad1d85c31ae5fe59"
+        },
+        {
+          "role": "admin",
+          "method": "GET",
+          "path": "/sales",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "cabdda6c2e794bafae51b273e03a1680"
+        }
+      ]
+    },
+    {
+      "step": "W16",
+      "title": "真实连接失败的友好反馈",
+      "image": "result/detailed-screenshots/D16_connection.png",
+      "action": "仅将隔离验收服务认证连接临时改为本机未监听端口，再访问库存",
+      "observed": "系统暂时无法连接；503；不展示SQL、地址或堆栈",
+      "captured_utc": "2026-11-08T10:20:25.062255+00:00",
+      "sha256": "3ac25846d63bc664c9200cb7ca46d8baeed894fc6eff224138dff653396c1a8e",
+      "related_recent_responses": [
+        {
+          "role": "admin",
+          "method": "DELETE",
+          "path": "/products/UI_TEST",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "00e1dc6df6e64da499818781e1f905ca"
+        },
+        {
+          "role": "admin",
+          "method": "GET",
+          "path": "/products?q=",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "88967985d1e84cb5ad1d85c31ae5fe59"
+        },
+        {
+          "role": "admin",
+          "method": "GET",
+          "path": "/sales",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "cabdda6c2e794bafae51b273e03a1680"
+        },
+        {
+          "role": "admin",
+          "method": "GET",
+          "path": "/inventory",
+          "http_status": 503,
+          "code": "DB_UNAVAILABLE",
+          "request_id": "4ebe6259d6e541b19d627e6054db7003"
+        }
+      ]
+    },
+    {
+      "step": "W17",
+      "title": "取消后保留订单历史",
+      "image": "result/detailed-screenshots/D17_cancelled.png",
+      "action": "clerk取消该22.00元新系统完成单",
+      "observed": "订单列表保留同一订单，状态已取消",
+      "captured_utc": "2026-11-08T10:20:27.063137+00:00",
+      "sha256": "1dbc210b7b84e3e6c89af77ae4a6195860b5ca9844ff9ac4d7a36f89059c77b9",
+      "related_recent_responses": [
+        {
+          "role": "admin",
+          "method": "GET",
+          "path": "/inventory",
+          "http_status": 503,
+          "code": "DB_UNAVAILABLE",
+          "request_id": "4ebe6259d6e541b19d627e6054db7003"
+        },
+        {
+          "role": "clerk",
+          "method": "GET",
+          "path": "/orders",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "c6885a568a844f80a15b2b9ca62bfc10"
+        },
+        {
+          "role": "clerk",
+          "method": "POST",
+          "path": "/orders/WEB-acd02e7cd4894de4ab4c/cancel",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "2598223ecbb44b88816db2ab88b570bb"
+        },
+        {
+          "role": "clerk",
+          "method": "GET",
+          "path": "/orders",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "08aec2b68f544aa192ae1853f3be03a7"
+        }
+      ]
+    },
+    {
+      "step": "W18",
+      "title": "取消后的实际库存恢复",
+      "image": "result/detailed-screenshots/D18_restored_stock.png",
+      "action": "取消完成单后重新查询库存",
+      "observed": "D001恢复20、D003恢复5；与S01基线一致",
+      "captured_utc": "2026-11-08T10:20:28.000379+00:00",
+      "sha256": "cbf984f8cf0837c34df7a95801abe6debccc9cea6d7a585c9a743fc909eb8fff",
+      "related_recent_responses": [
+        {
+          "role": "clerk",
+          "method": "GET",
+          "path": "/orders",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "c6885a568a844f80a15b2b9ca62bfc10"
+        },
+        {
+          "role": "clerk",
+          "method": "POST",
+          "path": "/orders/WEB-acd02e7cd4894de4ab4c/cancel",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "2598223ecbb44b88816db2ab88b570bb"
+        },
+        {
+          "role": "clerk",
+          "method": "GET",
+          "path": "/orders",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "08aec2b68f544aa192ae1853f3be03a7"
+        },
+        {
+          "role": "clerk",
+          "method": "GET",
+          "path": "/inventory",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "7db12e7369ef4282b16e4671f5d869b9"
+        }
+      ]
+    },
+    {
+      "step": "W19",
+      "title": "散客也能建立草稿",
+      "image": "result/detailed-screenshots/D19_guest_draft.png",
+      "action": "guest直接保存默认D001一杯草稿",
+      "observed": "自己的新订单为待确认、合计6.00元；会员关联由后端确定为空",
+      "captured_utc": "2026-11-08T10:20:29.961408+00:00",
+      "sha256": "131a6745020e3fc82650deaa7ab93465ff775cab20f44d5fc9726a3cb33b1364",
+      "related_recent_responses": [
+        {
+          "role": "clerk",
+          "method": "GET",
+          "path": "/inventory",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "7db12e7369ef4282b16e4671f5d869b9"
+        },
+        {
+          "role": "guest",
+          "method": "POST",
+          "path": "/orders",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "e288bd78ff104f9da0a9873ded2c321a"
+        },
+        {
+          "role": "guest",
+          "method": "GET",
+          "path": "/orders",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "710bdd3d51494095bbb5077d26a8f2aa"
+        },
+        {
+          "role": "guest",
+          "method": "GET",
+          "path": "/orders/WEB-c8b75b6a85e747d0ac3f",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "e3193c4c912f4787b79d7c06e0ff4c05"
+        }
+      ]
+    },
+    {
+      "step": "W20",
+      "title": "删除草稿及其明细",
+      "image": "result/detailed-screenshots/D20_deleted_draft.png",
+      "action": "guest确认删除自己的草稿",
+      "observed": "本人订单列表再次暂无记录",
+      "captured_utc": "2026-11-08T10:20:31.935901+00:00",
+      "sha256": "b2b6c139a1abb45bec9a42fa5472ff6dab97e2a4c0bc80957971fd35e12bdf85",
+      "related_recent_responses": [
+        {
+          "role": "guest",
+          "method": "GET",
+          "path": "/orders",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "710bdd3d51494095bbb5077d26a8f2aa"
+        },
+        {
+          "role": "guest",
+          "method": "GET",
+          "path": "/orders/WEB-c8b75b6a85e747d0ac3f",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "e3193c4c912f4787b79d7c06e0ff4c05"
+        },
+        {
+          "role": "guest",
+          "method": "DELETE",
+          "path": "/orders/WEB-c8b75b6a85e747d0ac3f",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "205a04e8b0e84264bb48aa172304ba2a"
+        },
+        {
+          "role": "guest",
+          "method": "GET",
+          "path": "/orders",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "ac7366fd94ee441c8c36eee4ed2b3eca"
+        }
+      ]
+    },
+    {
+      "step": "W21",
+      "title": "移动尺寸登录",
+      "image": "result/detailed-screenshots/D21_mobile.png",
+      "action": "390×844视口打开登录页",
+      "observed": "表单可见；页面scrollWidth不超过innerWidth",
+      "captured_utc": "2026-11-08T10:20:32.237612+00:00",
+      "sha256": "bedc61c3c65c395c2242e2b80695a6c9e8780c9df8f26dd561fb3e3c8f07a806",
+      "related_recent_responses": [
+        {
+          "role": "guest",
+          "method": "GET",
+          "path": "/orders",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "710bdd3d51494095bbb5077d26a8f2aa"
+        },
+        {
+          "role": "guest",
+          "method": "GET",
+          "path": "/orders/WEB-c8b75b6a85e747d0ac3f",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "e3193c4c912f4787b79d7c06e0ff4c05"
+        },
+        {
+          "role": "guest",
+          "method": "DELETE",
+          "path": "/orders/WEB-c8b75b6a85e747d0ac3f",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "205a04e8b0e84264bb48aa172304ba2a"
+        },
+        {
+          "role": "guest",
+          "method": "GET",
+          "path": "/orders",
+          "http_status": 200,
+          "code": "OK",
+          "request_id": "ac7366fd94ee441c8c36eee4ed2b3eca"
+        }
+      ]
+    }
+  ]
+}

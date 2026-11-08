@@ -3,6 +3,7 @@ The Windows runtime does not bundle LibreOffice (runtime.json: null). Preserve t
 canonical renderer's Poppler PNG pipeline, substituting only native DOCX->PDF.
 """
 import importlib.util
+import argparse
 import shutil
 import subprocess
 import sys
@@ -10,8 +11,12 @@ from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
 SKILL=Path(r'D:\codex\.codex\plugins\cache\openai-primary-runtime\documents\26.1105.12137\skills\documents')
-DOCX=ROOT/'阶段报告_课程复核版.docx'
-PDF=ROOT/'阶段报告_课程复核版.pdf'
+parser=argparse.ArgumentParser()
+parser.add_argument('--input',type=Path,default=ROOT/'阶段报告_课程复核版.docx')
+parser.add_argument('--output-dir',type=Path,default=ROOT/'private/report-qa')
+args=parser.parse_args()
+DOCX=args.input.resolve()
+PDF=DOCX.with_suffix('.pdf')
 script=ROOT/'private'/'export-report.ps1'
 script.write_text('''$ErrorActionPreference='Stop'
 $word=New-Object -ComObject Word.Application
@@ -31,5 +36,5 @@ def native_pdf(doc_path,user_profile,convert_tmp_dir,stem,verbose=False):
     target=Path(convert_tmp_dir)/(stem+'.pdf');shutil.copy2(PDF,target)
     return str(target),'Native Microsoft Word PDF export; no bundled LibreOffice on Windows.'
 module.convert_to_pdf=native_pdf
-images=module.rasterize(str(DOCX),str(ROOT/'private'/'report-qa'),150,False,False)
+images=module.rasterize(str(DOCX),str(args.output_dir),150,False,False)
 print('PASS packaged render_docx.py with native Word PDF backend:',len(images),'pages')
