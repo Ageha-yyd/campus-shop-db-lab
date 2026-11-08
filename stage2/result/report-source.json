@@ -1,0 +1,17 @@
+{
+  "code_commit": "7d06000e491543a1eac46ed39161325f9d6a0392",
+  "sql_regression_pass": 13,
+  "integration_tests": 38,
+  "browser_checks": 18,
+  "screenshots": [
+    "04_customer_draft.png",
+    "05_clerk_confirmed.png",
+    "06_clerk_stock.png",
+    "07_admin_products.png",
+    "09_admin_inventory.png",
+    "08_constraint_error.png",
+    "11_connection_error.png"
+  ],
+  "source_preservation": true,
+  "report_sha256": "a8dc400807a47fb869433d5c20899dc02f3ea5990ac69012328ff110439086a3"
+}

@@ -170,7 +170,7 @@
 | OrderedAt | datetime2(0) | 否 | (sysutcdatetime()) | 订单创建时间 UTC |
 | EmployeeCode | varchar(12) | 是 | 无 | 员工编号 草稿可以暂未指派 |
 | MemberCode | varchar(12) | 是 | 无 | 可选会员编号 |
-| Status | varchar(12) | 否 | ('COMPLETED') | DRAFT COMPLETED CANCELLED |
+| Status | varchar(12) | 否 | ('DRAFT') | DRAFT COMPLETED CANCELLED |
 | CreatedByUserId | int | 是 | 无 | 应用创建账号 历史订单为空 |
 | StockApplied | bit | 否 | ((0)) | 是否有本系统新增扣库待回补 历史单为0 |
 

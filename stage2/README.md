@@ -24,7 +24,7 @@ python -m venv .venv
 
 账号 admin（管理员）、clerk（店员）、customer（会员顾客）、guest（散客顾客）。随机密码保存在 `stage2/private/<数据库名>_accounts.json`，只在本机读取；Web密码是哈希存储。四个数据库应用角色密码和会话密钥在 stage2/.env，不提交到GitHub或提交包。其他同学运行setup会生成自己的凭据，无需索取原机密码。
 
-本次演示库为 MilkTeaShopV10_App。此前调试副本保留供追溯；不会自动删除任何数据库。服务器认证模式、服务启动状态不由初始化脚本改变。
+本次演示库为 MilkTeaShopV10_Final。此前调试副本保留供追溯；不会自动删除任何数据库。服务器认证模式、服务启动状态不由初始化脚本改变。
 
 ## 使用与权限
 

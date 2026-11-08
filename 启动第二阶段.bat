@@ -2,7 +2,7 @@
 chcp 65001 >nul
 cd /d "%~dp0"
 if not exist ".venv\Scripts\python.exe" (
-  echo 请先按 stage2\README.md 创建 .venv 并安装依赖。
+  echo Please follow stage2\README.md to create .venv and install dependencies.
   pause
   exit /b 1
 )

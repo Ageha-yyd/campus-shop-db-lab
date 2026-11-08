@@ -1,0 +1,23 @@
+{
+  "pages": 18,
+  "portrait_pages": 11,
+  "landscape_pages": 7,
+  "blank_pages": 0,
+  "out_of_bounds_text": [],
+  "fonts_embedded": {
+    "BCDEEE+Calibri": true,
+    "BCDFEE+MS-Gothic": true,
+    "BCDGEE+MicrosoftYaHei-Bold": true,
+    "BCDHEE+Calibri-Bold": true,
+    "BCDIEE+SimSun": true,
+    "BCDJEE+Calibri": true
+  },
+  "all_fonts_embedded": true,
+  "image_count": 9,
+  "images_match_checked_sources": true,
+  "visual_review": "All 18 pages inspected; corrected title border and error screenshot crop; changed pages re-rendered and rechecked",
+  "renderer": "packaged render_docx.py with native Microsoft Word PDF backend and bundled Poppler",
+  "docx_sha256": "a8dc400807a47fb869433d5c20899dc02f3ea5990ac69012328ff110439086a3",
+  "pdf_sha256": "3102e4a53e81fc0d541e3a75e530d3025578cc4a80167bc7104e3bf6e94d8857",
+  "package_replay_in_report": true
+}
