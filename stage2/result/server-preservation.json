@@ -1,0 +1,16 @@
+{
+  "windows_only_auth_unchanged": true,
+  "server_options_restored": [
+    [
+      "show advanced options",
+      0,
+      0
+    ],
+    [
+      "contained database authentication",
+      0,
+      0
+    ]
+  ],
+  "service_restart_performed": false
+}

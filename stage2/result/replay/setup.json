@@ -1,0 +1,16 @@
+{
+  "time": "2026-11-08T09:32:23.848488+00:00",
+  "source": "repository v0.1 SQL",
+  "target": "MilkTeaShopV10_Acceptance_Test",
+  "database_security": "password-protected application roles; no role cookie or pooling",
+  "windows_auth_mode_unchanged": true,
+  "migration_sha256": "290635b9c252b56611958cf03c2c177bc0d5e70b801abe2b70d6cc44258afb28",
+  "business_counts": {
+    "Product": 6,
+    "Inventory": 6,
+    "Member": 4,
+    "Employee": 3,
+    "ShopOrder": 7,
+    "OrderLine": 11
+  }
+}

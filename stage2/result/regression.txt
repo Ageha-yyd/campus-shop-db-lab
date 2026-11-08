@@ -1,0 +1,38 @@
+﻿PASS 01 exact order detail equality both directions
+PASS 02 product sales equality including zero sales
+PASS 03 opening inventory equality
+PASS 04 completed totals 6 orders / 15 cups / 86.00
+PASS 05 business identities and profiles preserved
+PASS 06 historical stock not deducted again
+PASS 07 invalid foreign key rejected 547
+PASS 08 negative stock rejected 547
+PASS 09 current menu price independent of historical price
+PASS 10 valid inserts accepted and rolled back
+PASS 11 clerk SELECT permitted
+PASS 12 clerk price write denied 229
+PASS 13 credential read denied 229; temporary test user rolled back
+ProductCode  ProductName                                                                      UnitsSold   SalesAmount                             
+------------ -------------------------------------------------------------------------------- ----------- ----------------------------------------
+D001         珍珠奶茶                                                                                       4                                    24.00
+D002         满杯百香果                                                                                      3                                    21.00
+D003         冰鲜柠檬水                                                                                      5                                    20.00
+D004         椰果奶茶                                                                                       3                                    21.00
+D005         柠檬红茶                                                                                       0                                      .00
+D006         茉莉绿茶                                                                                       0                                      .00
+ProductCode  Quantity    UpdatedAt                             
+------------ ----------- --------------------------------------
+D001                  20                    2026-10-06 08:00:00
+D002                  12                    2026-10-06 08:00:00
+D003                   5                    2026-10-06 08:00:00
+D004                   0                    2026-10-06 08:00:00
+D005                  18                    2026-10-06 08:00:00
+D006                   9                    2026-10-06 08:00:00
+OrderNo                  Status       order_count
+------------------------ ------------ -----------
+MT-20261001-001          COMPLETED              7
+MT-20261001-002          COMPLETED              7
+MT-20261002-001          COMPLETED              7
+MT-20261002-002          CANCELLED              7
+MT-20261003-001          COMPLETED              7
+MT-20261004-001          COMPLETED              7
+MT-20261004-002          COMPLETED              7

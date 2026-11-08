@@ -1,0 +1,3 @@
+...........................................                              [100%]
+- generated xml file: D:\Homework\数据库\tmp\stage2-course-audit-replay\奶茶店数据库_v1.0_袁远冬_陆乐天_罗金浩\stage2\result\package-pytest.xml -
+43 passed in 54.91s

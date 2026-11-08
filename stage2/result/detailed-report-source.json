@@ -1,0 +1,295 @@
+{
+  "code_commit": "87e6d94604210756bcf4772438a4d322773f1d7a",
+  "report_file": "阶段报告_详细图文版.docx",
+  "report_sha256": "df661ccce526b9bb08dd785a3acc412142808ebe14ced87bf8937a24d5098da7",
+  "sql_pass": 13,
+  "integration_tests": 43,
+  "browser_checks": 18,
+  "http_responses": 60,
+  "business_state_screenshots": 21,
+  "figures": [
+    {
+      "figure": 3,
+      "step": "S03_normalization",
+      "title": "规范化异常和分解演示 输出第1至13行",
+      "source": "result/detailed-screenshots/S03_normalization-1.png",
+      "source_sha256": "615e3a09241ec01dfa8d0563e7cfa176d53b9504bb57b3e518c1e3e8b8e75ac2",
+      "embedded_sha256": "798f61e8129fe2b676bb02542b098489d483c2208e337d5d5876fc1d46e77b0d",
+      "crop": "white margins only"
+    },
+    {
+      "figure": 4,
+      "step": "S01_baseline",
+      "title": "SQL基线和业务数值核验 输出第1至18行",
+      "source": "result/detailed-screenshots/S01_baseline-1.png",
+      "source_sha256": "c6b353f1cce0c9d9a15e7bb579e11571759718e947df46a58fc71532ba77d5e9",
+      "embedded_sha256": "524120c20a569039069f887ffd90fd092327552c6b7ea3f7571ac649d2d4833f",
+      "crop": "white margins only"
+    },
+    {
+      "figure": 5,
+      "step": "S01_baseline",
+      "title": "SQL基线和业务数值核验 输出第19至31行",
+      "source": "result/detailed-screenshots/S01_baseline-2.png",
+      "source_sha256": "59dbd09821532c70690554516a7bc7fff29e9b0807b3da309113e7942aa343a9",
+      "embedded_sha256": "751db73586e97e42a7121eac2c8b05cbd1b0b6a857366b03d220301985f172aa",
+      "crop": "white margins only"
+    },
+    {
+      "figure": 6,
+      "step": "S02_regression",
+      "title": "迁移与权限SQL回归 输出第1至18行",
+      "source": "result/detailed-screenshots/S02_regression-1.png",
+      "source_sha256": "16588db2c4b30a3171ad95b3f50782c5e907b806eba5ed930b90630b661c81bc",
+      "embedded_sha256": "5b08b87dd67f5598209931fa0c72f1a590e358ba93033f92c2ce709e1272f895",
+      "crop": "white margins only"
+    },
+    {
+      "figure": 7,
+      "step": "W01",
+      "title": "登录界面",
+      "source": "result/detailed-screenshots/D01_login.png",
+      "source_sha256": "d4cca0b1aa7959bcdc2681f567fdd59b16e8330a62ef36c6002941e0813c53e6",
+      "embedded_sha256": "85ddc5fca370cc848ad3247de88485b789e1d4c755580393028d0a574df08415",
+      "crop": null
+    },
+    {
+      "figure": 8,
+      "step": "W02",
+      "title": "错误密码反馈",
+      "source": "result/detailed-screenshots/D02_wrong_login.png",
+      "source_sha256": "476838ec5b331c3ffffeddd47f55be901fad52ebaafa6d11d973e95a66bc48e1",
+      "embedded_sha256": "1720b4aeb8255c33532a1355242fe8d6f6c3508a5430dac855fcb71b2c2efe99",
+      "crop": [
+        465,
+        915,
+        980,
+        980
+      ]
+    },
+    {
+      "figure": 9,
+      "step": "W03",
+      "title": "顾客菜单与角色入口",
+      "source": "result/detailed-screenshots/D03_customer_menu.png",
+      "source_sha256": "57b9efff16be8f2370c238367411f4af40d1c3e4658ac45898a81beab00da6e7",
+      "embedded_sha256": "dadba3fd5d1be7b871742e9111a0b6018a0186e74acc59019308d4285eacffc1",
+      "crop": [
+        130,
+        100,
+        1310,
+        850
+      ]
+    },
+    {
+      "figure": 10,
+      "step": "W04",
+      "title": "保存多商品会员草稿",
+      "source": "result/detailed-screenshots/D04_draft.png",
+      "source_sha256": "4f46f4e70ba7d71d18e3f736a9ccd672ff9cb06f57cebf254e7c0c7c0f9c50e5",
+      "embedded_sha256": "ef62a9fa7c4bbacf5bdf827ebf73351005187360e85f0400414a19b8a12945c1",
+      "crop": null
+    },
+    {
+      "figure": 11,
+      "step": "W05",
+      "title": "修改草稿并重新计算",
+      "source": "result/detailed-screenshots/D05_edited_draft.png",
+      "source_sha256": "e59b7c252ab426bd5056d56315ef5b4c340ab0ed563adc2746b582c83e5c6e1c",
+      "embedded_sha256": "4ff95c8ff36d8c2de73f8c8eac2b7925256183de2f956fd2ad1f91b8ea177f77",
+      "crop": null
+    },
+    {
+      "figure": 12,
+      "step": "W07",
+      "title": "店员确认后的同一订单",
+      "source": "result/detailed-screenshots/D07_confirmed.png",
+      "source_sha256": "50bc927094c85b0059b0d6877b7939baaaff2ddfbe56ce1aa78f66766eaf6a2d",
+      "embedded_sha256": "a46477a164d7ad0137a45561e12829cc36d1d078870b634bedc5a65de6d31f87",
+      "crop": null
+    },
+    {
+      "figure": 13,
+      "step": "W08",
+      "title": "实际扣库与库存预警",
+      "source": "result/detailed-screenshots/D08_deducted_stock.png",
+      "source_sha256": "4f7986b93695a136e1c47242d392cfb73ff536df65615c61a69aef6111760181",
+      "embedded_sha256": "d2b566c27c7952d55d169aeaef1dec62cb25b38d5dd0c992f0da14fab63aa3ab",
+      "crop": null
+    },
+    {
+      "figure": 14,
+      "step": "W06",
+      "title": "不同顾客订单隔离",
+      "source": "result/detailed-screenshots/D06_guest_isolation.png",
+      "source_sha256": "b2b6c139a1abb45bec9a42fa5472ff6dab97e2a4c0bc80957971fd35e12bdf85",
+      "embedded_sha256": "1b609ae6a8a481f6c085ef87fb0a051c6e15492a87eeebfb6574a18c32e3808e",
+      "crop": null
+    },
+    {
+      "figure": 15,
+      "step": "W09",
+      "title": "顾客看到店员确认结果",
+      "source": "result/detailed-screenshots/D09_customer_completed.png",
+      "source_sha256": "41bac761f6ebab83460d1242ac663fe39c5bf511a5a77eeae4206207c90fef8f",
+      "embedded_sha256": "02ab0db78038f906f6b6548ac2212af58cdb192ac0e7a1cc6e89e498a3bf6917",
+      "crop": null
+    },
+    {
+      "figure": 16,
+      "step": "W19",
+      "title": "散客也能建立草稿",
+      "source": "result/detailed-screenshots/D19_guest_draft.png",
+      "source_sha256": "131a6745020e3fc82650deaa7ab93465ff775cab20f44d5fc9726a3cb33b1364",
+      "embedded_sha256": "8cde77f4f3d7b2da0e54eeb3e957766ecff641eafc311e10489d9c537304d33e",
+      "crop": null
+    },
+    {
+      "figure": 17,
+      "step": "W20",
+      "title": "删除草稿及其明细",
+      "source": "result/detailed-screenshots/D20_deleted_draft.png",
+      "source_sha256": "b2b6c139a1abb45bec9a42fa5472ff6dab97e2a4c0bc80957971fd35e12bdf85",
+      "embedded_sha256": "1b609ae6a8a481f6c085ef87fb0a051c6e15492a87eeebfb6574a18c32e3808e",
+      "crop": null
+    },
+    {
+      "figure": 18,
+      "step": "W10",
+      "title": "新增商品与修改价格",
+      "source": "result/detailed-screenshots/D10_product.png",
+      "source_sha256": "84520150c172e48bfcf7f2d619d274ec74b078ed62503b197a206bccb56ecea7",
+      "embedded_sha256": "1a8dab0eab5c5d9133ff4e43f65f41c47cb3545586696df1fd420c382f84582d",
+      "crop": null
+    },
+    {
+      "figure": 19,
+      "step": "W12",
+      "title": "管理员盘点库存",
+      "source": "result/detailed-screenshots/D12_inventory_eight.png",
+      "source_sha256": "1ac3ebb4c662b010aaa5299beb64c0dd8e058d750db2498ce30f798a7cdb976f",
+      "embedded_sha256": "66e69bae2f9ae5d03c77c8825dd73e72e69b032910d6421ad0cc84fa6e989f78",
+      "crop": null
+    },
+    {
+      "figure": 20,
+      "step": "W13",
+      "title": "删除零库存记录",
+      "source": "result/detailed-screenshots/D13_deleted_inventory.png",
+      "source_sha256": "6a94c63a370e2d96bede647529a6cb1f0e88d3e66665bf69b4a8595c737df6a0",
+      "embedded_sha256": "47221fdb0d20d1ce81b64b5c870a63984cef088873c58bfb3b0c4a64e020f86a",
+      "crop": null
+    },
+    {
+      "figure": 21,
+      "step": "W14",
+      "title": "删除没有订单引用的商品",
+      "source": "result/detailed-screenshots/D14_deleted_product.png",
+      "source_sha256": "74fc0ac57c69bab1b333bd00946706bce9bd0d77c594fd9cb3ec3dbb4fbed03d",
+      "embedded_sha256": "8d78bc8289c06649ad860e89fe4147d91a698476a1bf15564ac0434192d21ee7",
+      "crop": null
+    },
+    {
+      "figure": 22,
+      "step": "W15",
+      "title": "完成订单计入销售统计",
+      "source": "result/detailed-screenshots/D15_sales.png",
+      "source_sha256": "1b8231977bdb71af01aeb2c7038b33de035dc654a94cbded80ebe3feea19ecf5",
+      "embedded_sha256": "566eacc7bffee2096dacaaaef69daecb283a3085f7ad59a7770e71e64b3251a2",
+      "crop": null
+    },
+    {
+      "figure": 23,
+      "step": "W17",
+      "title": "取消后保留订单历史",
+      "source": "result/detailed-screenshots/D17_cancelled.png",
+      "source_sha256": "1dbc210b7b84e3e6c89af77ae4a6195860b5ca9844ff9ac4d7a36f89059c77b9",
+      "embedded_sha256": "d8043a408dc954499363a0ec1b0408b6dbadae0a1bdb80eca0ff0ee1a4540bdc",
+      "crop": null
+    },
+    {
+      "figure": 24,
+      "step": "W18",
+      "title": "取消后的实际库存恢复",
+      "source": "result/detailed-screenshots/D18_restored_stock.png",
+      "source_sha256": "cbf984f8cf0837c34df7a95801abe6debccc9cea6d7a585c9a743fc909eb8fff",
+      "embedded_sha256": "fb8dce52547e8312515d5863ed6bb69b8bdd4ca62360e7c7cea405aab35d4bdf",
+      "crop": null
+    },
+    {
+      "figure": 25,
+      "step": "W11",
+      "title": "真实唯一约束冲突",
+      "source": "result/detailed-screenshots/D11_constraint.png",
+      "source_sha256": "c446dd9cdfca38e3468e41047b4303a289c6027958fe3c6dd03d9f117dafb4c3",
+      "embedded_sha256": "b4fcc4d25ccd5db4e9f1346355ebc8dbea4b89ed33e84015666a9c85f0bccfb7",
+      "crop": null
+    },
+    {
+      "figure": 26,
+      "step": "W16",
+      "title": "真实连接失败的友好反馈",
+      "source": "result/detailed-screenshots/D16_connection.png",
+      "source_sha256": "3ac25846d63bc664c9200cb7ca46d8baeed894fc6eff224138dff653396c1a8e",
+      "embedded_sha256": "c7b8047f7e05b03c946b6fd2b96f39fd8bb400e5ef7e09c3ae555ab9fc12d792",
+      "crop": null
+    },
+    {
+      "figure": 27,
+      "step": "W21",
+      "title": "390像素宽移动布局的登录页",
+      "source": "result/detailed-screenshots/D21_mobile.png",
+      "source_sha256": "bedc61c3c65c395c2242e2b80695a6c9e8780c9df8f26dd561fb3e3c8f07a806",
+      "embedded_sha256": "4c643fec9f0e7156415f014db4576806284b36f1af6ecafe1c7e813676a757a3",
+      "crop": null
+    },
+    {
+      "figure": 28,
+      "step": "T01_pytest",
+      "title": "真实SQL Server集成测试 输出第1至18行",
+      "source": "result/detailed-screenshots/T01_pytest-1.png",
+      "source_sha256": "c5dd1221e9092efb55a97bce807b58308d92e631080fdc6131f7186e3caf4900",
+      "embedded_sha256": "0f7ff5f1d0eb70baff4a31c2dbc7d063d51a66e836b9dd342c9d6bec266f02fb",
+      "crop": "white margins only"
+    },
+    {
+      "figure": 29,
+      "step": "T01_pytest",
+      "title": "真实SQL Server集成测试 输出第19至36行",
+      "source": "result/detailed-screenshots/T01_pytest-2.png",
+      "source_sha256": "b679018c395f701da1e0e7467016006d95460a22dfd9e20986f63ef1d9b1b954",
+      "embedded_sha256": "8a2841eeecc5f0121b0aaeaab0e2e7fe2b96ddfad4f0ec1225a80bb2e7b339c0",
+      "crop": "white margins only"
+    },
+    {
+      "figure": 30,
+      "step": "T01_pytest",
+      "title": "真实SQL Server集成测试 输出第37至52行",
+      "source": "result/detailed-screenshots/T01_pytest-3.png",
+      "source_sha256": "df7a1279f8a16698da6c11a80848a5f666ffc0838f0d33db55bb3a390e24fc09",
+      "embedded_sha256": "7984cbc1bf658f50bc9ab73122d3898557383cd6714e9fa33aae2e246b0163a9",
+      "crop": "white margins only"
+    }
+  ],
+  "code_excerpts": [
+    {
+      "file": "web/dao.py",
+      "line_start": 46,
+      "line_end": 53,
+      "file_sha256": "f269a0fd57a2fd67a2bd013026d5be199024f0c16e8fa38df7db91b8dca874e8"
+    },
+    {
+      "file": "web/dao.py",
+      "line_start": 29,
+      "line_end": 40,
+      "file_sha256": "f269a0fd57a2fd67a2bd013026d5be199024f0c16e8fa38df7db91b8dca874e8"
+    },
+    {
+      "file": "sql/application.sql",
+      "line_start": 19,
+      "line_end": 24,
+      "file_sha256": "40daa260912f72958e218355d424fcada9ad49255708d012e5f5be63908faf9f"
+    }
+  ],
+  "output_viewer_label": "verbatim actual stdout viewer, not native SSMS or terminal screenshot"
+}

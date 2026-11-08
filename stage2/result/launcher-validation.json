@@ -1,0 +1,7 @@
+{
+  "launcher": "启动第二阶段.bat",
+  "result": "PASS",
+  "login_http": 200,
+  "product_count": 6,
+  "database": "MilkTeaShopV10_Final"
+}

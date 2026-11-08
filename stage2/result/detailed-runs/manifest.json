@@ -1,0 +1,163 @@
+[
+  {
+    "step": "T01_pytest",
+    "title": "真实SQL Server集成测试",
+    "database": "MilkTeaShopV10_Acceptance_Test",
+    "command": [
+      "D:\\Homework\\数据库\\campus-shop-db-lab\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "stage2/tests",
+      "-v",
+      "--junitxml=stage2/result/detailed-runs/pytest.xml"
+    ],
+    "started_utc": "2026-11-08T10:20:54.372285+00:00",
+    "ended_utc": "2026-11-08T10:21:39.900531+00:00",
+    "exit_code": 0,
+    "stdout_file": "result/detailed-runs/T01_pytest.txt",
+    "stdout_sha256": "1936a5f82868328f81ee28ce5be53be8467b7e552c13ab338b871a99de30ae2c",
+    "figures": [
+      {
+        "image": "result/detailed-screenshots/T01_pytest-1.png",
+        "line_start": 1,
+        "line_end": 18,
+        "sha256": "c5dd1221e9092efb55a97bce807b58308d92e631080fdc6131f7186e3caf4900"
+      },
+      {
+        "image": "result/detailed-screenshots/T01_pytest-2.png",
+        "line_start": 19,
+        "line_end": 36,
+        "sha256": "b679018c395f701da1e0e7467016006d95460a22dfd9e20986f63ef1d9b1b954"
+      },
+      {
+        "image": "result/detailed-screenshots/T01_pytest-3.png",
+        "line_start": 37,
+        "line_end": 52,
+        "sha256": "df7a1279f8a16698da6c11a80848a5f666ffc0838f0d33db55bb3a390e24fc09"
+      }
+    ]
+  },
+  {
+    "step": "S01_baseline",
+    "title": "SQL基线和业务数值核验",
+    "database": "MilkTeaShopV10_Acceptance_Test",
+    "command": [
+      "sqlcmd",
+      "-S",
+      ".\\SQLEXPRESS",
+      "-d",
+      "MilkTeaShopV10_Acceptance_Test",
+      "-E",
+      "-C",
+      "-b",
+      "-f",
+      "65001",
+      "-W",
+      "-w",
+      "180",
+      "-i",
+      "D:\\Homework\\数据库\\campus-shop-db-lab\\stage2\\sql\\report_verification.sql"
+    ],
+    "started_utc": "2026-11-08T10:21:40.350530+00:00",
+    "ended_utc": "2026-11-08T10:21:40.478829+00:00",
+    "exit_code": 0,
+    "stdout_file": "result/detailed-runs/S01_baseline.txt",
+    "stdout_sha256": "e56adf0195bf8d463cbce8ff94468093c2b63aa99a06ef58906a95503ee89495",
+    "figures": [
+      {
+        "image": "result/detailed-screenshots/S01_baseline-1.png",
+        "line_start": 1,
+        "line_end": 18,
+        "sha256": "c6b353f1cce0c9d9a15e7bb579e11571759718e947df46a58fc71532ba77d5e9"
+      },
+      {
+        "image": "result/detailed-screenshots/S01_baseline-2.png",
+        "line_start": 19,
+        "line_end": 31,
+        "sha256": "59dbd09821532c70690554516a7bc7fff29e9b0807b3da309113e7942aa343a9"
+      }
+    ]
+  },
+  {
+    "step": "S02_regression",
+    "title": "迁移与权限SQL回归",
+    "database": "MilkTeaShopV10_Acceptance_Test",
+    "command": [
+      "sqlcmd",
+      "-S",
+      ".\\SQLEXPRESS",
+      "-d",
+      "MilkTeaShopV10_Acceptance_Test",
+      "-E",
+      "-C",
+      "-b",
+      "-f",
+      "65001",
+      "-W",
+      "-w",
+      "180",
+      "-i",
+      "D:\\Homework\\数据库\\campus-shop-db-lab\\stage2\\sql\\regression.sql"
+    ],
+    "started_utc": "2026-11-08T10:21:40.634623+00:00",
+    "ended_utc": "2026-11-08T10:21:40.955348+00:00",
+    "exit_code": 0,
+    "stdout_file": "result/detailed-runs/S02_regression.txt",
+    "stdout_sha256": "a5940bb4e3b36c2d83d9b07db5c26422a733db194a354c350d4199d20562844e",
+    "figures": [
+      {
+        "image": "result/detailed-screenshots/S02_regression-1.png",
+        "line_start": 1,
+        "line_end": 18,
+        "sha256": "16588db2c4b30a3171ad95b3f50782c5e907b806eba5ed930b90630b661c81bc"
+      },
+      {
+        "image": "result/detailed-screenshots/S02_regression-2.png",
+        "line_start": 19,
+        "line_end": 36,
+        "sha256": "497c89394b79515196e001eab7503be5acf372f8e0b46a65e998fccd2accbc44"
+      },
+      {
+        "image": "result/detailed-screenshots/S02_regression-3.png",
+        "line_start": 37,
+        "line_end": 38,
+        "sha256": "4507d6ef81743b63d0bb72fa630ca0f90856e63b9e943f63a3fed7f26a1d112a"
+      }
+    ]
+  },
+  {
+    "step": "S03_normalization",
+    "title": "规范化异常和分解演示",
+    "database": "MilkTeaShopV10_Acceptance_Test",
+    "command": [
+      "sqlcmd",
+      "-S",
+      ".\\SQLEXPRESS",
+      "-d",
+      "MilkTeaShopV10_Acceptance_Test",
+      "-E",
+      "-C",
+      "-b",
+      "-f",
+      "65001",
+      "-W",
+      "-w",
+      "180",
+      "-i",
+      "D:\\Homework\\数据库\\campus-shop-db-lab\\stage2\\sql\\normalization_demo.sql"
+    ],
+    "started_utc": "2026-11-08T10:21:41.250525+00:00",
+    "ended_utc": "2026-11-08T10:21:41.387927+00:00",
+    "exit_code": 0,
+    "stdout_file": "result/detailed-runs/S03_normalization.txt",
+    "stdout_sha256": "fdcaa6ea9162606f734271a017ee7a1ab46cb4bc4e1401317d1ae4630dce19be",
+    "figures": [
+      {
+        "image": "result/detailed-screenshots/S03_normalization-1.png",
+        "line_start": 1,
+        "line_end": 13,
+        "sha256": "615e3a09241ec01dfa8d0563e7cfa176d53b9504bb57b3e518c1e3e8b8e75ac2"
+      }
+    ]
+  }
+]

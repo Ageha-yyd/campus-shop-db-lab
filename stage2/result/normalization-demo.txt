@@ -1,0 +1,13 @@
+﻿Step        ProductCode  ProductName                    CategoryCode CategoryName                  
+----------- ------------ ------------------------------ ------------ ------------------------------
+修改前 同类别重复两行 P01          珍珠奶茶                           C01          奶茶                            
+修改前 同类别重复两行 P02          椰果奶茶                           C01          奶茶                            
+Step      ProductCode  ProductName                    CategoryCode CategoryName                  
+--------- ------------ ------------------------------ ------------ ------------------------------
+只改一行产生不一致 P01          珍珠奶茶                           C01          鲜奶茶                           
+只改一行产生不一致 P02          椰果奶茶                           C01          奶茶                            
+ProductCode  ProductName                    CategoryCode CategoryName                  
+------------ ------------------------------ ------------ ------------------------------
+P01          珍珠奶茶                           C01          鲜奶茶                           
+P02          椰果奶茶                           C01          鲜奶茶                           
+PASS anomaly reproduced; decomposition roundtrip equal; standalone category insert and single-row rename succeed

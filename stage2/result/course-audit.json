@@ -1,0 +1,61 @@
+{
+  "time": "2026-11-08T10:05:47.729981+00:00",
+  "reviewed_commit": "60c462507e13435b35f3798120829ac0d155b80b",
+  "before": {
+    "tests": 5,
+    "failures": 5,
+    "evidence_sha256": "c50992519efd67660742db480b2250b4afbb667a9506a7d1b0dd49afe83c61f6"
+  },
+  "after": {
+    "targeted_tests": 5,
+    "targeted_failures": 0,
+    "all_tests": 43,
+    "failures": 0,
+    "browser_checks": 18,
+    "browser_http_responses": 59,
+    "sql_regression": 13
+  },
+  "findings": [
+    {
+      "case": "menu search then edit a draft containing a different product",
+      "before": "D003 selection became empty",
+      "after": "D003 remains selectable; editing to three cups yields 12.00",
+      "test": "test_menu_search_does_not_remove_other_products_from_draft_editor"
+    },
+    {
+      "case": "cancel completed order after zero inventory row is deleted",
+      "before": "200 response but no stock row restored",
+      "after": "row recreated with 2 cups; second cancellation refused",
+      "test": "test_cancel_restores_stock_after_zero_inventory_record_deleted"
+    },
+    {
+      "case": "large but valid order total",
+      "before": "order saved but detail/list query returned 503",
+      "after": "19999999998.00 readable with decimal(18,2)",
+      "test": "test_large_valid_order_total_remains_readable"
+    },
+    {
+      "case": "non-ASCII invalid CSRF header",
+      "before": "500",
+      "after": "403 CSRF_INVALID",
+      "test": "test_non_ascii_csrf_is_rejected_as_input_not_system_error"
+    },
+    {
+      "case": "connection failure during logged-in identity revalidation",
+      "before": "logged role anonymous",
+      "after": "logged role admin; authorization still uses fresh database identity",
+      "test": "test_connection_failure_log_preserves_last_authenticated_role"
+    }
+  ],
+  "design_fixes": [
+    "ER relationship names shown explicitly",
+    "v0.1 minimum-one-line note distinguishes business requirement from v1.0 procedure enforcement"
+  ],
+  "test_harness_fix": "wait for actual inventory row value after repeated same-message saves",
+  "package_after": {
+    "sql": 13,
+    "integration": 43,
+    "browser": 18,
+    "bat_logins": 4
+  }
+}

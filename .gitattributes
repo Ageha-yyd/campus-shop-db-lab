@@ -8,3 +8,4 @@
 *.png binary
 *.docx binary
 *.pdf binary
+*.bat text eol=crlf
