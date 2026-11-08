@@ -3,3 +3,9 @@
 *.ldf
 *.tmp
 __pycache__/
+.venv/
+.env
+.pytest_cache/
+stage2/logs/
+stage2/private/
+stage2/result/browser-state/

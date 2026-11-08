@@ -1,0 +1,564 @@
+{
+  "time": "2026-11-08T09:31:12.029928+00:00",
+  "target_database": "MilkTeaShopV10_App",
+  "source_preservation": [
+    {
+      "table": "Product",
+      "before_count": 6,
+      "after_count": 6,
+      "source_sha256": "1b08c9103a4b572188f6bcc8b53922e2b9c7e5aa161ef4d5d5c50f2077b2f1fa",
+      "baseline_sha256": "1b08c9103a4b572188f6bcc8b53922e2b9c7e5aa161ef4d5d5c50f2077b2f1fa",
+      "target_sha256": "1b08c9103a4b572188f6bcc8b53922e2b9c7e5aa161ef4d5d5c50f2077b2f1fa",
+      "equal": true
+    },
+    {
+      "table": "Inventory",
+      "before_count": 6,
+      "after_count": 6,
+      "source_sha256": "1eef04b2e9ed4553b7a9379f27b979c68e784aceee2783b2c2d46e580dfa0e61",
+      "baseline_sha256": "1eef04b2e9ed4553b7a9379f27b979c68e784aceee2783b2c2d46e580dfa0e61",
+      "target_sha256": "1eef04b2e9ed4553b7a9379f27b979c68e784aceee2783b2c2d46e580dfa0e61",
+      "equal": true
+    },
+    {
+      "table": "Member",
+      "before_count": 4,
+      "after_count": 4,
+      "source_sha256": "89b3c22480df0ffdad3612293dd01983c232917ceb3bd27e59bb8914de0cf976",
+      "baseline_sha256": "89b3c22480df0ffdad3612293dd01983c232917ceb3bd27e59bb8914de0cf976",
+      "target_sha256": "89b3c22480df0ffdad3612293dd01983c232917ceb3bd27e59bb8914de0cf976",
+      "equal": true
+    },
+    {
+      "table": "Employee",
+      "before_count": 3,
+      "after_count": 3,
+      "source_sha256": "3ab3bf8f361166eb9ecac47c42b2d651391817f740b1eb1d7308da715eb4f0b3",
+      "baseline_sha256": "3ab3bf8f361166eb9ecac47c42b2d651391817f740b1eb1d7308da715eb4f0b3",
+      "target_sha256": "3ab3bf8f361166eb9ecac47c42b2d651391817f740b1eb1d7308da715eb4f0b3",
+      "equal": true
+    },
+    {
+      "table": "ShopOrder",
+      "before_count": 7,
+      "after_count": 7,
+      "source_sha256": "5a870157570d48f513cca3fb3585c24c738db34945927b57907262fb8744ee15",
+      "baseline_sha256": "5a870157570d48f513cca3fb3585c24c738db34945927b57907262fb8744ee15",
+      "target_sha256": "5a870157570d48f513cca3fb3585c24c738db34945927b57907262fb8744ee15",
+      "equal": true
+    },
+    {
+      "table": "OrderLine",
+      "before_count": 11,
+      "after_count": 11,
+      "source_sha256": "495698ba4c71d0406a79b6500faa8e376bb07455fabf1dbb83e40f14df4f3b13",
+      "baseline_sha256": "495698ba4c71d0406a79b6500faa8e376bb07455fabf1dbb83e40f14df4f3b13",
+      "target_sha256": "495698ba4c71d0406a79b6500faa8e376bb07455fabf1dbb83e40f14df4f3b13",
+      "equal": true
+    }
+  ],
+  "comparisons": [
+    {
+      "query": "订单明细",
+      "expected": [
+        {
+          "OrderNo": "MT-20261001-001",
+          "OrderedAt": "2026-10-01 09:42:00",
+          "Status": "COMPLETED",
+          "EmployeeCode": "E001",
+          "EmployeeName": "陈店员",
+          "MemberCode": "M001",
+          "MemberName": "林同学",
+          "LineNumber": 1,
+          "ProductCode": "D001",
+          "ProductName": "珍珠奶茶",
+          "Quantity": 2,
+          "UnitPrice": "6.00",
+          "LineAmount": "12.00"
+        },
+        {
+          "OrderNo": "MT-20261001-001",
+          "OrderedAt": "2026-10-01 09:42:00",
+          "Status": "COMPLETED",
+          "EmployeeCode": "E001",
+          "EmployeeName": "陈店员",
+          "MemberCode": "M001",
+          "MemberName": "林同学",
+          "LineNumber": 2,
+          "ProductCode": "D002",
+          "ProductName": "满杯百香果",
+          "Quantity": 1,
+          "UnitPrice": "7.00",
+          "LineAmount": "7.00"
+        },
+        {
+          "OrderNo": "MT-20261001-002",
+          "OrderedAt": "2026-10-01 12:35:00",
+          "Status": "COMPLETED",
+          "EmployeeCode": "E002",
+          "EmployeeName": "刘店员",
+          "MemberCode": null,
+          "MemberName": "匿名顾客",
+          "LineNumber": 1,
+          "ProductCode": "D003",
+          "ProductName": "冰鲜柠檬水",
+          "Quantity": 3,
+          "UnitPrice": "4.00",
+          "LineAmount": "12.00"
+        },
+        {
+          "OrderNo": "MT-20261002-001",
+          "OrderedAt": "2026-10-02 10:18:00",
+          "Status": "COMPLETED",
+          "EmployeeCode": "E001",
+          "EmployeeName": "陈店员",
+          "MemberCode": "M002",
+          "MemberName": "周同学",
+          "LineNumber": 1,
+          "ProductCode": "D003",
+          "ProductName": "冰鲜柠檬水",
+          "Quantity": 1,
+          "UnitPrice": "4.00",
+          "LineAmount": "4.00"
+        },
+        {
+          "OrderNo": "MT-20261002-002",
+          "OrderedAt": "2026-10-02 14:02:00",
+          "Status": "CANCELLED",
+          "EmployeeCode": "E001",
+          "EmployeeName": "陈店员",
+          "MemberCode": "M002",
+          "MemberName": "周同学",
+          "LineNumber": 1,
+          "ProductCode": "D005",
+          "ProductName": "柠檬红茶",
+          "Quantity": 1,
+          "UnitPrice": "5.00",
+          "LineAmount": "5.00"
+        },
+        {
+          "OrderNo": "MT-20261003-001",
+          "OrderedAt": "2026-10-03 11:26:00",
+          "Status": "COMPLETED",
+          "EmployeeCode": "E002",
+          "EmployeeName": "刘店员",
+          "MemberCode": null,
+          "MemberName": "匿名顾客",
+          "LineNumber": 1,
+          "ProductCode": "D004",
+          "ProductName": "椰果奶茶",
+          "Quantity": 2,
+          "UnitPrice": "7.00",
+          "LineAmount": "14.00"
+        },
+        {
+          "OrderNo": "MT-20261003-001",
+          "OrderedAt": "2026-10-03 11:26:00",
+          "Status": "COMPLETED",
+          "EmployeeCode": "E002",
+          "EmployeeName": "刘店员",
+          "MemberCode": null,
+          "MemberName": "匿名顾客",
+          "LineNumber": 2,
+          "ProductCode": "D001",
+          "ProductName": "珍珠奶茶",
+          "Quantity": 1,
+          "UnitPrice": "6.00",
+          "LineAmount": "6.00"
+        },
+        {
+          "OrderNo": "MT-20261004-001",
+          "OrderedAt": "2026-10-04 15:40:00",
+          "Status": "COMPLETED",
+          "EmployeeCode": "E002",
+          "EmployeeName": "刘店员",
+          "MemberCode": "M001",
+          "MemberName": "林同学",
+          "LineNumber": 1,
+          "ProductCode": "D002",
+          "ProductName": "满杯百香果",
+          "Quantity": 2,
+          "UnitPrice": "7.00",
+          "LineAmount": "14.00"
+        },
+        {
+          "OrderNo": "MT-20261004-001",
+          "OrderedAt": "2026-10-04 15:40:00",
+          "Status": "COMPLETED",
+          "EmployeeCode": "E002",
+          "EmployeeName": "刘店员",
+          "MemberCode": "M001",
+          "MemberName": "林同学",
+          "LineNumber": 2,
+          "ProductCode": "D004",
+          "ProductName": "椰果奶茶",
+          "Quantity": 1,
+          "UnitPrice": "7.00",
+          "LineAmount": "7.00"
+        },
+        {
+          "OrderNo": "MT-20261004-002",
+          "OrderedAt": "2026-10-04 16:10:00",
+          "Status": "COMPLETED",
+          "EmployeeCode": "E001",
+          "EmployeeName": "陈店员",
+          "MemberCode": "M003",
+          "MemberName": "李同学",
+          "LineNumber": 1,
+          "ProductCode": "D003",
+          "ProductName": "冰鲜柠檬水",
+          "Quantity": 1,
+          "UnitPrice": "4.00",
+          "LineAmount": "4.00"
+        },
+        {
+          "OrderNo": "MT-20261004-002",
+          "OrderedAt": "2026-10-04 16:10:00",
+          "Status": "COMPLETED",
+          "EmployeeCode": "E001",
+          "EmployeeName": "陈店员",
+          "MemberCode": "M003",
+          "MemberName": "李同学",
+          "LineNumber": 2,
+          "ProductCode": "D001",
+          "ProductName": "珍珠奶茶",
+          "Quantity": 1,
+          "UnitPrice": "6.00",
+          "LineAmount": "6.00"
+        }
+      ],
+      "actual": [
+        {
+          "OrderNo": "MT-20261001-001",
+          "OrderedAt": "2026-10-01 09:42:00",
+          "Status": "COMPLETED",
+          "EmployeeCode": "E001",
+          "EmployeeName": "陈店员",
+          "MemberCode": "M001",
+          "MemberName": "林同学",
+          "LineNumber": 1,
+          "ProductCode": "D001",
+          "ProductName": "珍珠奶茶",
+          "Quantity": 2,
+          "UnitPrice": "6.00",
+          "LineAmount": "12.00"
+        },
+        {
+          "OrderNo": "MT-20261001-001",
+          "OrderedAt": "2026-10-01 09:42:00",
+          "Status": "COMPLETED",
+          "EmployeeCode": "E001",
+          "EmployeeName": "陈店员",
+          "MemberCode": "M001",
+          "MemberName": "林同学",
+          "LineNumber": 2,
+          "ProductCode": "D002",
+          "ProductName": "满杯百香果",
+          "Quantity": 1,
+          "UnitPrice": "7.00",
+          "LineAmount": "7.00"
+        },
+        {
+          "OrderNo": "MT-20261001-002",
+          "OrderedAt": "2026-10-01 12:35:00",
+          "Status": "COMPLETED",
+          "EmployeeCode": "E002",
+          "EmployeeName": "刘店员",
+          "MemberCode": null,
+          "MemberName": "匿名顾客",
+          "LineNumber": 1,
+          "ProductCode": "D003",
+          "ProductName": "冰鲜柠檬水",
+          "Quantity": 3,
+          "UnitPrice": "4.00",
+          "LineAmount": "12.00"
+        },
+        {
+          "OrderNo": "MT-20261002-001",
+          "OrderedAt": "2026-10-02 10:18:00",
+          "Status": "COMPLETED",
+          "EmployeeCode": "E001",
+          "EmployeeName": "陈店员",
+          "MemberCode": "M002",
+          "MemberName": "周同学",
+          "LineNumber": 1,
+          "ProductCode": "D003",
+          "ProductName": "冰鲜柠檬水",
+          "Quantity": 1,
+          "UnitPrice": "4.00",
+          "LineAmount": "4.00"
+        },
+        {
+          "OrderNo": "MT-20261002-002",
+          "OrderedAt": "2026-10-02 14:02:00",
+          "Status": "CANCELLED",
+          "EmployeeCode": "E001",
+          "EmployeeName": "陈店员",
+          "MemberCode": "M002",
+          "MemberName": "周同学",
+          "LineNumber": 1,
+          "ProductCode": "D005",
+          "ProductName": "柠檬红茶",
+          "Quantity": 1,
+          "UnitPrice": "5.00",
+          "LineAmount": "5.00"
+        },
+        {
+          "OrderNo": "MT-20261003-001",
+          "OrderedAt": "2026-10-03 11:26:00",
+          "Status": "COMPLETED",
+          "EmployeeCode": "E002",
+          "EmployeeName": "刘店员",
+          "MemberCode": null,
+          "MemberName": "匿名顾客",
+          "LineNumber": 1,
+          "ProductCode": "D004",
+          "ProductName": "椰果奶茶",
+          "Quantity": 2,
+          "UnitPrice": "7.00",
+          "LineAmount": "14.00"
+        },
+        {
+          "OrderNo": "MT-20261003-001",
+          "OrderedAt": "2026-10-03 11:26:00",
+          "Status": "COMPLETED",
+          "EmployeeCode": "E002",
+          "EmployeeName": "刘店员",
+          "MemberCode": null,
+          "MemberName": "匿名顾客",
+          "LineNumber": 2,
+          "ProductCode": "D001",
+          "ProductName": "珍珠奶茶",
+          "Quantity": 1,
+          "UnitPrice": "6.00",
+          "LineAmount": "6.00"
+        },
+        {
+          "OrderNo": "MT-20261004-001",
+          "OrderedAt": "2026-10-04 15:40:00",
+          "Status": "COMPLETED",
+          "EmployeeCode": "E002",
+          "EmployeeName": "刘店员",
+          "MemberCode": "M001",
+          "MemberName": "林同学",
+          "LineNumber": 1,
+          "ProductCode": "D002",
+          "ProductName": "满杯百香果",
+          "Quantity": 2,
+          "UnitPrice": "7.00",
+          "LineAmount": "14.00"
+        },
+        {
+          "OrderNo": "MT-20261004-001",
+          "OrderedAt": "2026-10-04 15:40:00",
+          "Status": "COMPLETED",
+          "EmployeeCode": "E002",
+          "EmployeeName": "刘店员",
+          "MemberCode": "M001",
+          "MemberName": "林同学",
+          "LineNumber": 2,
+          "ProductCode": "D004",
+          "ProductName": "椰果奶茶",
+          "Quantity": 1,
+          "UnitPrice": "7.00",
+          "LineAmount": "7.00"
+        },
+        {
+          "OrderNo": "MT-20261004-002",
+          "OrderedAt": "2026-10-04 16:10:00",
+          "Status": "COMPLETED",
+          "EmployeeCode": "E001",
+          "EmployeeName": "陈店员",
+          "MemberCode": "M003",
+          "MemberName": "李同学",
+          "LineNumber": 1,
+          "ProductCode": "D003",
+          "ProductName": "冰鲜柠檬水",
+          "Quantity": 1,
+          "UnitPrice": "4.00",
+          "LineAmount": "4.00"
+        },
+        {
+          "OrderNo": "MT-20261004-002",
+          "OrderedAt": "2026-10-04 16:10:00",
+          "Status": "COMPLETED",
+          "EmployeeCode": "E001",
+          "EmployeeName": "陈店员",
+          "MemberCode": "M003",
+          "MemberName": "李同学",
+          "LineNumber": 2,
+          "ProductCode": "D001",
+          "ProductName": "珍珠奶茶",
+          "Quantity": 1,
+          "UnitPrice": "6.00",
+          "LineAmount": "6.00"
+        }
+      ],
+      "equal": true,
+      "difference": "无"
+    },
+    {
+      "query": "商品销量与金额",
+      "expected": [
+        {
+          "ProductCode": "D001",
+          "ProductName": "珍珠奶茶",
+          "UnitsSold": 4,
+          "SalesAmount": "24.00"
+        },
+        {
+          "ProductCode": "D002",
+          "ProductName": "满杯百香果",
+          "UnitsSold": 3,
+          "SalesAmount": "21.00"
+        },
+        {
+          "ProductCode": "D003",
+          "ProductName": "冰鲜柠檬水",
+          "UnitsSold": 5,
+          "SalesAmount": "20.00"
+        },
+        {
+          "ProductCode": "D004",
+          "ProductName": "椰果奶茶",
+          "UnitsSold": 3,
+          "SalesAmount": "21.00"
+        },
+        {
+          "ProductCode": "D005",
+          "ProductName": "柠檬红茶",
+          "UnitsSold": 0,
+          "SalesAmount": "0.00"
+        },
+        {
+          "ProductCode": "D006",
+          "ProductName": "茉莉绿茶",
+          "UnitsSold": 0,
+          "SalesAmount": "0.00"
+        }
+      ],
+      "actual": [
+        {
+          "ProductCode": "D001",
+          "ProductName": "珍珠奶茶",
+          "UnitsSold": 4,
+          "SalesAmount": "24.00"
+        },
+        {
+          "ProductCode": "D002",
+          "ProductName": "满杯百香果",
+          "UnitsSold": 3,
+          "SalesAmount": "21.00"
+        },
+        {
+          "ProductCode": "D003",
+          "ProductName": "冰鲜柠檬水",
+          "UnitsSold": 5,
+          "SalesAmount": "20.00"
+        },
+        {
+          "ProductCode": "D004",
+          "ProductName": "椰果奶茶",
+          "UnitsSold": 3,
+          "SalesAmount": "21.00"
+        },
+        {
+          "ProductCode": "D005",
+          "ProductName": "柠檬红茶",
+          "UnitsSold": 0,
+          "SalesAmount": "0.00"
+        },
+        {
+          "ProductCode": "D006",
+          "ProductName": "茉莉绿茶",
+          "UnitsSold": 0,
+          "SalesAmount": "0.00"
+        }
+      ],
+      "equal": true,
+      "difference": "无"
+    },
+    {
+      "query": "库存",
+      "expected": [
+        {
+          "ProductCode": "D001",
+          "Quantity": 20,
+          "UpdatedAt": "2026-10-06 08:00:00"
+        },
+        {
+          "ProductCode": "D002",
+          "Quantity": 12,
+          "UpdatedAt": "2026-10-06 08:00:00"
+        },
+        {
+          "ProductCode": "D003",
+          "Quantity": 5,
+          "UpdatedAt": "2026-10-06 08:00:00"
+        },
+        {
+          "ProductCode": "D004",
+          "Quantity": 0,
+          "UpdatedAt": "2026-10-06 08:00:00"
+        },
+        {
+          "ProductCode": "D005",
+          "Quantity": 18,
+          "UpdatedAt": "2026-10-06 08:00:00"
+        },
+        {
+          "ProductCode": "D006",
+          "Quantity": 9,
+          "UpdatedAt": "2026-10-06 08:00:00"
+        }
+      ],
+      "actual": [
+        {
+          "ProductCode": "D001",
+          "Quantity": 20,
+          "UpdatedAt": "2026-10-06 08:00:00"
+        },
+        {
+          "ProductCode": "D002",
+          "Quantity": 12,
+          "UpdatedAt": "2026-10-06 08:00:00"
+        },
+        {
+          "ProductCode": "D003",
+          "Quantity": 5,
+          "UpdatedAt": "2026-10-06 08:00:00"
+        },
+        {
+          "ProductCode": "D004",
+          "Quantity": 0,
+          "UpdatedAt": "2026-10-06 08:00:00"
+        },
+        {
+          "ProductCode": "D005",
+          "Quantity": 18,
+          "UpdatedAt": "2026-10-06 08:00:00"
+        },
+        {
+          "ProductCode": "D006",
+          "Quantity": 9,
+          "UpdatedAt": "2026-10-06 08:00:00"
+        }
+      ],
+      "equal": true,
+      "difference": "无"
+    }
+  ],
+  "summary": {
+    "completed_orders": 6,
+    "cups": 15,
+    "amount": "86.00",
+    "business_counts": [
+      6,
+      6,
+      4,
+      3,
+      7,
+      11
+    ]
+  }
+}

@@ -1,0 +1,558 @@
+{
+  "time": "2026-11-08T09:25:09.754997+00:00",
+  "database": "MilkTeaShopV10_Roles_Test",
+  "browser": "Microsoft Edge headless via Playwright",
+  "checks": [
+    {
+      "case": "wrong password gives friendly error",
+      "result": "PASS"
+    },
+    {
+      "case": "customer role controls hidden",
+      "result": "PASS"
+    },
+    {
+      "case": "customer creates multi-product member order",
+      "result": "PASS",
+      "order_no": "WEB-d0485fcce22a49a99fd5"
+    },
+    {
+      "case": "customer edits draft and detail quantities",
+      "result": "PASS",
+      "expected_total": "22.00"
+    },
+    {
+      "case": "guest sees no other customer orders",
+      "result": "PASS"
+    },
+    {
+      "case": "clerk confirms customer order and preserves detail total",
+      "result": "PASS"
+    },
+    {
+      "case": "stock deduction visible in UI",
+      "result": "PASS",
+      "expected_D001": 17,
+      "expected_D003": 4
+    },
+    {
+      "case": "customer sees completed order",
+      "result": "PASS"
+    },
+    {
+      "case": "admin product create and edit via forms",
+      "result": "PASS"
+    },
+    {
+      "case": "constraint conflict friendly feedback",
+      "result": "PASS"
+    },
+    {
+      "case": "admin inventory update delete and recreate",
+      "result": "PASS"
+    },
+    {
+      "case": "admin unreferenced product deleted",
+      "result": "PASS"
+    },
+    {
+      "case": "staff sales report visible",
+      "result": "PASS"
+    },
+    {
+      "case": "real connection outage sanitized in browser",
+      "result": "PASS"
+    },
+    {
+      "case": "clerk cancellation restores stock",
+      "result": "PASS"
+    },
+    {
+      "case": "guest draft create and delete",
+      "result": "PASS"
+    },
+    {
+      "case": "mobile login without horizontal overflow",
+      "result": "PASS"
+    },
+    {
+      "case": "no uncaught browser JavaScript errors",
+      "result": "PASS"
+    }
+  ],
+  "requests": [
+    {
+      "role": "customer",
+      "method": "GET",
+      "path": "/session",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "b3dbfbfe881744bc8e65da50c11aaab0"
+    },
+    {
+      "role": "customer",
+      "method": "POST",
+      "path": "/login",
+      "http_status": 401,
+      "code": "AUTH_FAILED",
+      "request_id": "7c7f7292d8384e6a9c2bcce293bb425a"
+    },
+    {
+      "role": "customer",
+      "method": "POST",
+      "path": "/login",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "479ce6c3fe744a03bbb0fa7fc2877280"
+    },
+    {
+      "role": "customer",
+      "method": "GET",
+      "path": "/products?q=",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "bdb940cc22664501a4a171bdf86f55b3"
+    },
+    {
+      "role": "customer",
+      "method": "GET",
+      "path": "/products?q=",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "f53fbbc7ec8748debd9491098143022a"
+    },
+    {
+      "role": "customer",
+      "method": "GET",
+      "path": "/orders",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "ba353172189240649e88913d2e005210"
+    },
+    {
+      "role": "customer",
+      "method": "POST",
+      "path": "/orders",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "a78a538598884875bf981f85cd310ffe"
+    },
+    {
+      "role": "customer",
+      "method": "GET",
+      "path": "/orders",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "73f979cc7e064b0489a36acdbb8c0323"
+    },
+    {
+      "role": "customer",
+      "method": "GET",
+      "path": "/orders/WEB-d0485fcce22a49a99fd5",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "3bf59e286ffc4feaabdb41a1cf036258"
+    },
+    {
+      "role": "customer",
+      "method": "GET",
+      "path": "/orders/WEB-d0485fcce22a49a99fd5",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "b8ca9929a1b440e3a6cb7e0a4defaed7"
+    },
+    {
+      "role": "customer",
+      "method": "PUT",
+      "path": "/orders/WEB-d0485fcce22a49a99fd5",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "5e31f99ae3d444eeb8c970816c40f480"
+    },
+    {
+      "role": "customer",
+      "method": "GET",
+      "path": "/orders",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "d8642c65b73c43058544320f594f3dd0"
+    },
+    {
+      "role": "customer",
+      "method": "GET",
+      "path": "/orders/WEB-d0485fcce22a49a99fd5",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "270d1a6ffe464de4865ff5be54145492"
+    },
+    {
+      "role": "guest",
+      "method": "GET",
+      "path": "/session",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "c36c3290ffe546c49b38932696a80184"
+    },
+    {
+      "role": "guest",
+      "method": "POST",
+      "path": "/login",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "bbcf4b504f5c4a98ad0feddecc6f1597"
+    },
+    {
+      "role": "guest",
+      "method": "GET",
+      "path": "/products?q=",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "da9002a4cb364b2e957e2b77b92fcf45"
+    },
+    {
+      "role": "guest",
+      "method": "GET",
+      "path": "/products?q=",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "5cd9ef025dd04e30a4ab206a78848d07"
+    },
+    {
+      "role": "guest",
+      "method": "GET",
+      "path": "/orders",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "5b2741a2a5a3475eaf73c875e52cb01d"
+    },
+    {
+      "role": "clerk",
+      "method": "GET",
+      "path": "/session",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "b9643e3ea39747e7b7f0839219735435"
+    },
+    {
+      "role": "clerk",
+      "method": "POST",
+      "path": "/login",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "fc50567e9cd34c32b200bfba1b7bdcee"
+    },
+    {
+      "role": "clerk",
+      "method": "GET",
+      "path": "/products?q=",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "6cc71888a2f64b6ba7a0f25ce4da96a7"
+    },
+    {
+      "role": "clerk",
+      "method": "GET",
+      "path": "/products?q=",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "8690f5e7c008416080062e31143e6b08"
+    },
+    {
+      "role": "clerk",
+      "method": "GET",
+      "path": "/orders",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "7f55d4b2cf6642619decb6c18d34bdbf"
+    },
+    {
+      "role": "clerk",
+      "method": "POST",
+      "path": "/orders/WEB-d0485fcce22a49a99fd5/submit",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "be24d5b1bdbc4b94acaf4c4b72523969"
+    },
+    {
+      "role": "clerk",
+      "method": "GET",
+      "path": "/orders",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "b781fb8068524e42a6459004d97455fc"
+    },
+    {
+      "role": "clerk",
+      "method": "GET",
+      "path": "/inventory",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "5e34588990bf48159ed81d2dc78b8092"
+    },
+    {
+      "role": "clerk",
+      "method": "GET",
+      "path": "/orders/WEB-d0485fcce22a49a99fd5",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "35fe64f00b854004989656776e4c858d"
+    },
+    {
+      "role": "customer",
+      "method": "GET",
+      "path": "/orders",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "ff3e47530a8c4f56af31b6dbdd5a254e"
+    },
+    {
+      "role": "admin",
+      "method": "GET",
+      "path": "/session",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "1352f51054c943bea8694f0460ebcde9"
+    },
+    {
+      "role": "admin",
+      "method": "POST",
+      "path": "/login",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "ef46823cef1e43d7a69429ab442f99de"
+    },
+    {
+      "role": "admin",
+      "method": "GET",
+      "path": "/products?q=",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "f694892775084dd1998a6917e71be8a8"
+    },
+    {
+      "role": "admin",
+      "method": "GET",
+      "path": "/products?q=",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "e867782175bb4a378171bda498f66795"
+    },
+    {
+      "role": "admin",
+      "method": "POST",
+      "path": "/products",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "9bfb9a5741164cd7801e3e4654b384e8"
+    },
+    {
+      "role": "admin",
+      "method": "GET",
+      "path": "/products?q=",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "995923830aa149e7867c03df88454c10"
+    },
+    {
+      "role": "admin",
+      "method": "PUT",
+      "path": "/products/UI_TEST",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "6a18f24ca76b416ead269678f7906815"
+    },
+    {
+      "role": "admin",
+      "method": "GET",
+      "path": "/products?q=",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "9190de260311470b99a1d52e23928b54"
+    },
+    {
+      "role": "admin",
+      "method": "POST",
+      "path": "/products",
+      "http_status": 409,
+      "code": "CONSTRAINT_CONFLICT",
+      "request_id": "cc694b4f484b44d7a9a0e38d6bb079d8"
+    },
+    {
+      "role": "admin",
+      "method": "GET",
+      "path": "/inventory",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "094e38cb65e5461493b2c68f198219b8"
+    },
+    {
+      "role": "admin",
+      "method": "PUT",
+      "path": "/inventory/UI_TEST",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "708cc5244f4d4675a0e369ce4cf19178"
+    },
+    {
+      "role": "admin",
+      "method": "GET",
+      "path": "/inventory",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "6c496937f79140e9bb5c027194e6a1b6"
+    },
+    {
+      "role": "admin",
+      "method": "PUT",
+      "path": "/inventory/UI_TEST",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "f0e18e83b8664ac3806aaf0d6ec2d7d8"
+    },
+    {
+      "role": "admin",
+      "method": "DELETE",
+      "path": "/inventory/UI_TEST",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "172592ccbf68476eb0bf307bdf209bd0"
+    },
+    {
+      "role": "admin",
+      "method": "GET",
+      "path": "/inventory",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "baad15dd657649bbb22a384bae532539"
+    },
+    {
+      "role": "admin",
+      "method": "GET",
+      "path": "/inventory",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "3a69dd7c38104727b93b1be4fd121773"
+    },
+    {
+      "role": "admin",
+      "method": "PUT",
+      "path": "/inventory/UI_TEST",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "46edd707d20644e8b6e6e4ff88c327fe"
+    },
+    {
+      "role": "admin",
+      "method": "GET",
+      "path": "/inventory",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "5733f4993cf64d6d9aa31abd98a41ed8"
+    },
+    {
+      "role": "admin",
+      "method": "GET",
+      "path": "/products?q=",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "4fcf0dd0d5aa480e858bf5eaaef56905"
+    },
+    {
+      "role": "admin",
+      "method": "DELETE",
+      "path": "/products/UI_TEST",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "f6017bee3c304389bba7ac8336012844"
+    },
+    {
+      "role": "admin",
+      "method": "GET",
+      "path": "/products?q=",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "3f00b8aa4f84482ca579cbd7446ff937"
+    },
+    {
+      "role": "admin",
+      "method": "GET",
+      "path": "/sales",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "a198149733e84c738b88575d8794ffa1"
+    },
+    {
+      "role": "admin",
+      "method": "GET",
+      "path": "/inventory",
+      "http_status": 503,
+      "code": "DB_UNAVAILABLE",
+      "request_id": "0c860ceeb00044319b93edd728efc0e6"
+    },
+    {
+      "role": "clerk",
+      "method": "GET",
+      "path": "/orders",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "a1e61be71eed44768d9055267653e9e3"
+    },
+    {
+      "role": "clerk",
+      "method": "POST",
+      "path": "/orders/WEB-d0485fcce22a49a99fd5/cancel",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "794f214de2ca4932b1aedc7cb22edaa3"
+    },
+    {
+      "role": "clerk",
+      "method": "GET",
+      "path": "/orders",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "40b0695c54ae43749035e53fe304c1e7"
+    },
+    {
+      "role": "guest",
+      "method": "POST",
+      "path": "/orders",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "7529bc2c8c064af8b7ccdbe4f47df204"
+    },
+    {
+      "role": "guest",
+      "method": "GET",
+      "path": "/orders",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "c7747a6510a74ed69069a8c151dd0765"
+    },
+    {
+      "role": "guest",
+      "method": "GET",
+      "path": "/orders/WEB-42031119484a4014a479",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "a02a16a8485f43d5b54c6692137776d3"
+    },
+    {
+      "role": "guest",
+      "method": "DELETE",
+      "path": "/orders/WEB-42031119484a4014a479",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "be9cf4320b9e41df9302c5451c009260"
+    },
+    {
+      "role": "guest",
+      "method": "GET",
+      "path": "/orders",
+      "http_status": 200,
+      "code": "OK",
+      "request_id": "e7b9b778d08b44d9882f80c6c7bf88b9"
+    }
+  ],
+  "javascript_errors": []
+}

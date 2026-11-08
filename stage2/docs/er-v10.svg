@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1680" height="1400" viewBox="0 0 1680 1400">
+<style>text{font-family:Arial,"Microsoft YaHei",sans-serif;fill:#20382c;font-size:23px}.title{font-size:30px;font-weight:bold}.heading{font-size:27px;font-weight:bold}.card{fill:#fff;stroke:#829984;stroke-width:2}.label{font-size:22px;font-weight:bold;paint-order:stroke;stroke:white;stroke-width:8px;stroke-linejoin:round}</style>
+<rect width="1680" height="1400" fill="white"/>
+<text x="35" y="48" class="title">校园奶茶店 v1.0 实体联系图</text>
+<text x="35" y="90">PK 主码   AK 候选码   FK 外码   ? 可空   min..max 为该端可关联记录数   * 见业务规则</text>
+<polyline points="455,285 625,285" fill="none" stroke="#627d64" stroke-width="3"/>
+<text x="468" y="271" class="label">0..1</text>
+<text x="560" y="271" class="label">0..1</text>
+<polyline points="1215,285 1045,285" fill="none" stroke="#627d64" stroke-width="3"/>
+<text x="1150" y="271" class="label">0..1</text>
+<text x="1058" y="271" class="label">0..1</text>
+<polyline points="835,440 835,650" fill="none" stroke="#627d64" stroke-width="3"/>
+<text x="848" y="473" class="label">0..1</text>
+<text x="848" y="636" class="label">0..N</text>
+<polyline points="245,440 245,510 720,510 720,650" fill="none" stroke="#627d64" stroke-width="3"/>
+<text x="258" y="473" class="label">0..1*</text>
+<text x="733" y="636" class="label">0..N</text>
+<polyline points="1425,440 1425,510 950,510 950,650" fill="none" stroke="#627d64" stroke-width="3"/>
+<text x="1438" y="473" class="label">0..1</text>
+<text x="963" y="636" class="label">0..N</text>
+<polyline points="245,960 245,1040" fill="none" stroke="#627d64" stroke-width="3"/>
+<text x="258" y="993" class="label">1</text>
+<text x="258" y="1026" class="label">0..1</text>
+<polyline points="455,820 535,820 535,1305 1425,1305 1425,1260" fill="none" stroke="#627d64" stroke-width="3"/>
+<text x="468" y="806" class="label">1</text>
+<text x="1438" y="1293" class="label">0..N</text>
+<polyline points="1045,855 1120,855 1120,1090 1215,1090" fill="none" stroke="#627d64" stroke-width="3"/>
+<text x="1058" y="841" class="label">1</text>
+<text x="1150" y="1076" class="label">1..N*</text>
+<g id="Employee"><rect x="35" y="130" width="420" height="310" rx="10" class="card"/>
+<rect x="36" y="131" width="418" height="50" rx="8" fill="#e6eddf"/>
+<text x="52" y="164" class="heading">Employee</text>
+<text x="51" y="215">PK EmployeeCode</text>
+<text x="51" y="251">DisplayName</text>
+<text x="51" y="287">JobTitle</text>
+<text x="51" y="323">IsActive</text>
+</g>
+<g id="AppUser"><rect x="625" y="130" width="420" height="310" rx="10" class="card"/>
+<rect x="626" y="131" width="418" height="50" rx="8" fill="#e6eddf"/>
+<text x="642" y="164" class="heading">AppUser</text>
+<text x="641" y="215">PK UserId | AK Username</text>
+<text x="641" y="251">PasswordHash</text>
+<text x="641" y="287">Role / IsActive</text>
+<text x="641" y="323">FK EmployeeCode ? UNIQUE*</text>
+<text x="641" y="359">FK MemberCode ? UNIQUE*</text>
+</g>
+<g id="Member"><rect x="1215" y="130" width="420" height="310" rx="10" class="card"/>
+<rect x="1216" y="131" width="418" height="50" rx="8" fill="#e6eddf"/>
+<text x="1232" y="164" class="heading">Member</text>
+<text x="1231" y="215">PK MemberCode</text>
+<text x="1231" y="251">DisplayName</text>
+<text x="1231" y="287">Phone ? UNIQUE if not null</text>
+<text x="1231" y="323">JoinedAt</text>
+</g>
+<g id="Product"><rect x="35" y="650" width="420" height="310" rx="10" class="card"/>
+<rect x="36" y="651" width="418" height="50" rx="8" fill="#e6eddf"/>
+<text x="52" y="684" class="heading">Product</text>
+<text x="51" y="735">PK ProductCode</text>
+<text x="51" y="771">ProductName</text>
+<text x="51" y="807">Category</text>
+<text x="51" y="843">UnitPrice</text>
+<text x="51" y="879">RestockThreshold</text>
+<text x="51" y="915">IsActive</text>
+</g>
+<g id="ShopOrder"><rect x="625" y="650" width="420" height="310" rx="10" class="card"/>
+<rect x="626" y="651" width="418" height="50" rx="8" fill="#e6eddf"/>
+<text x="642" y="684" class="heading">ShopOrder</text>
+<text x="641" y="735">PK OrderNo</text>
+<text x="641" y="771">OrderedAt</text>
+<text x="641" y="807">FK EmployeeCode ? (draft)</text>
+<text x="641" y="843">FK MemberCode ?</text>
+<text x="641" y="879">Status</text>
+<text x="641" y="915">FK CreatedByUserId ?</text>
+<text x="641" y="951">StockApplied</text>
+</g>
+<g id="Inventory"><rect x="35" y="1040" width="420" height="230" rx="10" class="card"/>
+<rect x="36" y="1041" width="418" height="50" rx="8" fill="#e6eddf"/>
+<text x="52" y="1074" class="heading">Inventory</text>
+<text x="51" y="1125">PK FK ProductCode</text>
+<text x="51" y="1161">Quantity</text>
+<text x="51" y="1197">UpdatedAt</text>
+</g>
+<g id="OrderLine"><rect x="1215" y="950" width="420" height="310" rx="10" class="card"/>
+<rect x="1216" y="951" width="418" height="50" rx="8" fill="#e6eddf"/>
+<text x="1232" y="984" class="heading">OrderLine</text>
+<text x="1231" y="1035">PK FK OrderNo</text>
+<text x="1231" y="1071">PK LineNumber</text>
+<text x="1231" y="1107">FK ProductCode</text>
+<text x="1231" y="1143">Quantity</text>
+<text x="1231" y="1179">UnitPrice (historical)</text>
+</g>
+<text x="35" y="1350">* 完成单必须有员工；草稿可无员工。历史单可无创建账号。</text>
+<text x="35" y="1382">* 账号的员工/会员非空时唯一；按角色二选一，顾客可为散客。</text>
+</svg>

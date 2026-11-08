@@ -1,0 +1,101 @@
+127.0.0.1 - - [08/Nov/2026 02:33:09] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:09] "GET /static/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:09] "GET /static/app.js HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:09] "GET /api/session HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:09] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [08/Nov/2026 02:33:10] "POST /api/login HTTP/1.1" 401 -
+127.0.0.1 - - [08/Nov/2026 02:33:11] "POST /api/login HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:11] "GET /api/products?q= HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:11] "GET /api/products?q= HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:12] "GET /api/orders HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:12] "POST /api/orders HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:13] "GET /api/orders HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:13] "GET /api/orders/WEB-14e6970549b44c5f9eb0 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:15] "GET /api/orders/WEB-14e6970549b44c5f9eb0 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:16] "PUT /api/orders/WEB-14e6970549b44c5f9eb0 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:16] "GET /api/orders HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:16] "GET /api/orders/WEB-14e6970549b44c5f9eb0 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:17] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:17] "GET /static/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:17] "GET /static/app.js HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:17] "GET /api/session HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:18] "POST /api/login HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:18] "GET /api/products?q= HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:18] "GET /api/products?q= HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:18] "GET /api/orders HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:19] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:19] "GET /static/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:19] "GET /static/app.js HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:19] "GET /api/session HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:20] "POST /api/login HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:20] "GET /api/products?q= HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:21] "GET /api/products?q= HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:21] "GET /api/orders HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:22] "POST /api/orders/WEB-14e6970549b44c5f9eb0/submit HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:23] "GET /api/orders HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:24] "GET /api/inventory HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:24] "GET /api/orders/WEB-14e6970549b44c5f9eb0 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:25] "GET /api/orders HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:26] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:26] "GET /static/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:26] "GET /static/app.js HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:26] "GET /api/session HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:26] "POST /api/login HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:27] "GET /api/products?q= HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:27] "GET /api/products?q= HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:28] "POST /api/products HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:28] "GET /api/products?q= HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:29] "PUT /api/products/UI_TEST HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:29] "GET /api/products?q= HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:30] "POST /api/products HTTP/1.1" 409 -
+127.0.0.1 - - [08/Nov/2026 02:33:31] "GET /api/inventory HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:31] "PUT /api/inventory/UI_TEST HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:32] "GET /api/inventory HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:32] "DELETE /api/inventory/UI_TEST HTTP/1.1" 409 -
+127.0.0.1 - - [08/Nov/2026 02:33:32] "PUT /api/inventory/UI_TEST HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 02:33:33] "GET /api/inventory HTTP/1.1" 200 -
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "D:\Homework\数据库\campus-shop-db-lab\stage2\tools\browser_acceptance.py", line 136, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "D:\Homework\数据库\campus-shop-db-lab\stage2\tools\browser_acceptance.py", line 103, in main
+    admin.locator('#inventory-table tbody tr').filter(has_text='UI_TEST').get_by_role('button',name='删除记录').click();notice(admin,'库存记录已删除')
+                                                                                                                        ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Homework\数据库\campus-shop-db-lab\stage2\tools\browser_acceptance.py", line 51, in notice
+    expect(page.locator('#notice')).to_contain_text(text)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Homework\数据库\campus-shop-db-lab\.venv\Lib\site-packages\playwright\sync_api\_generated.py", line 19244, in to_contain_text
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.to_contain_text(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        )
+        ^
+    )
+    ^
+  File "D:\Homework\数据库\campus-shop-db-lab\.venv\Lib\site-packages\playwright\_impl\_sync_base.py", line 115, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "D:\Homework\数据库\campus-shop-db-lab\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 229, in to_contain_text
+    await self._expect_impl(
+    ...<9 lines>...
+    )
+  File "D:\Homework\数据库\campus-shop-db-lab\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 85, in _expect_impl
+    raise AssertionError(
+        f"{out_message}\nActual value: {actual}{error_message} {format_call_log(result.get('log'))}"
+    )
+AssertionError: Locator expected to contain text '库存记录已删除'
+Actual value: 库存已保存 
+Call log:
+  - Expect "to_contain_text" with timeout 5000ms
+  - waiting for locator("#notice")
+    3 × locator resolved to <div class="" id="notice" role="status" aria-live="polite">库存已保存</div>
+      - unexpected value "库存已保存"
+    - locator resolved to <div id="notice" role="status" class="error" aria-live="polite">仅可删除数量为零的库存记录（编号 d1bbd049de7543359b6c6ee4c28db07c）</div>
+    - unexpected value "仅可删除数量为零的库存记录（编号 d1bbd049de7543359b6c6ee4c28db07c）"
+    5 × locator resolved to <div class="" id="notice" role="status" aria-live="polite">库存已保存</div>
+      - unexpected value "库存已保存"
+
